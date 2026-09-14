@@ -21,6 +21,7 @@ dependencies {
     compileOnly(libs.android.gradle.plugin)
     compileOnly(libs.compose.compiler.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
+    compileOnly(libs.roborazzi.gradle.plugin)
     compileOnly(libs.room.gradle.plugin)
 }
 
@@ -48,6 +49,10 @@ gradlePlugin {
         register("androidFeature") {
             id = libs.plugins.napsam.android.feature.get().pluginId
             implementationClass = "AndroidFeatureConventionPlugin"
+        }
+        register("androidScreenshot") {
+            id = libs.plugins.napsam.android.screenshot.get().pluginId
+            implementationClass = "AndroidScreenshotTestConventionPlugin"
         }
         register("androidRoom") {
             id = libs.plugins.napsam.android.room.get().pluginId

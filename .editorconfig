@@ -14,3 +14,5 @@ ij_kotlin_allow_trailing_comma_on_call_site = true
 ktlint_code_style = android_studio
 # Composable fonksiyonlar PascalCase adlandırılır.
 ktlint_function_naming_ignore_when_annotated_with = Composable
+# Tasarım sistemi token'ları yalnızca bu CompositionLocal'lar üzerinden dağıtılır.
+compose_allowed_composition_locals = LocalNapsamColors,LocalNapsamTypography,LocalNapsamSpacing,LocalNapsamShapes

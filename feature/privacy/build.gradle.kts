@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "com.kaaneneskpc.napsam.feature.settings"
+    namespace = "com.kaaneneskpc.napsam.feature.privacy"
 }

@@ -41,6 +41,9 @@ ktor = "3.5.2"
 # Test
 junit = "4.13.2"
 robolectric = "4.17"
+# Ekran görüntüsü testlerinin Robolectric çalışma zamanı (Android 16 / SDK 36, Robolectric 4.17'nin
+# enstrümantasyon sürümü i7). Testlerdeki @Config(sdk = [36]) ile birlikte değişir.
+robolectricAndroidAll = "16-robolectric-13921718-i7"
 roborazzi = "1.74.0"
 turbine = "1.2.1"
 
@@ -104,6 +107,7 @@ ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serializatio
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+robolectric-android-all-instrumented = { group = "org.robolectric", name = "android-all-instrumented", version.ref = "robolectricAndroidAll" }
 roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
 roborazzi-compose = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose", version.ref = "roborazzi" }
 roborazzi-junit-rule = { group = "io.github.takahirom.roborazzi", name = "roborazzi-junit-rule", version.ref = "roborazzi" }
@@ -120,6 +124,7 @@ compose-compiler-gradle-plugin = { group = "org.jetbrains.kotlin", name = "compo
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "symbol-processing-gradle-plugin", version.ref = "ksp" }
 room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+roborazzi-gradle-plugin = { group = "io.github.takahirom.roborazzi", name = "roborazzi-gradle-plugin", version.ref = "roborazzi" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -141,5 +146,6 @@ napsam-android-compose = { id = "napsam.android.compose" }
 napsam-android-feature = { id = "napsam.android.feature" }
 napsam-android-library = { id = "napsam.android.library" }
 napsam-android-room = { id = "napsam.android.room" }
+napsam-android-screenshot = { id = "napsam.android.screenshot" }
 napsam-hilt = { id = "napsam.hilt" }
 napsam-jvm-library = { id = "napsam.jvm.library" }

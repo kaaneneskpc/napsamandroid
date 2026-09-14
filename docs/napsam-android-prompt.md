@@ -241,10 +241,10 @@ CompanionBadge), **metni** arayüz kaynaklarında (strings.xml, TR + EN) üretil
   hata: kullanıcı altta kalıp yeni öneriyi göremiyordu). Android'de kaydırma konumu sıfırlanır.
 - **Tamam, yapıyorum** = öneriyi "yapıldı" işaretle ve şu mesajı göster:
   **"Harika seçim. Şimdi ekranı kapat."** / **"Bu uygulamada iyi bir oturum, kısa bitendir."**
-  Uygulamayı programatik kapatma kararı: C11-K6.
+  Mesajın kapatma (X) düğmesi yalnızca mesajı gizler; uygulama kapatılmaz (C11-K6, web gibi).
 - Bekleme 1 saniyeyi geçerse spinner değil **iskelet kart**. Kart geçiş animasyonu ~260 ms.
 - Bir oturumda gösterilen son **30 öneri** tekrar gösterilmez.
-- Kaydırma (swipe) mekaniğinin rolü: C11-K8.
+- Kaydırma (swipe) hareketi **yoktur**; tüm eylemler görünür düğmelerdir (C11-K8, web gibi).
 
 ### A6.5 Kaydedilenler
 Başlık `Kaydedilenler` · alt metin `Sağa kaydırdıkların. Klasör yok, etiket yok — sadece liste.` ·
@@ -271,8 +271,15 @@ seçim penceresinden (1.5) küçüktür; büyük olduğunda tema sert filtre gib
 - Düğme altı: `Tek dokunuş · Tek kesin karar · Sonsuz kaydırma yok`
 - Kart üstü: `Canlı Öneri / Hemen şimdi başla`
 - Alt bilgi: `Konum bağımsız, reklamsız, hemen harekete geçiren Türkiye boş zaman rehberi.`
-- Web'deki üç tanıtım kutusu ("Tekil odak", "Varsayılan: 0 TL", "Somut adımlar") pazarlama
-  sayfası öğesidir; Android'e taşınıp taşınmayacağı ekran ekonomisine göre Faz 7'de kararlaştırılır.
+- Üç tanıtım kutusu, kartın altında alt alta (C11-K19):
+  `01 / Kararsızlık yok` · `Tekil odak` · `Seçenekler çoğaldıkça felç olursun. NAPSAM tek ve net bir yön önerir.`
+  `02 / Sıfır maliyet` · `Varsayılan: 0 TL` · `Zaman geçirmek parayla ölçülmez. Tüm öneriler önce bütçesiz kurgulanır.`
+  `03 / Anında hareket` · `Somut adımlar` · `Soyut tavsiye değil, hemen şimdi yapabileceğin sıralı adımlar.`
+- Alt bilginin sonunda `Gizlilik` bağlantısı → Gizlilik ekranı.
+
+**Ana ekran sırası (web ve Stitch tasarımı, C11-K19):** üst bar → üst etiket, başlık, alt metin →
+bütçe paneli (bütçe, NAPSAM?, düğme altı notu, "İstersen daralt") → `Canlı Öneri` kartı →
+tanıtım kutuları → alt bilgi.
 
 ## A7. TÜRKİYE İÇERİK MODELİ
 
@@ -408,7 +415,7 @@ bildirilerek yükseltilir (`./gradlew buildEnvironment` ile doğrulanır).
 :feature:home             Ana ekran
 :feature:suggestion       Öneri kartı + chip/yaz modları
 :feature:saved            Kaydedilenler
-:feature:settings         Ayarlar (KVKK, verilerimi sil, tema)
+:feature:privacy          Gizlilik (web gizlilik sayfası + veri sorumlusu, C11-K18)
 :build-logic              Convention plugin'ler
 :benchmark                Macrobenchmark + Baseline Profile üretimi
 ```
@@ -477,7 +484,8 @@ UI (Composable)  →  ViewModel  →  UseCase (opsiyonel)  →  Repository  → 
 ```
 :app içinde tek NavDisplay.
 Rotalar @Serializable data class / data object olarak :app içinde.
-Rotalar: Home, Saved, Settings (öneri kartı ana ekranın parçasıdır — C11-K4)
+Rotalar: Home, Saved, Privacy (öneri kartı ana ekranın parçasıdır — C11-K4)
+Ayarlar ekranı YOK; tema düğmesi üst barda (web gibi — C11-K18)
 ```
 - Feature modülleri **kendi rotalarını tanımlamaz**; `:app` bağlar.
 - Navigasyon kararı **state'ten** türer.
@@ -611,12 +619,14 @@ AAB indirme boyutu          < 15 MB   (Manrope yazı tipi dahil)
 1. Tüm dokunma hedefleri **min 48dp**.
 2. Anlamlı her ikonda `contentDescription`; dekoratiflerde `null`.
 3. Metin **sp**; uygulama **%200 font ölçeğinde** kırılmadan çalışır — test kriteri.
-4. Kontrast WCAG AA (4.5:1).
+4. Kontrast WCAG AA (4.5:1). **Tasarımdan gelen istisnalar** (renkler Stitch tasarımıyla birebir
+   kalır, proje sahibinin kararı): açık temada turuncu küçük etiketler, turuncu zemin üzerinde
+   beyaz (NAPSAM?, adım numarası, sayı rozeti), açık temada bütçe tutarı. Bunlar
+   `ColorContrastTest`'te belgelenir; diğer tüm metin çiftleri AA testiyle korunur.
 5. Bilgi **yalnızca renkle** iletilmez (bedava/ücretli: ikon + metin).
 6. TalkBack ile tam akış: aç → NAPSAM? → kart → yapıyorum.
 7. Kart tek anlamlı düğüm olarak okunur (`Modifier.semantics`).
-8. Açık/koyu tema zorunlu; varsayılan sistem, ayarlardan elle seçilebilir (web'deki gibi).
-9. Kaydırma hareketi olan her eylemin görünür bir düğme karşılığı vardır.
+8. Açık/koyu tema zorunlu; varsayılan sistem, üst bardaki düğmeyle elle seçilebilir (web'deki gibi).
 
 ## B13. TEST STRATEJİSİ
 
@@ -702,13 +712,15 @@ Bir SDK eklenirse (C11-K7):
 
 ## B17. KVKK (Türkiye)
 
-- **Aydınlatma metni** uygulama içinden erişilebilir olmalı (ayarlar).
+- **Aydınlatma metni** uygulama içinden erişilebilir olmalı: alt bilgideki `Gizlilik` bağlantısı →
+  Gizlilik ekranı (web gizlilik sayfasının Android'e uyarlanmış metni).
 - **Açık rıza** yalnızca analytics ve bildirim için istenir (bunlar v1'de yoksa rıza ekranı da yok);
   çekirdek işlev rızaya bağlanamaz.
-- **Silme hakkı:** ayarlar → "verilerimi sil" tek dokunuş: kullanıcı tablosu, DataStore ve
-  kurulum kimliği sıfırlanır.
+- **Silme hakkı:** ayrı düğme yok (web gibi). Kayıtlar ve tercihler yalnızca cihazdadır; Gizlilik
+  metni, uygulamanın verilerini sistem ayarlarından temizlemenin veya uygulamayı kaldırmanın
+  hepsini (kullanıcı tablosu, DataStore, kurulum kimliği) sildiğini açıkça yazar.
 - Konum **istenmez, saklanmaz, gönderilmez**.
-- **Veri sorumlusu bilgileri ve iletişim kanalı ayarlar ekranında yer alır:**
+- **Veri sorumlusu bilgileri ve iletişim kanalı Gizlilik ekranında yer alır:**
   **Kaan Enes KAPICI · kaaneneskpc1@gmail.com** (C11-K15). Web gizlilik sayfasında şu an iletişim
   bilgisi yoktur; Faz 13'te web'e de aynı bilgi eklenir.
 - Yurt dışı aktarım aydınlatma metninde belirtilir: Vercel (sunucu bölgesi fra1, Frankfurt);
@@ -806,12 +818,12 @@ Faz 1   Web backend hazırlığı (napsamweb): mobil API v1, tema rotasyonu, iç
         parite dışa aktarımı — web'i bozmadan, testli, main'e push = canlı deploy
 Faz 2   Proje iskeleti: build-logic, sürüm kataloğu, modüller, Spotless, lint
 Faz 3   :core:model
-Faz 4   :core:designsystem (web token'ları + Manrope)
+Faz 4   :core:designsystem (Stitch son tasarımı + Manrope)
 Faz 5   :core:domain — motor, metin ayrıştırıcı, chip, bütçe + parite testleri
 Faz 6   :core:data — Room, içerik içe aktarma, DataStore, Ktor, repository'ler
 Faz 7   :feature:home
 Faz 8   :feature:suggestion — kart, chip ve yaz modları
-Faz 9   :feature:saved + :feature:settings
+Faz 9   :feature:saved + :feature:privacy
 Faz 10  :app — Navigation 3, Hilt, splash, edge-to-edge, predictive back
 Faz 11  :benchmark — Macrobenchmark + Baseline Profile
 Faz 12  CI — GitHub Actions
@@ -1225,8 +1237,8 @@ istatistiksel testle doğrulanır (web'deki "VarietyTests" mantığı).
 
 1. **Filtreler isteğe bağlı hissettirmeli:** daraltma paneli kapalı başlar; kullanıcı hiçbir
    şey seçmeden NAPSAM?'a basabileceğini net anlamalı.
-2. **Mobil yerleşim taşmamalı:** dar ekranda bütçe düğmeleri 2 sütuna iner, eylem düğmeleri
-   alt alta dizilir; metinler ve kartlar iç içe geçmez.
+2. **Mobil yerleşim taşmamalı:** metinler ve kartlar iç içe geçmez. Android'de bütçe tek satırda
+   5 sütun, kart eylemleri tek satırdır (Stitch mobil tasarımı); %200 yazı ölçeğinde de taşmaz.
 3. **"Başka fikir" sonrası kartın başı görünür olmalı.**
 4. **"algoritma" kelimesi kullanıcı metinlerinden çıkarıldı.**
 5. **Gizlilik sayfasında olmayan iletişim kanalına atıf yapılmaz.**
@@ -1236,13 +1248,17 @@ istatistiksel testle doğrulanır (web'deki "VarietyTests" mantığı).
      %70'i oyuna sıkışıyordu → etiket eklendi, doğrulayıcı kuralı yazıldı.
    - Seçilen kelime ve bütçe bandı başta yumuşak puandı ve ölçüldüğünde kırıktı ("kahve"
      seçene %25 isabet) → sert filtre yapıldı.
-7. **Görsel dil:** Stitch tasarımları + web CSS token'ları (C9.4). Android aynı görsel dili
-   Material 3 üzerinde uygular, web'in birebir kopyası değildir.
+7. **Görsel dil ve içerik = web ve son tasarım, birebir** (proje sahibinin talimatı, 14.09.2026).
+   İçerik ve sıra web'deki gibidir; görünüm Stitch son mobil tasarımıdır (C9.4). Web'de olmayan
+   hiçbir özellik, ekran, düğme veya renk ayarı eklenmez; yeni bir şey istenirse proje sahibi söyler.
+   Yapı ve mimari (modüller, UDF, Compose kuralları) Android'in doğru olduğu gibidir.
 
 ### C9.4 Tasarım token kaynağı
-`napsamweb/static/css/napsam.css` (renk, tipografi, boşluk, köşe yarıçapı, açık/koyu tema) ·
-yazı tipi **Manrope** (400/600/700/800; OFL lisanslı — Android'e **gömülü** gelir, offline-first) ·
-tarayıcı tema rengi açık `#f9f9f8`, koyu `#0f0f11`. Faz 4'te dosyadan okunup token'a çevrilir.
+**Stitch son tasarımı**, repoda `docs/design/`: `DESIGN.md` (tasarım sistemi), `mobile-light.html` +
+`mobile-light.png`, `mobile-dark.html` + `mobile-dark.png`. Renk, köşe yarıçapı, boşluk ve yazı
+boyutları bu HTML'lerdeki Tailwind değerlerinden birebir alınır. Yazı tipi **Manrope**
+(DESIGN.md; OFL lisanslı, Android'e **gömülü**, offline-first) — Stitch'in örnek HTML'i Plus Jakarta
+Sans yükler, bu tasarım sistemiyle çelişen bir dışa aktarma ayrıntısıdır. Metinler web'den (A6.7).
 
 ## C10. Güvenlik, hukuk ve operasyon notları
 
@@ -1267,9 +1283,9 @@ tarayıcı tema rengi açık `#f9f9f8`, koyu `#0f0f11`. Faz 4'te dosyadan okunup
 | K3 | İçeriğin uygulamaya taşınması | JSON asset + ilk açılışta içe aktarma (hazır .db değil) | Room kimlik karması uyuşmazlığı riski yok; içerik sürümü değişince yenilemek kolay |
 | K4 | Açılış davranışı | Web gibi açılışta hazır kart (0 dokunuş), öneri kartı ana ekranın parçası | Hız vaadi; web'de doğrulanmış |
 | K5 | 4 opsiyonel filtrenin arayüzü | v1'de yok | Web'de yok; Sadelik md.6; motor destekliyor, sonra açılabilir |
-| K6 | "Tamam, yapıyorum" sonrası | Web'deki mesaj + isteğe bağlı "Kapat" düğmesi (`finish()`) | Kendiliğinden kapanma Android'de hata gibi algılanır |
+| K6 | "Tamam, yapıyorum" sonrası | Web'deki mesaj ve mesajı gizleyen X; uygulamayı kapatan düğme **yok** (14.09.2026 revize) | Web birebirliği; kendiliğinden kapanma Android'de hata gibi algılanır |
 | K7 | Bildirim, analytics, crash SDK | v1'de hiçbiri yok | İlk açılışta izin yasağı; web gizlilik taahhüdü; Data Safety sade kalır |
-| K8 | Swipe | Görünür düğmeler birincil; sağa kaydır = kaydet, sola = başka fikir kısayolu | Erişilebilirlik ve keşfedilebilirlik |
+| K8 | Swipe | **Yok**; yalnızca görünür düğmeler (14.09.2026 revize) | Web'de yok; sadelik |
 | K9 | detekt | v1'de yok; Spotless+ktlint+compose-rules+Lint; detekt 2.0 stabil olunca | detekt 1.23.8 Kotlin 2.4 ile uyumsuz olabilir |
 | K10 | Modül bağımlılık yönü | data → domain (arayüzler domain'de) | v1 metni döngüseldi |
 | K11 | Deep link / paylaşım | v1'de yok | Web'de öneri başına sayfa yok |
@@ -1279,3 +1295,5 @@ tarayıcı tema rengi açık `#f9f9f8`, koyu `#0f0f11`. Faz 4'te dosyadan okunup
 | K15 | KVKK veri sorumlusu ve iletişim | Kaan Enes KAPICI · kaaneneskpc1@gmail.com | Proje sahibi tarafından verildi |
 | K16 | Android repo | `kaaneneskpc/napsam-android`, private — **ERTELENDİ:** tüm işler bitince, proje sahibi açıkça isteyince (Faz 14). O zamana kadar yalnızca yerel git, uzak depo yok. | Yayına kadar gizli; web reposundan ayrı |
 | K17 | Web API işi | Faz 1'de `/api/v1/config` + `/api/v1/suggest` | Android'in ağ ihtiyacı bunlarla sınırlı |
+| K18 | Ekranlar | Ana ekran, Kaydedilenler, Gizlilik (`:feature:privacy`). Ayarlar ekranı ve "verilerimi sil" düğmesi yok; tema üst barda (14.09.2026) | Web birebirliği |
+| K19 | Ana ekran içeriği | Web sırası: başlık → bütçe paneli → kart → üç tanıtım kutusu → alt bilgi (Gizlilik bağlantısı); görünüm Stitch son tasarımı (14.09.2026) | Proje sahibinin talimatı ve tasarımı |

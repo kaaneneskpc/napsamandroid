@@ -10,13 +10,13 @@
 | 0 | Eleştiri, kararlar, yerel git | ✅ |
 | 1 | Web backend hazırlığı (napsamweb, yerel dal) | ✅ |
 | 2 | Proje iskeleti | ✅ |
-| 3 | `:core:model` | 🟨 onay bekliyor |
-| 4 | `:core:designsystem` | ⬜ |
+| 3 | `:core:model` | ✅ |
+| 4 | `:core:designsystem` | 🟨 onay bekliyor |
 | 5 | `:core:domain` + parite testleri | ⬜ |
 | 6 | `:core:data` | ⬜ |
 | 7 | `:feature:home` | ⬜ |
 | 8 | `:feature:suggestion` | ⬜ |
-| 9 | `:feature:saved` + `:feature:settings` | ⬜ |
+| 9 | `:feature:saved` + `:feature:privacy` | ⬜ |
 | 10 | `:app` | ⬜ |
 | 11 | `:benchmark` | ⬜ |
 | 12 | CI | ⬜ |
@@ -76,9 +76,9 @@
 | K3 | İçerik taşıma | JSON asset + ilk açılışta içe aktarma | ✅ |
 | K4 | Açılış | hazır kart (0 dokunuş) | ✅ |
 | K5 | Filtre arayüzü | v1'de yok | ✅ |
-| K6 | "Tamam, yapıyorum" | mesaj + isteğe bağlı Kapat | ✅ |
+| K6 | "Tamam, yapıyorum" | web mesajı + mesajı gizleyen X; uygulamayı kapatan düğme yok (revize) | ✅ |
 | K7 | Bildirim/analytics/crash SDK | v1'de yok | ✅ |
-| K8 | Swipe | düğmeler birincil, swipe kısayol | ✅ |
+| K8 | Swipe | yok, yalnızca düğmeler (revize) | ✅ |
 | K9 | detekt | v1'de yok | ✅ |
 | K10 | Bağımlılık yönü | data → domain | ✅ |
 | K11 | Deep link | v1'de yok | ✅ |
@@ -88,6 +88,12 @@
 | K15 | KVKK veri sorumlusu + e-posta | Kaan Enes KAPICI · kaaneneskpc1@gmail.com | ✅ |
 | K16 | Android repo | `kaaneneskpc/napsam-android`, private | ✅ |
 | K17 | Web API v1 | config + suggest | ✅ |
+| K18 | Ekranlar | Ana ekran, Kaydedilenler, Gizlilik; ayarlar ekranı ve sil düğmesi yok, tema üst barda | ✅ |
+| K19 | Ana ekran | web içeriği ve sırası (tanıtım kutuları + alt bilgi dahil), görünüm Stitch son tasarımı | ✅ |
+
+> **Web birebirliği (14.09.2026, proje sahibinin talimatı):** Android içerik olarak web'in, görünüm
+> olarak Stitch son tasarımının (`docs/design/`) aynısıdır; web'de olmayan özellik eklenmez.
+> Bu yüzden K6 ve K8 revize edildi, K18–K19 eklendi, `:feature:settings` → `:feature:privacy`.
 
 ### 0.6 Git (yalnızca yerel)
 - [x] `git init` (uzak depo YOK), `.gitignore`'a keystore, `.kotlin/`, `.idea/`, `build/` eklenmesi
@@ -168,11 +174,31 @@
 - [x] `:core:model:test spotlessCheck assembleDebug` yeşil
 
 ## Faz 4 — `:core:designsystem`
-- [ ] `napsam.css`'ten renk, tipografi, boşluk, yarıçap token'ları (açık/koyu)
-- [ ] Manrope 400/600/700/800 gömülü
-- [ ] Bileşenler: BudgetSelector, PrimaryCta, Chip, Badge, StepList, FallbackBlock,
-      SuggestionCard iskeleti, SkeletonCard, CommitMessage, IconToggle
-- [ ] Önizlemeler + Roborazzi: açık/koyu, %200 font
+> **Kaynak değişti (14.09.2026):** proje sahibi son Stitch tasarımını verdi; token'lar `napsam.css`
+> yerine `docs/design/` altındaki mobil açık/koyu tasarımdan birebir alındı. Web'de olmayan eklemeler
+> (SkeletonCard, uygulamayı kapatan düğme, swipe, ayarlar ekranı, renk düzeltmeleri) kaldırıldı.
+- [x] Token'lar tasarımla birebir: renk (Tailwind zinc/orange, açık/koyu, koyu temada turuncu ışıma),
+      köşe yarıçapı 4/6/12/16dp, boşluk, yazı boyutları (sp)
+- [x] Manrope 400–800 gömülü (değişken font, OFL lisansı `assets/licenses`). Stitch HTML'i Plus Jakarta
+      Sans yüklüyor; DESIGN.md ve web Manrope dediği için Manrope kaldı
+- [x] İkonlar tasarımdaki çizgi ikonlardan (ImageVector): bolt, check, refresh, heart, swap, clock, pin,
+      person, chevron, sun, moon, close
+- [x] Bileşenler (web sırasına göre): NapsamBackground, NapsamTopBar (Kaydedilenler + sayı, tema),
+      OverlinePill, NapsamConsole, BudgetSelector, NapsamPrimaryButton (NAPSAM?), CtaNote, NapsamDivider,
+      RefineToggle, NapsamChip, StageHeader, NapsamCard, CardBand, NapsamBadge, SectionLabel, StepList,
+      NeedsRow, FallbackBlock, CardActions (Tamam yapıyorum · Başka fikir · kalp), CommitMessage,
+      SkeletonBlock, ValuePropCard, NapsamFooter (Gizlilik bağlantısı)
+- [x] %200 yazı ölçeği: bütçe sütunları kelime bölünmeden azalır (5 → 3), kart eylemleri iki satıra
+      geçer, adım numarası dairesi yazıyla büyür, üst bar sığmazsa alt satıra geçer
+- [x] `ColorContrastTest` (4): tüm metin çiftleri AA; tasarımdan gelen istisnalar (açık temada turuncu
+      küçük etiket, turuncu üzerinde beyaz, açık temada bütçe tutarı) ayrı testte belgelendi (B12.4)
+- [x] Roborazzi (5 referans, `src/test/screenshots`): ana ekran açık/koyu/%200 + tasarımda görünmeyen
+      web durumları açık/koyu. Örnek içerik test kaynağındaki katalogda (web metinleri)
+- [x] Robolectric SDK 36 (SDK 37'de `InputManager.getInstance()` yok), durdurulmuş Compose saati
+      (sonsuz animasyonlar), çalışma zamanı jar'ı Gradle'dan + çevrimdışı mod (indirme kopuyordu)
+- [x] `:feature:settings` → `:feature:privacy`
+- [x] `verifyRoborazziDebug spotlessCheck lintDebug assembleDebug testDebugUnitTest :core:model:test`
+      yeşil; 7 Android modülünde lint "No issues found"
 
 ## Faz 5 — `:core:domain`
 - [ ] BudgetCalculator (HALF_EVEN, amountText biçimi)
@@ -192,6 +218,7 @@
 
 ## Faz 7 — `:feature:home`
 - [ ] HomeUiState: bütçe, daraltma paneli (kapalı), mod, chip seçimi, metin, kart, meşgul/iskelet, kayıt sayısı
+- [ ] Web sırası (K19): başlık → bütçe paneli → Canlı Öneri kartı → üç tanıtım kutusu → alt bilgi + Gizlilik
 - [ ] Açılışta kart (K4), NAPSAM? akışı, oturumda son 30 hariç tutma
 - [ ] ViewModel testleri (Turbine) + Compose UI testi (NAPSAM? → kart)
 - [ ] Dar ekran/%200 font yerleşimi
@@ -199,18 +226,18 @@
 ## Faz 8 — `:feature:suggestion`
 - [ ] Kart (A6.4 alanları ve biçimleri)
 - [ ] Başka fikir = dismiss + yeni + kart başına kaydırma (regresyon testi)
-- [ ] Kaydet / kayıttan çıkar · Tamam yapıyorum mesajı (K6)
-- [ ] Swipe kısayolları (K8) ve düğme karşılıkları
+- [ ] Kaydet / kayıttan çıkar · Tamam yapıyorum mesajı ve mesajı gizleyen X (K6)
 - [ ] Yaz modu: yerel ayrıştırıcı; aiEnabled ise mobil API, 1 sn iskelet, 5 sn yerel düşüş
 
-## Faz 9 — `:feature:saved` + `:feature:settings`
+## Faz 9 — `:feature:saved` + `:feature:privacy`
 - [ ] Kaydedilenler: LazyColumn (key = slug), kaldır, boş durum metinleri
-- [ ] Ayarlar: tema, verilerimi sil (tablo + DataStore + kurulum kimliği), aydınlatma metni,
-      veri sorumlusu (K15), sürüm bilgisi
+- [ ] Gizlilik (K18): web gizlilik sayfasının Android'e uyarlanmış metni, veri sorumlusu (K15),
+      verilerin cihazda olduğu ve sistem ayarlarından/uygulamayı kaldırarak silindiği (B17)
 
 ## Faz 10 — `:app`
 - [ ] Application (Hilt), MainActivity (edge-to-edge), splash
-- [ ] Navigation 3: Home, Saved, Settings; predictive back
+- [ ] Navigation 3: Home, Saved, Privacy; predictive back
+- [ ] Üst bar (logo, Kaydedilenler + sayı, tema düğmesi); seçilen tema DataStore'da
 - [ ] Network Security Config, strings TR/EN, uyarlanabilir yerleşim (≥ 600dp)
 - [ ] Emülatörde (Pixel_9_Pro_API_37) tam akış + ekran görüntüleri, TalkBack, uçak modu
 

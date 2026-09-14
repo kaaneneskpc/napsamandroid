@@ -28,8 +28,8 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.model)
     implementation(projects.feature.home)
+    implementation(projects.feature.privacy)
     implementation(projects.feature.saved)
-    implementation(projects.feature.settings)
     implementation(projects.feature.suggestion)
 
     implementation(libs.androidx.activity.compose)
