@@ -326,13 +326,13 @@ Android için tasarlanan mobil API v1: **C3**.
 
 ```
 Kotlin                2.4.20        (07.09.2026) · Compose derleyici eklentisi aynı sürüm
-KSP                   2.3.12        (KSP artık Kotlin'den bağımsız sürümleniyor;
-                                     Kotlin 2.4.20 uyumu Faz 2 derlemesinde kanıtlanır)
+KSP                   2.3.12        (Kotlin'den bağımsız sürümleniyor; Faz 2'de Kotlin 2.4.20
+                                     ile Room + Hilt + serialization derlenerek kanıtlandı)
 Compose BOM           2026.09.00    (09.09.2026 · Compose 1.12.x, Material3 1.4.x)
 AGP                   9.4.0         (Eylül 2026 · en az Gradle 9.6.0 · en yüksek API 37 ·
                                      yerleşik Kotlin: kotlin-android eklentisi kullanılmaz)
 Gradle                9.7.1         (≥ 9.6.0 zorunlu)
-JDK                   21            (makinede OpenJDK 21.0.12 kurulu)
+JDK                   21            (makinede OpenJDK 21.0.12; Gradle daemon toolchain da 21)
 compileSdk            37
 targetSdk             37            (Play şartı ≥ 36 · C11-K2 onaylı)
 minSdk                26            (Android 8.0)
@@ -352,7 +352,7 @@ core-splashscreen                   1.2.0
 profileinstaller                    1.4.1
 benchmark-macro / baselineprofile   1.5.0
 uiautomator                         2.4.0
-desugar_jdk_libs                    2.1.5
+desugar_jdk_libs                    KULLANILMAZ (minSdk 26'da java.time yerleşik)
 Ktor client                         3.5.2
 kotlinx.serialization-json          1.11.0
 kotlinx.coroutines                  1.11.0
@@ -381,7 +381,9 @@ Kotlin 2.2.10 · BOM 2026.02.01 · Gradle 9.5.0 · minSdk 24 · targetSdk 37 · 
 Gradle daemon toolchain 25 · `applicationId = com.kaaneneskpc.napsam` · AGP 9 DSL
 (`compileSdk { version = release(37) }`, `optimization { enable }`, `src/main/keepRules/`) ·
 foojay resolver · configuration cache açık · `FAIL_ON_PROJECT_REPOS` açık. Git deposu değil.
-Faz 2 bu şablonu B1–B2'ye göre dönüştürür; AGP 9 DSL'i korunur.
+**Faz 2'de (14.09.2026) B1–B2'ye göre dönüştürüldü**; AGP 9 DSL'i korundu. AGP 9 kendi başına
+Kotlin Gradle eklentisini 2.2.10'da tutar; kök build'de `kotlin-jvm` 2.4.20 ve `ksp` 2.3.12
+bildirilerek yükseltilir (`./gradlew buildEnvironment` ile doğrulanır).
 
 **Sürüm yönetimi:**
 - Tüm bağımlılıklar `gradle/libs.versions.toml` üzerinden. Modül dosyalarında **çıplak sürüm yasak**.
@@ -659,7 +661,8 @@ Kotlin explicit API mode   C11-K13 kararına göre
   ile aynı davranış). Metin ayrıştırıcıda normalizasyon kararı: C11-K14.
 - Para biçimi `NumberFormat.getCurrencyInstance(Locale.forLanguageTag("tr-TR"))`; kart
   rozetleri ise web'le aynı metin kalıbını kullanır (A6.4).
-- Tarih/saat `java.time` (desugaring açık). `Calendar`/`SimpleDateFormat` yasak.
+- Tarih/saat `java.time` (minSdk 26'da yerleşik; core library desugaring gerekmez).
+  `Calendar`/`SimpleDateFormat` yasak.
 - Yuvarlama: bütçe tutarlarında `RoundingMode.HALF_EVEN` (Python `Decimal.quantize` ile parite).
 
 ## B15. ANALİTİK VE GİZLİLİK

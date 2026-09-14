@@ -8,8 +8,8 @@
 | Faz | Kapsam | Durum |
 |---|---|---|
 | 0 | Eleştiri, kararlar, yerel git | ✅ |
-| 1 | Web backend hazırlığı (napsamweb, yerel dal) | 🟨 onay bekliyor |
-| 2 | Proje iskeleti | ⬜ |
+| 1 | Web backend hazırlığı (napsamweb, yerel dal) | ✅ |
+| 2 | Proje iskeleti | 🟨 onay bekliyor |
 | 3 | `:core:model` | ⬜ |
 | 4 | `:core:designsystem` | ⬜ |
 | 5 | `:core:domain` + parite testleri | ⬜ |
@@ -125,16 +125,27 @@
 - [~] ~~main'e push → Vercel deploy~~ **yapılmadı** (proje sahibi kararı, 14.09.2026) → Faz 13
 
 ## Faz 2 — Proje iskeleti
-- [ ] Wrapper Gradle 9.7.1 · AGP 9.4.0 · Kotlin 2.4.20 · KSP 2.3.12 · BOM 2026.09.00
-- [ ] Daemon JVM toolchain 21 · Java/Kotlin hedefi 21
-- [ ] **Uyum kanıtı:** Hilt + Room + KSP ile boş bir modül derlenir (olmazsa Kotlin 2.4.10)
-- [ ] `build-logic` convention plugin'leri: android-application, android-library, feature,
-      compose, hilt, room, jvm-library, spotless
-- [ ] Modüller: `:app`, `:core:{model,designsystem,domain,data}`, `:feature:{home,suggestion,saved,settings}`
-      (`:benchmark` Faz 11'de)
-- [ ] minSdk 26 · targetSdk (K2) · compileSdk 37 · R8 release'de açık
-- [ ] Şablon Greeting/tema kodu kaldırılır
-- [ ] `./gradlew assembleDebug spotlessCheck lintDebug testDebugUnitTest` yeşil
+- [x] Wrapper Gradle 9.7.1 (gömülü Kotlin 2.4.0) · AGP 9.4.0 · Kotlin 2.4.20 · KSP 2.3.12 · BOM 2026.09.00
+- [x] Daemon JVM toolchain 21 (`updateDaemonJvm`) · Java hedefi 21 (built-in Kotlin bunu izler)
+- [x] Kök sınıf yolunda AGP'nin getirdiği KGP 2.2.10 → **2.4.20**, KSP 2.2.10-2.0.2 → **2.3.12**
+      yükseltildiği `buildEnvironment` ile doğrulandı
+- [x] **Uyum kanıtı:** geçici deneme dosyasıyla Room (`ProbeDatabase_Impl`, şema JSON), Hilt
+      (`Hilt_MainActivity`, aggregation) ve kotlinx.serialization derlendi; deneme dosyaları silindi.
+      Kotlin 2.4.10'a inmek gerekmedi.
+- [x] `build-logic` convention plugin'leri: `napsam.android.application`, `napsam.android.library`,
+      `napsam.android.compose`, `napsam.android.feature`, `napsam.android.room`, `napsam.hilt`,
+      `napsam.jvm.library`. Spotless kök build'de (ktlint 1.8.0 `android_studio` stili + compose-rules 0.6.6)
+- [x] Modüller: `:app`, `:core:{model,domain,data,designsystem}`, `:feature:{home,suggestion,saved,settings}`
+      (`:benchmark` Faz 11'de). `:core:model` ve `:core:domain` saf Kotlin + explicit API (K13)
+- [x] SDK/JVM seviyeleri sürüm kataloğunda: minSdk 26 · targetSdk 37 · compileSdk 37 · jvmTarget 21 ·
+      release'de R8 (`optimization { enable = true }`) · lint `abortOnError`
+- [x] Şablon temizliği: Greeting, şablon teması, Espresso'lu örnek testler, kullanılmayan renkler,
+      gereksiz `-v26` klasör eki ve tekrarlı activity etiketi kaldırıldı. `NapsamApplication`
+      (`@HiltAndroidApp`) ve `@AndroidEntryPoint MainActivity` eklendi; ekran içeriği Faz 7–10'da
+- [x] `./gradlew assembleDebug testDebugUnitTest :core:model:test :core:domain:test spotlessCheck lintDebug`
+      **yeşil**: 7 Android modülünde lint "No issues found", format temiz, debug APK üretildi.
+      Test görevleri çalışıyor ancak henüz test kaynağı yok (NO-SOURCE); ilk testler Faz 3'te
+- [x] Sadeleştirme: minSdk 26'da `java.time` yerleşik olduğu için core library desugaring eklenmedi
 
 ## Faz 3 — `:core:model`
 - [ ] Enum'lar: Category (etiketleriyle), Place, Energy, WeatherNeed, Companion, StateStatus, SuggestionSource
