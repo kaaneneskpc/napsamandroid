@@ -9,8 +9,8 @@
 |---|---|---|
 | 0 | Eleştiri, kararlar, yerel git | ✅ |
 | 1 | Web backend hazırlığı (napsamweb, yerel dal) | ✅ |
-| 2 | Proje iskeleti | 🟨 onay bekliyor |
-| 3 | `:core:model` | ⬜ |
+| 2 | Proje iskeleti | ✅ |
+| 3 | `:core:model` | 🟨 onay bekliyor |
 | 4 | `:core:designsystem` | ⬜ |
 | 5 | `:core:domain` + parite testleri | ⬜ |
 | 6 | `:core:data` | ⬜ |
@@ -148,9 +148,24 @@
 - [x] Sadeleştirme: minSdk 26'da `java.time` yerleşik olduğu için core library desugaring eklenmedi
 
 ## Faz 3 — `:core:model`
-- [ ] Enum'lar: Category (etiketleriyle), Place, Energy, WeatherNeed, Companion, StateStatus, SuggestionSource
-- [ ] Suggestion, BudgetTier, WeeklyTheme, AppConfig, UserSuggestionState, SuggestionRequest bağlamı
-- [ ] Rozet metinleri (A6.4) saf fonksiyon + testleri
+- [x] Enum'lar (web anahtarlarıyla, `fromKey`): Category, Place, Energy, WeatherNeed, CompanionType,
+      StateStatus, SuggestionSource, SuggestionMode, PlacePreference.
+      `Companion` yerine `CompanionType`: Kotlin'in `companion object` adıyla çakışıyor, companion'ı
+      olan sınıflarda `Companion.SOLO` yanlış sembole çözülürdü
+- [x] Modeller: Suggestion (22 alan), BudgetTier (oranlar BigDecimal), WeeklyTheme, AppConfig,
+      UserSuggestionState (`isCoolingDown`), SuggestionContext + Weather. Şehir/ilçe/koordinat alanı yok
+- [x] Rozetler: model metin değil **yapı** üretir (CostBadge, DurationBadge, PlaceBadge, CompanionBadge);
+      "Bedava", "dk", "Evde" gibi kelimeler B14 gereği Faz 8'de strings.xml'e gider (TR + EN).
+      Kategori etiketleri enum'da tutulmaz (veri veya arayüz kaynağı)
+- [x] Testler (16, hepsi yeşil):
+      - `SuggestionBadgesParityTest`: 500 önerinin tamamında rozetler `contract/parity/badges.json` ile aynı;
+        mekan türlerinin küçük harfli olduğu kilitlendi (Türkçe ilk harf büyütme = web capitalize)
+      - `SuggestionBadgesTest`: sınır değerler (boş not, tek sayı süre, 0/3/4 kiminle, bekleme süresi)
+      - `ContentKeysTest`: içerikteki tüm değerler enum'a dönüşüyor, anahtarlar meta dosyasıyla ve
+        web istek değerleriyle aynı
+- [x] Convention: saf Kotlin modüllerinin testleri `contract/` klasörünü sistem özelliğiyle okur ve
+      klasörü görev girdisi olarak bildirir (içerik değişince testler yeniden çalışır)
+- [x] `:core:model:test spotlessCheck assembleDebug` yeşil
 
 ## Faz 4 — `:core:designsystem`
 - [ ] `napsam.css`'ten renk, tipografi, boşluk, yarıçap token'ları (açık/koyu)

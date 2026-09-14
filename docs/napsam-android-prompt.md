@@ -217,7 +217,10 @@ Motor ve API dört filtreyi destekler: **süre** (dakika, üst sınır) · **kim
 
 ### A6.4 Öneri kartı — tek ekran
 
-Alanlar ve biçimler web'le **aynı** olmalı (`napsamweb/core/models.py` + `serializers.py`):
+Alanlar ve biçimler web'le **aynı** olmalı (`napsamweb/core/models.py` + `serializers.py`).
+Rozetin **yapısı** `:core:model`'de (`Suggestion.badges()`: CostBadge, DurationBadge, PlaceBadge,
+CompanionBadge), **metni** arayüz kaynaklarında (strings.xml, TR + EN) üretilir; yapı kuralları
+500 öneride `contract/parity/badges.json` ile test edilir (Faz 3).
 
 | Öğe | Kural |
 |---|---|
