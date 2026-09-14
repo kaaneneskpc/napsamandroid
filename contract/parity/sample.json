@@ -1,0 +1,57 @@
+{
+  "rule": "cap = max(TOP_N_MIN, ceil(pool × TOP_N_FRACTION))",
+  "cases": [
+    {
+      "pool": 0,
+      "cap": 15
+    },
+    {
+      "pool": 1,
+      "cap": 15
+    },
+    {
+      "pool": 14,
+      "cap": 15
+    },
+    {
+      "pool": 15,
+      "cap": 15
+    },
+    {
+      "pool": 49,
+      "cap": 15
+    },
+    {
+      "pool": 50,
+      "cap": 15
+    },
+    {
+      "pool": 51,
+      "cap": 16
+    },
+    {
+      "pool": 52,
+      "cap": 16
+    },
+    {
+      "pool": 100,
+      "cap": 30
+    },
+    {
+      "pool": 138,
+      "cap": 42
+    },
+    {
+      "pool": 300,
+      "cap": 90
+    },
+    {
+      "pool": 500,
+      "cap": 150
+    },
+    {
+      "pool": 1000,
+      "cap": 300
+    }
+  ]
+}

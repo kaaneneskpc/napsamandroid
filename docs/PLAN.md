@@ -8,7 +8,7 @@
 | Faz | Kapsam | Durum |
 |---|---|---|
 | 0 | Eleştiri, kararlar, yerel git | ✅ |
-| 1 | Web backend hazırlığı (napsamweb) | ⬜ |
+| 1 | Web backend hazırlığı (napsamweb, yerel dal) | 🟨 onay bekliyor |
 | 2 | Proje iskeleti | ⬜ |
 | 3 | `:core:model` | ⬜ |
 | 4 | `:core:designsystem` | ⬜ |
@@ -101,16 +101,28 @@
 
 ## Faz 1 — Web backend hazırlığı (`/StudioProjects/napsamweb`)
 **Amaç:** Android'in ihtiyaç duyduğu sunucu parçaları, web'i bozmadan.
-- [ ] Web reposunda feature dalı; başlangıçta 116 testin geçtiğini gör
-- [ ] `GET /api/v1/config` (C3.3) + testler (şekil, oranların string olması, konum alanı yok)
-- [ ] `POST /api/v1/suggest` (C3.4): `csrf_exempt`, çerez gerektirmez, `X-Napsam-Install` UUID
-      doğrulaması, AI kapalıyken seed yanıtı, AI açıkken kimlik kotası + testler
-- [ ] Haftalık tema rotasyonu (C4.7) + testler; web davranışının değiştiğini README'de belirt
-- [ ] Dışa aktarma komutu: içerik + meta (sha256) + parite vektörleri (C5.4, C8) + testler
-- [ ] `seed --check` temiz · tüm testler yeşil
-- [ ] README: mobil API bölümü
-- [ ] main'e push → Vercel deploy başarılı → canlıda `curl` ile iki uç doğrulanır, web ana
-      sayfası ve mevcut `/api/suggest/` davranışı değişmemiş
+
+> **Deploy kararı (14.09.2026):** Web projesi tamamlandı sayılıyor; odak mobil uygulama.
+> Faz 1 değişiklikleri web reposunda **yerel bir dalda** kalır, push/deploy edilmez, canlı site
+> değişmez. Uygulama offline-first olduğu için sunucu API'si canlıda olmadan da tam çalışır
+> (AI kapalı, bütçe tablosunun yerel yedeği var). Android ağ katmanı yerel Django sunucusuyla
+> test edilir. Sunucu API'sinin yayınlanıp yayınlanmayacağı **Faz 13**'te kararlaştırılır.
+- [x] Web reposunda yerel `feature/mobile-api-v1` dalı; başlangıçta 116 test yeşil (SQLite)
+- [x] `GET /api/v1/config/` (C3.3) + 8 test: şekil, oranların ve ücretin metin olması, asgari
+      ücret değişince tutarların kayması, çerez bırakmaması, önbellek başlığı, konum alanı yok
+- [x] `POST /api/v1/suggest/` (C3.4) + 9 test: CSRF'siz çalışması (web ucu aynı durumda 403),
+      UUID v4 başlık zorunluluğu, çerez/profil yazmaması, yanıt şeklinin web ile aynı olması,
+      serbest metin, AI kotasının kurulum kimliğiyle sayılması, AI hatasında seed'e düşme
+- [x] Öneri akışı web ve mobilde ortak `suggest_response` fonksiyonunda (kod kopyası yok)
+- [x] Haftalık tema rotasyonu (C4.7) + 8 test (seed düzeninde takılı kalma regresyonu dahil)
+- [x] `export_mobile` komutu + 4 test (çıktı içeriği, determinizm, bozuk içerikte durma,
+      SQLite dışında çalışmayı reddetme)
+- [x] `seed --check` temiz · Django `check` temiz · **145 test yeşil** (116 → 145)
+- [x] README: mobil API, dışa aktarma, tema rotasyonu, test sayısı
+- [x] Dışa aktarma `napsam/contract/`'a çalıştırıldı: 500 öneri + meta + 9 parite dosyası;
+      iki çalıştırma bayt bayt aynı
+- [x] Web değişiklikleri yerel dalda commit'lendi
+- [~] ~~main'e push → Vercel deploy~~ **yapılmadı** (proje sahibi kararı, 14.09.2026) → Faz 13
 
 ## Faz 2 — Proje iskeleti
 - [ ] Wrapper Gradle 9.7.1 · AGP 9.4.0 · Kotlin 2.4.20 · KSP 2.3.12 · BOM 2026.09.00

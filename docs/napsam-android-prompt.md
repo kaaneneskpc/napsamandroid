@@ -256,10 +256,10 @@ Tema anahtarları: `yuru` (Bu hafta yürü) · `elini_kullan` (Bu hafta elini ku
 seçim penceresinden (1.5) küçüktür; büyük olduğunda tema sert filtre gibi davranıp seçimleri
 6 öneriye sıkıştırmıştı.
 
-> **Web'de bilinen hata:** Web aktif temayı "başlangıç tarihi bugünden önce olan en yeni tema"
-> diye seçiyor ve temalar yalnızca seed çalışırken tarihleniyor. Sonuç: seed haftasındaki tema
-> kalıcı olarak aktif kalıyor, rotasyon yok. Faz 1'de web'e ISO hafta numarasına dayalı
-> deterministik rotasyon eklenir; Android aynı kuralı uygular (C4.7).
+> **Web'deki hata Faz 1'de düzeltildi (yerel dal, canlıda değil):** Web aktif temayı "başlangıç
+> tarihi bugünden önce olan en yeni tema" diye seçiyordu ve temalar yalnızca seed çalışırken
+> tarihleniyordu; seed haftasındaki tema kalıcı olarak aktif kalıyordu. Artık ISO hafta
+> numarasına dayalı deterministik rotasyon var; Android aynı kuralı uygular (C4.7).
 
 ### A6.7 Ekran metinleri (web'de canlı, birebir)
 - Üst etiket: `Karar verme motoru · Sıfır tereddüt`
@@ -512,7 +512,8 @@ Tercihler (DataStore)
   - SharedPreferences YASAK.
 
 Remote config
-  - Kaynak: Django mobil API `GET /api/v1/config` (C3.3). Firebase Remote Config KULLANILMAZ.
+  - Kaynak: Django mobil API `GET /api/v1/config/` (C3.3). Firebase Remote Config KULLANILMAZ.
+    Sunucu API'si canlıda olmayabilir (Faz 13 kararı); yerel varsayılanlar `contract/content/meta.json`'dan gelir.
   - Her zaman yerel varsayılanı vardır (A6.2 tablosu, tema kuralı, aiEnabled=false).
   - En fazla günde bir kez veya uygulama ön plana geldiğinde ve önbellek 12 saatten eskiyse çekilir.
 ```
@@ -848,7 +849,8 @@ Uygulama        Python 3.13 · Django 5.2 · WhiteNoise · psycopg 3
 Veritabanı      Supabase Postgres, transaction pooler (6543). Seed işlemleri session pooler (5432).
 Yapay zeka      Google Gemini (gemini-3.5-flash-lite), Django içinden. ŞU AN KAPALI.
 Sağlık          GET /healthz/ → {"ok":true,"suggestions":500,"aiEnabled":false,"wage":"28075"}
-Testler         Web: 116 test (python manage.py test core), hiçbiri ağa çıkmaz
+Testler         Web: 145 test (DATABASE_URL= python manage.py test core), hiçbiri ağa çıkmaz
+                (mobil API, tema rotasyonu ve dışa aktarma testleri dahil)
 ```
 
 ## C2. Backend gerçekleri
@@ -896,7 +898,13 @@ Supabase yalnızca Postgres olarak kullanılır; BaaS olarak değil.
 CSP başlığı yok · HSTS 1 saat · ana sayfada `|safe` ile basılan kayıt listesi. Proje sahibi
 bunları şimdilik istemedi; Android işi bunlara dokunmaz.
 
-## C3. Mobil API v1 (Faz 1'de web'e eklenecek)
+## C3. Mobil API v1 (Faz 1'de web'e eklendi)
+
+> Durum (14.09.2026): kod web reposunda yerel `feature/mobile-api-v1` dalında, testli, **push
+> edilmedi ve canlıda değil**. Proje sahibinin kararı: web projesi tamamlandı, odak mobil.
+> Android ağ katmanı yerel Django sunucusuyla (`DATABASE_URL= python manage.py runserver`)
+> test edilir. Sunucunun yayınlanıp yayınlanmayacağı Faz 13'te kararlaştırılır; uygulama
+> sunucu olmadan da tam çalışır.
 
 ### C3.1 İlkeler
 - Önek `/api/v1/`. Web uçları olduğu gibi kalır; web davranışı değişmez.
@@ -910,11 +918,11 @@ bunları şimdilik istemedi; Android işi bunlara dokunmaz.
 - Yalnızca AI kotasının kimlik kapsamı için kullanılır (web'deki `anon:<uuid>` karşılığı).
 - Cihaz kimliği, reklam kimliği veya donanım bilgisi KULLANILMAZ. "Verilerimi sil" yeni UUID üretir.
 
-### C3.3 `GET /api/v1/config`
+### C3.3 `GET /api/v1/config/`
 ```json
 {
   "schema": 1,
-  "wage": 28075,
+  "wage": "28075",
   "currency": "TRY",
   "budgetTiers": [
     {"key": "bedava", "label": "Bedava", "hint": "", "order": 0,
@@ -922,19 +930,22 @@ bunları şimdilik istemedi; Android işi bunlara dokunmaz.
     {"key": "bol", "label": "Bol", "hint": "etkinlik, aktivite", "order": 4,
      "ratioMin": "0.053428", "ratioMax": null, "amountMin": 1500, "amountMax": null, "amountText": "1.500 TL+"}
   ],
-  "weeklyTheme": "yuru",
+  "weeklyTheme": "ekransiz",
+  "themeRotation": ["yuru", "elini_kullan", "ekransiz", "duzen"],
   "aiEnabled": false,
-  "contentVersion": "sha256:…",
+  "contentVersion": "sha256:e86fe1162b400…",
   "suggestionCount": 500,
   "dismissCooldownDays": 30,
-  "minSupportedVersionCode": 1
+  "androidMinVersionCode": 1
 }
 ```
-- Oranlar string (ondalık hassasiyeti korunur). `Cache-Control: public, max-age=3600`.
+- Ücret ve oranlar **metin** (ondalık hassasiyeti korunur; istemci BigDecimal ile okur).
+- `androidMinVersionCode` sunucudaki `RemoteConfig` anahtarı `android_min_version_code`'dan gelir (varsayılan 1).
+- `Cache-Control: public, max-age=3600`. Yanıtta çerez yoktur.
 - İstemci config'i önbellekler; `contentVersion` uygulamadakinden farklıysa v1'de yalnızca
   bilgi amaçlıdır (içerik uygulama güncellemesiyle gelir — C11-K3).
 
-### C3.4 `POST /api/v1/suggest` — yalnızca "Yaz" modu + AI açıkken
+### C3.4 `POST /api/v1/suggest/` — Android bunu yalnızca "Yaz" modu + AI açıkken çağırır
 İstek (web gövdesiyle aynı alanlar):
 ```json
 {
@@ -971,7 +982,13 @@ Yanıt (web'deki `suggestion_to_dict` + meta):
 ```
 - `source: "ai"` olan öneri yerel havuzda yoktur; kart bilgisi yanıttan çizilir, kaydedilirse
   tam içeriği kullanıcı tablosunda saklanır.
-- Hatalar: `400` geçersiz gövde · `429` WAF veya kota · `5xx` → istemci sessizce yerel motora düşer.
+- Hatalar gövdesi `{"error": "…"}`: `400` başlık eksik/geçersiz UUID v4 veya bozuk JSON ·
+  `405` yanlış yöntem · `429` **yalnızca Vercel WAF**'tan gelir · `5xx`.
+  Hepsinde istemci sessizce yerel motora düşer.
+- **AI kotası dolduğunda 429 DÖNMEZ:** sunucu seed motoruna düşer, `200` ile `source: "seed"` ve
+  `meta.aiQuotaLeft: 0` döner. İstemci `aiQuotaLeft == 0` görürse o gün için AI denemesini bırakır.
+- Uç her modu kabul eder (sunucu tarafı seçim), ama offline-first kuralı gereği Android
+  `quick` ve `chips` modlarını yerelde çalıştırır.
 
 ### C3.5 v1'de olmayanlar
 Kayıt senkronu (`/state`) · içerik güncelleme ucu (`/content`) · paylaşım sayfası. Hepsi
@@ -1054,11 +1071,20 @@ BÜTÇE ASLA GEVŞETİLMEZ.
 - `save` / `unsave` (web'de unsave durumu `shown`a çeker) · `done`: `done_at = now`.
 - "Son 5 kayıt" cezası bu kayıtların `updated_at` sırasından hesaplanır.
 
-### C4.7 Haftalık tema kuralı (Faz 1'de web ile birlikte)
-Web'deki rotasyon hatası Faz 1'de düzeltilir. Önerilen kural: yöneticinin bu ISO hafta için
-açıkça tanımladığı tema varsa o, yoksa `TEMALAR[isoHaftaNumarası mod 4]`
-(`yuru, elini_kullan, ekransiz, duzen` sırasıyla). Android config gelmediğinde aynı kuralı
-yerelde uygular. Kesin kural Faz 1'de web testleriyle birlikte sabitlenir.
+### C4.7 Haftalık tema kuralı (web `config.theme_for_date`, Faz 1'de sabitlendi)
+```
+etkin = isActive olan temalar;  boşsa → null
+pazartesi = günün ISO haftasının pazartesisi
+buHafta = etkin içinde pazartesi ≤ startsOn ≤ gün olanlar
+buHafta boş değilse → (startsOn, key) en büyük olan
+değilse → sıralı = etkin, sıralama anahtarı (THEME_ROTATION'daki indeks, key);
+          rotasyonda olmayanlar (len(THEME_ROTATION), key) ile sona
+          → sıralı[isoHaftaNumarası mod sıralı.size]
+THEME_ROTATION = [yuru, elini_kullan, ekransiz, duzen]
+```
+- Android'de sunucu temaları yoktur: config gelmediyse `THEME_ROTATION[isoHafta mod 4]`,
+  geldiyse `weeklyTheme`. ISO hafta: `IsoFields.WEEK_OF_WEEK_BASED_YEAR`.
+- Doğrulama: `contract/parity/theme.json` (8 senaryo × 10 tarih, yıl dönümü dahil).
 
 ## C5. İçerik sözleşmesi
 
@@ -1105,13 +1131,20 @@ night_unsafe_solo gece tek başına önerilmesin (13 öneri)
 
 ### C5.4 Android'e taşıma hattı (Faz 1 + Faz 6)
 ```
-1. napsamweb: python manage.py seed --check   → hata varsa DUR
-2. napsamweb: dışa aktarma betiği
-     → content/suggestions.json (alan adları korunur)
-     → content/meta.json {contentVersion: sha256, count, exportedAt, budgetTiers, themes, chips}
-     → parity/*.json (C8)
-3. napsam: dosyalar ilgili modüllere kopyalanır ve commit edilir
-4. Uygulama: içerik sürümü değiştiyse içerik tablosu tek transaction'da yenilenir;
+1. napsamweb:  DATABASE_URL= .venv/bin/python manage.py export_mobile --out ../napsam/contract
+     - Geçici bellek içi SQLite kurar, seed'i yükler; geliştirme DB'sine ve Supabase'e dokunmaz
+       (SQLite dışı yapılandırmada çalışmayı reddeder)
+     - İçerik doğrulayıcısı (seed --check ile aynı) hata verirse HİÇBİR ŞEY yazılmaz
+     → contract/README.md                 "otomatik üretilir, elle düzenleme"
+     → contract/content/suggestions.json  fixture'ın BİREBİR kopyası
+     → contract/content/meta.json         contentVersion (sha256), count, wage, budgetTiers,
+                                          defaultBudget, themeRotation, dismissCooldownDays,
+                                          sessionExcluded, categories, companions, chipWindows
+     → contract/parity/*.json             (C8)
+   Çıktı deterministiktir (iki çalıştırma bayt bayt aynı; export_date gibi değişken alan yok).
+2. napsam: contract/ Android reposunda commit edilir; modüller buradan okur
+   (content → uygulama asset'leri, parity → :core:domain test kaynakları). Kopya çoğaltılmaz.
+3. Uygulama: içerik sürümü değiştiyse içerik tablosu tek transaction'da yenilenir;
    kullanıcı tablosu korunur, artık var olmayan slug'lara ait kayıtlar yetim bırakılmaz
 ```
 
@@ -1142,9 +1175,10 @@ birleştirme (web build_context):
   - bütçe: metinde bütçe ifadesi VARSA seçili kademeyi EZER
   - süre/kiminle/enerji/yer: yalnızca kullanıcı seçmediyse metinden gelir
 ```
-> **Bilinen zayıflık:** alt dize eşleşmesi yanlış pozitif üretir ("su" → "susadım", "aç" →
-> "açık hava", "çek" → "çekmece"). Parite korunarak mı port edilecek, yoksa web ile birlikte
-> kelime sınırı eşleşmesine mi geçilecek: C11-K14.
+> **Bilinen zayıflık (parite verisiyle doğrulandı):** alt dize eşleşmesi yanlış pozitif üretir —
+> `"açık havada bir şey"` → `keywords: ["yemek"]` ("aç"), `"susadım"` → `["dışarı"]` ("su").
+> K14 kararı: Android önce **birebir parite** ile port eder; iyileştirme ileride web ile birlikte
+> ayrı bir iş olarak yapılır ve parite verisi yeniden üretilir.
 
 ## C7. Chip setleri (web `core/chips.py`)
 ```
@@ -1165,12 +1199,18 @@ tarafında bir dışa aktarma betiği (Faz 1) Python motorunun **deterministik**
 JSON olarak üretir; Android `:core:domain` testleri aynı dosyaları okur:
 
 ```
-budget.json      her kademe için amountMin/amountMax/amountText (farklı ücret değerleriyle)
-chips.json       0–23 her saat için chip seti
-textmode.json    ≥ 60 cümle → ayrıştırma sonucu (web testlerindeki örnekler dahil)
-candidates.json  ≥ 40 bağlam (sabit saat, jitter yok) → sert filtre sonrası slug kümesi
-relax.json       boş sonuç veren bağlamlar → gevşetme adımları ve ilk dolu havuz
+budget.json      5 ücret değeri × 5 kademe → ratio, amountMin/Max, amountText
+badges.json      500 öneri → categoryLabel, isFree, cost/duration/place/companion rozet metni
+chips.json       0–23 her saat → chip seti
+textmode.json    164 cümle → ayrıştırma sonucu (sözlüklerin tüm ifadeleri + bilinen tuzaklar)
+candidates.json  73 bağlam (sabit tarih-saat, jitter yok) → sert filtre sonrası slug kümesi
+                 (bütçe × saat, gece sınırları, süre, kiminle, enerji, yer, hava, kelime,
+                 büyük harfli kelime, mevsim, birleşik, hariç tutma; 3'ü bilerek boş)
+relax.json       6 bağlam → düşürülen alanlar sırasıyla + ilk dolu havuz + lastResort
 sample.json      havuz boyutları → kapak değeri
+theme.json       8 senaryo × 10 tarih → beklenen tema (C4.7)
+engine.json      motor sabitleri + DISMISS_COOLDOWN_DAYS, RECENT_STATES, SESSION_EXCLUDED,
+                 MAX_KEYWORDS, MAX_EXCLUDED, MAX_TEXT_LEN
 ```
 Rastgelelik içeren son seçim parite testine girmez; olasılık dağılımı Android'de ayrıca
 istatistiksel testle doğrulanır (web'deki "VarietyTests" mantığı).

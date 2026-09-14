@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "contentVersion": "sha256:e86fe1162b400cdb982471f7dfd30b138f5e9c8ab725c3b4a6f340798725f38b",
+  "count": 500,
+  "currency": "TRY",
+  "wage": "28075",
+  "budgetTiers": [
+    {
+      "key": "bedava",
+      "label": "Bedava",
+      "hint": "",
+      "order": 0,
+      "ratioMin": "0",
+      "ratioMax": "0",
+      "amountMin": 0,
+      "amountMax": 0,
+      "amountText": "0 TL"
+    },
+    {
+      "key": "az",
+      "label": "Az",
+      "hint": "çay-simit",
+      "order": 1,
+      "ratioMin": "0",
+      "ratioMax": "0.005343",
+      "amountMin": 0,
+      "amountMax": 150,
+      "amountText": "~1-150 TL"
+    },
+    {
+      "key": "orta",
+      "label": "Orta",
+      "hint": "bir kahve, bir tatlı",
+      "order": 2,
+      "ratioMin": "0.005343",
+      "ratioMax": "0.017809",
+      "amountMin": 150,
+      "amountMax": 500,
+      "amountText": "~150-500 TL"
+    },
+    {
+      "key": "iyi",
+      "label": "İyi",
+      "hint": "dışarıda yemek",
+      "order": 3,
+      "ratioMin": "0.017809",
+      "ratioMax": "0.053428",
+      "amountMin": 500,
+      "amountMax": 1500,
+      "amountText": "~500-1.500 TL"
+    },
+    {
+      "key": "bol",
+      "label": "Bol",
+      "hint": "etkinlik, aktivite",
+      "order": 4,
+      "ratioMin": "0.053428",
+      "ratioMax": null,
+      "amountMin": 1500,
+      "amountMax": null,
+      "amountText": "1.500 TL+"
+    }
+  ],
+  "defaultBudget": "bedava",
+  "themeRotation": [
+    "yuru",
+    "elini_kullan",
+    "ekransiz",
+    "duzen"
+  ],
+  "dismissCooldownDays": 30,
+  "sessionExcluded": 30,
+  "categories": [
+    {
+      "key": "ev_ici",
+      "label": "Ev içi"
+    },
+    {
+      "key": "mutfak",
+      "label": "Mutfak"
+    },
+    {
+      "key": "disari_yakin",
+      "label": "Dışarı / yakın"
+    },
+    {
+      "key": "yeme_icme",
+      "label": "Yeme-içme"
+    },
+    {
+      "key": "hareket",
+      "label": "Hareket"
+    },
+    {
+      "key": "kultur",
+      "label": "Kültür"
+    },
+    {
+      "key": "sosyal",
+      "label": "Sosyal"
+    },
+    {
+      "key": "ogrenme",
+      "label": "Öğrenme"
+    },
+    {
+      "key": "uretme",
+      "label": "Üretme"
+    },
+    {
+      "key": "doga",
+      "label": "Doğa"
+    },
+    {
+      "key": "kendine_bakim",
+      "label": "Kendine bakım"
+    },
+    {
+      "key": "iyilik",
+      "label": "İyilik"
+    },
+    {
+      "key": "oyun",
+      "label": "Oyun"
+    },
+    {
+      "key": "ufak_isler",
+      "label": "Ufak işler"
+    }
+  ],
+  "companions": [
+    {
+      "key": "solo",
+      "label": "Tek başına"
+    },
+    {
+      "key": "couple",
+      "label": "Çift"
+    },
+    {
+      "key": "friends",
+      "label": "Arkadaşlarla"
+    },
+    {
+      "key": "family",
+      "label": "Ailece"
+    },
+    {
+      "key": "kids",
+      "label": "Çocuklu"
+    }
+  ],
+  "chipWindows": [
+    {
+      "fromHour": 6,
+      "untilHour": 11,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "fromHour": 11,
+      "untilHour": 17,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "fromHour": 17,
+      "untilHour": 22,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "fromHour": 22,
+      "untilHour": 6,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    }
+  ]
+}

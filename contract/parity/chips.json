@@ -1,0 +1,348 @@
+{
+  "cases": [
+    {
+      "hour": 0,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 1,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 2,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 3,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 4,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 5,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 6,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "hour": 7,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "hour": 8,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "hour": 9,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "hour": 10,
+      "tags": [
+        "yürümek",
+        "kahve",
+        "dışarı",
+        "yeni bir şey",
+        "sakin",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "kısa sürsün",
+        "ucuz",
+        "yemek"
+      ]
+    },
+    {
+      "hour": 11,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 12,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 13,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 14,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 15,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 16,
+      "tags": [
+        "dışarı",
+        "yürümek",
+        "arkadaşımla",
+        "hareket",
+        "öğrenmek",
+        "fotoğraf",
+        "yemek",
+        "kalabalık olmasın",
+        "yeni bir şey",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 17,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "hour": 18,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "hour": 19,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "hour": 20,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "hour": 21,
+      "tags": [
+        "evde",
+        "sakin",
+        "arkadaşımla",
+        "yemek",
+        "ellerimi kullanayım",
+        "kahve",
+        "yeni bir şey",
+        "kısa sürsün",
+        "dışarı",
+        "tek başıma"
+      ]
+    },
+    {
+      "hour": 22,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    },
+    {
+      "hour": 23,
+      "tags": [
+        "evde",
+        "sakin",
+        "gece",
+        "tek başıma",
+        "kısa sürsün",
+        "ellerimi kullanayım",
+        "öğrenmek",
+        "ucuz"
+      ]
+    }
+  ]
+}

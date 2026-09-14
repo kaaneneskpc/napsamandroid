@@ -1,0 +1,2191 @@
+{
+  "rotation": [
+    "yuru",
+    "elini_kullan",
+    "ekransiz",
+    "duzen"
+  ],
+  "rule": "Bu ISO haftanın pazartesisi ile gün arasında başlayan etkin tema varsa en yenisi; yoksa etkin temalar (rotasyon sırası + dışındakiler anahtar sırasıyla) içinden isoWeek mod adet.",
+  "cases": [
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "yalnizca-rotasyon",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "bu-hafta-acik-tema",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-14",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ozel"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "hafta-icinde-baslayan",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ozel",
+          "startsOn": "2026-09-17",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "yuru"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "pasif-tema",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "aaa-ek"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "rotasyon-disi-ek-tema",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        },
+        {
+          "key": "aaa-ek",
+          "startsOn": "2026-01-05",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "yuru"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "yuru"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "ekransiz"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "duzen"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "seed-duzeni",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-09-07",
+          "isActive": true
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-08-31",
+          "isActive": true
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-08-24",
+          "isActive": true
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-08-17",
+          "isActive": true
+        }
+      ],
+      "expected": "elini_kullan"
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "hepsi-pasif",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [
+        {
+          "key": "yuru",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "elini_kullan",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "ekransiz",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        },
+        {
+          "key": "duzen",
+          "startsOn": "2026-01-05",
+          "isActive": false
+        }
+      ],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-07",
+      "isoWeek": 37,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-13",
+      "isoWeek": 37,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-14",
+      "isoWeek": 38,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-16",
+      "isoWeek": 38,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-17",
+      "isoWeek": 38,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-20",
+      "isoWeek": 38,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-09-21",
+      "isoWeek": 39,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2026-12-28",
+      "isoWeek": 53,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2027-01-03",
+      "isoWeek": 53,
+      "themes": [],
+      "expected": null
+    },
+    {
+      "scenario": "bos",
+      "date": "2027-01-04",
+      "isoWeek": 1,
+      "themes": [],
+      "expected": null
+    }
+  ]
+}

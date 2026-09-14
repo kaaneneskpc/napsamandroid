@@ -1,0 +1,305 @@
+{
+  "rule": "tutar = round_half_even(oran × ücret / 10) × 10",
+  "cases": [
+    {
+      "wage": "28075",
+      "tiers": [
+        {
+          "key": "bedava",
+          "label": "Bedava",
+          "hint": "",
+          "order": 0,
+          "ratioMin": "0",
+          "ratioMax": "0",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "az",
+          "label": "Az",
+          "hint": "çay-simit",
+          "order": 1,
+          "ratioMin": "0",
+          "ratioMax": "0.005343",
+          "amountMin": 0,
+          "amountMax": 150,
+          "amountText": "~1-150 TL"
+        },
+        {
+          "key": "orta",
+          "label": "Orta",
+          "hint": "bir kahve, bir tatlı",
+          "order": 2,
+          "ratioMin": "0.005343",
+          "ratioMax": "0.017809",
+          "amountMin": 150,
+          "amountMax": 500,
+          "amountText": "~150-500 TL"
+        },
+        {
+          "key": "iyi",
+          "label": "İyi",
+          "hint": "dışarıda yemek",
+          "order": 3,
+          "ratioMin": "0.017809",
+          "ratioMax": "0.053428",
+          "amountMin": 500,
+          "amountMax": 1500,
+          "amountText": "~500-1.500 TL"
+        },
+        {
+          "key": "bol",
+          "label": "Bol",
+          "hint": "etkinlik, aktivite",
+          "order": 4,
+          "ratioMin": "0.053428",
+          "ratioMax": null,
+          "amountMin": 1500,
+          "amountMax": null,
+          "amountText": "1.500 TL+"
+        }
+      ]
+    },
+    {
+      "wage": "22104",
+      "tiers": [
+        {
+          "key": "bedava",
+          "label": "Bedava",
+          "hint": "",
+          "order": 0,
+          "ratioMin": "0",
+          "ratioMax": "0",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "az",
+          "label": "Az",
+          "hint": "çay-simit",
+          "order": 1,
+          "ratioMin": "0",
+          "ratioMax": "0.005343",
+          "amountMin": 0,
+          "amountMax": 120,
+          "amountText": "~1-120 TL"
+        },
+        {
+          "key": "orta",
+          "label": "Orta",
+          "hint": "bir kahve, bir tatlı",
+          "order": 2,
+          "ratioMin": "0.005343",
+          "ratioMax": "0.017809",
+          "amountMin": 120,
+          "amountMax": 390,
+          "amountText": "~120-390 TL"
+        },
+        {
+          "key": "iyi",
+          "label": "İyi",
+          "hint": "dışarıda yemek",
+          "order": 3,
+          "ratioMin": "0.017809",
+          "ratioMax": "0.053428",
+          "amountMin": 390,
+          "amountMax": 1180,
+          "amountText": "~390-1.180 TL"
+        },
+        {
+          "key": "bol",
+          "label": "Bol",
+          "hint": "etkinlik, aktivite",
+          "order": 4,
+          "ratioMin": "0.053428",
+          "ratioMax": null,
+          "amountMin": 1180,
+          "amountMax": null,
+          "amountText": "1.180 TL+"
+        }
+      ]
+    },
+    {
+      "wage": "35000.50",
+      "tiers": [
+        {
+          "key": "bedava",
+          "label": "Bedava",
+          "hint": "",
+          "order": 0,
+          "ratioMin": "0",
+          "ratioMax": "0",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "az",
+          "label": "Az",
+          "hint": "çay-simit",
+          "order": 1,
+          "ratioMin": "0",
+          "ratioMax": "0.005343",
+          "amountMin": 0,
+          "amountMax": 190,
+          "amountText": "~1-190 TL"
+        },
+        {
+          "key": "orta",
+          "label": "Orta",
+          "hint": "bir kahve, bir tatlı",
+          "order": 2,
+          "ratioMin": "0.005343",
+          "ratioMax": "0.017809",
+          "amountMin": 190,
+          "amountMax": 620,
+          "amountText": "~190-620 TL"
+        },
+        {
+          "key": "iyi",
+          "label": "İyi",
+          "hint": "dışarıda yemek",
+          "order": 3,
+          "ratioMin": "0.017809",
+          "ratioMax": "0.053428",
+          "amountMin": 620,
+          "amountMax": 1870,
+          "amountText": "~620-1.870 TL"
+        },
+        {
+          "key": "bol",
+          "label": "Bol",
+          "hint": "etkinlik, aktivite",
+          "order": 4,
+          "ratioMin": "0.053428",
+          "ratioMax": null,
+          "amountMin": 1870,
+          "amountMax": null,
+          "amountText": "1.870 TL+"
+        }
+      ]
+    },
+    {
+      "wage": "56150",
+      "tiers": [
+        {
+          "key": "bedava",
+          "label": "Bedava",
+          "hint": "",
+          "order": 0,
+          "ratioMin": "0",
+          "ratioMax": "0",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "az",
+          "label": "Az",
+          "hint": "çay-simit",
+          "order": 1,
+          "ratioMin": "0",
+          "ratioMax": "0.005343",
+          "amountMin": 0,
+          "amountMax": 300,
+          "amountText": "~1-300 TL"
+        },
+        {
+          "key": "orta",
+          "label": "Orta",
+          "hint": "bir kahve, bir tatlı",
+          "order": 2,
+          "ratioMin": "0.005343",
+          "ratioMax": "0.017809",
+          "amountMin": 300,
+          "amountMax": 1000,
+          "amountText": "~300-1.000 TL"
+        },
+        {
+          "key": "iyi",
+          "label": "İyi",
+          "hint": "dışarıda yemek",
+          "order": 3,
+          "ratioMin": "0.017809",
+          "ratioMax": "0.053428",
+          "amountMin": 1000,
+          "amountMax": 3000,
+          "amountText": "~1.000-3.000 TL"
+        },
+        {
+          "key": "bol",
+          "label": "Bol",
+          "hint": "etkinlik, aktivite",
+          "order": 4,
+          "ratioMin": "0.053428",
+          "ratioMax": null,
+          "amountMin": 3000,
+          "amountMax": null,
+          "amountText": "3.000 TL+"
+        }
+      ]
+    },
+    {
+      "wage": "10",
+      "tiers": [
+        {
+          "key": "bedava",
+          "label": "Bedava",
+          "hint": "",
+          "order": 0,
+          "ratioMin": "0",
+          "ratioMax": "0",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "az",
+          "label": "Az",
+          "hint": "çay-simit",
+          "order": 1,
+          "ratioMin": "0",
+          "ratioMax": "0.005343",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "orta",
+          "label": "Orta",
+          "hint": "bir kahve, bir tatlı",
+          "order": 2,
+          "ratioMin": "0.005343",
+          "ratioMax": "0.017809",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "iyi",
+          "label": "İyi",
+          "hint": "dışarıda yemek",
+          "order": 3,
+          "ratioMin": "0.017809",
+          "ratioMax": "0.053428",
+          "amountMin": 0,
+          "amountMax": 0,
+          "amountText": "0 TL"
+        },
+        {
+          "key": "bol",
+          "label": "Bol",
+          "hint": "etkinlik, aktivite",
+          "order": 4,
+          "ratioMin": "0.053428",
+          "ratioMax": null,
+          "amountMin": 0,
+          "amountMax": null,
+          "amountText": "0 TL+"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4504 @@
+{
+  "cases": [
+    {
+      "slug": "bakim-aklindakileri-kagida-dok",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-ayak-banyosu",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-bildirimleri-kapat",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-bir-gun-haber-okuma",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-480 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-bir-yil-sonraya-mektup",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-ekran-suresine-sinir",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-erken-yat",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-gunese-otur",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-25 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-hamama-git",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺1000 tek seans",
+      "duration": "90-150 dk",
+      "place": "Hamam",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "bakim-kese-sabun",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺150 kese ve sabun",
+      "duration": "40-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-kibarca-hayir-de",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "5-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-masa-icin-cicek",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺150 küçük demet",
+      "duration": "15-30 dk",
+      "place": "Çiçekçi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-masaj-randevusu",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺1500 bir saat",
+      "duration": "90-150 dk",
+      "place": "Masaj salonu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-nefesine-odaklan",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-ogleden-sonra-goz-kapat",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-rahat-pijama-al",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺500 tek takım",
+      "duration": "30-60 dk",
+      "place": "Giyim mağazası",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-sabah-pencereyi-ac",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-sabah-sessiz-yarim-saat",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-sac-kesimi",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺500 tek kişi",
+      "duration": "40-80 dk",
+      "place": "Kuaför",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-takvime-bos-saat",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-telefonu-birak",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-telefonu-gece-uzakta",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-tirnak-bakimi",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺120 nemlendirici",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-uc-cumle-yaz",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-uyaninca-yatagi-topla",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "2-5 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-uykuyu-oneleme",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-uzun-dus",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-yarinin-kiyafeti",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "bakim-yavas-ogun",
+      "categoryLabel": "Kendine bakım",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-yeni-yastik-sec",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺1200 tek yastık",
+      "duration": "60-120 dk",
+      "place": "Ev tekstili mağazası",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "bakim-yuz-bakimi",
+      "categoryLabel": "Kendine bakım",
+      "isFree": false,
+      "cost": "~₺80 malzeme",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "disari-komsu-ilceyi-yuru",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺900 ulaşım ve öğle yemeği",
+      "duration": "240-420 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "disari-uzun-tren-yolculugu",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺3000 gidiş-dönüş",
+      "duration": "600-1440 dk",
+      "place": "Tren istasyonu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-ayi-bir-hafta-izle",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-ayni-agaci-her-hafta",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-bes-farkli-koku",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-bir-gece-uzaklas",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺4000 tek kişi, bir gece",
+      "duration": "600-1440 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-bulut-izle",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "doga-cocukla-topraktan-sekil",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "doga-dal-celikle-cogalt",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-25 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-dolunayi-bekle",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-golge-saati-kur",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-gun-dogumu",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-gunes-batarken-bak",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-havayi-gokyuzunden-tahmin",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-25 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-kamp-ekipmani-al",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺9000 başlangıç seti",
+      "duration": "480-1440 dk",
+      "place": "Kamp alanı",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "doga-karda-ilk-iz",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-karinca-yolunu-izle",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-kis-gunesinde-otur",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-kompost-baslat",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-konusmadan-birlikte-yuru",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "doga-kucuk-piknik",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺150 atıştırmalık",
+      "duration": "60-150 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "doga-kus-say",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-mesire-yurumesi",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺100 ulaşım",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "doga-meyve-agaclarini-bul",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "doga-rehberli-tur",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺3500 kişi başı, ulaşım dahil",
+      "duration": "360-600 dk",
+      "place": "Doğa yürüyüşü grubu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-ruzgar-gulu-yap",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-sabah-cigi",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-sabah-seslerini-kaydet",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "doga-sisten-kus-yemligi",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺60 kuş yemi",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-sokak-agacina-su-tasi",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-tahtadan-kus-evi",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺400 tahta ve çivi",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-tas-topla-boya",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-tohum-sakla",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-uc-agac-tani",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-ucurtma-yap-ucur",
+      "categoryLabel": "Doğa",
+      "isFree": false,
+      "cost": "~₺50 ip ve naylon",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "doga-yabani-cicek-adlari",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-yagmur-suyuyla-sula",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-yagmuru-dinle",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-yalinayak-yuru",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "doga-yaprak-topla",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-55 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "doga-yildizlara-bak",
+      "categoryLabel": "Doğa",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-alet-cantasi-kur",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺5000 temel set",
+      "duration": "90-180 dk",
+      "place": "Hırdavatçı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-ayakkabilari-boya",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺90 boya",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-balkonu-topla",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-banyo-derzlerini-fircala",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-belgeleri-tara",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-bir-odayi-boya",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺5000 boya ve malzeme",
+      "duration": "240-480 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-bitkilerin-yapraklarini-sil",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ev-bozuk-tamir",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-buzdolabini-sil",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-camlari-ice-sil",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-carsaflari-degistir",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-cekmece-bosalt",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-cocukla-oyuncak-ayikla",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "ev-dolabi-mevsime-cevir",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-duymadigin-film",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "90-140 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-en-eski-kitap",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-eski-fotograflar",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-fotograflari-duvara-as",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺60 ip ve mandal",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "ev-girisini-toparla",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-halilari-balkonda-silkele",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-isiklari-kapat",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-kablolari-duzenle",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺50 bant",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-karanlik-koseye-lamba",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺500 lamba",
+      "duration": "45-90 dk",
+      "place": "Ev dekorasyon mağazası",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-kitaplari-yeniden-diz",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-masaya-canli-bitki",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺150 küçük bitki",
+      "duration": "20-40 dk",
+      "place": "Çiçekçi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-mobilya-yerini-degistir",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-okuma-kosesi-kur",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-pencereye-yalitim-bandi",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺150 yalıtım bandı",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-perdeleri-yika-tak",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-radyoyu-ac-birak",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-tarcin-portakal-kaynat",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺40 tarçın",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-tek-mobilyayi-yenile",
+      "categoryLabel": "Ev içi",
+      "isFree": false,
+      "cost": "~₺8000 tek parça",
+      "duration": "120-300 dk",
+      "place": "Mobilyacı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-tezgahta-uc-sey-birak",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ev-tisortten-toz-bezi",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ev-yorganlari-gunese-as",
+      "categoryLabel": "Ev içi",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-birebir-yuzme-dersi",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺1500 dört ders",
+      "duration": "45-60 dk",
+      "place": "Yüzme havuzu",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-bisiklet",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-bisiklet-kirala",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺800 günlük",
+      "duration": "240-480 dk",
+      "place": "Bisiklet kiralama",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-boks-deneme-dersi",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺800 deneme dersi",
+      "duration": "60-100 dk",
+      "place": "Boks salonu",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "hareket-buz-pateni",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺600 seans ve kiralama",
+      "duration": "60-110 dk",
+      "place": "Buz pisti",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "hareket-cocukla-kosu-yarisi",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "hareket-dans-kursu-dene",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺700 deneme dersi",
+      "duration": "60-110 dk",
+      "place": "Dans kursu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-duvara-yaslanip-otur",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "hareket-hali-saha",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺400 kişi başı",
+      "duration": "60-120 dk",
+      "place": "Halı saha",
+      "companion": "Arkadaşlarla"
+    },
+    {
+      "slug": "hareket-havuz-abonelik",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺3500 aylık",
+      "duration": "60-120 dk",
+      "place": "Yüzme havuzu",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-havuza-git",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺1200 tek seans",
+      "duration": "90-180 dk",
+      "place": "Havuz",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "hareket-ikinci-el-bisiklet-al",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺12000 ikinci el ve kask",
+      "duration": "120-300 dk",
+      "place": "Bisikletçi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-ip-atla",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺80 ip",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-kosu-ayakkabisi",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺4000 tek çift",
+      "duration": "90-150 dk",
+      "place": "Spor mağazası",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-masa-tenisi",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺150 kiralama",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "hareket-merdiven",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-muzikle-ev-topla",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-15 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-on-bin-adim",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-park-spor-aletleri",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-parkta-badminton",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺150 raket seti",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "hareket-saat-basi-kalk",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "2-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-salona-gunluk-giris",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺500 günlük giriş",
+      "duration": "60-100 dk",
+      "place": "Spor salonu",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "hareket-sinav-mekik-seti",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-25 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-tek-ayak-denge",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "5-10 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "hareket-tirmanis-salonu",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺900 seans ve ekipman",
+      "duration": "90-150 dk",
+      "place": "Tırmanış salonu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-uzun-yuruyus-botu",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺5000 tek çift",
+      "duration": "60-120 dk",
+      "place": "Spor mağazası",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-yavas-kosu",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "hareket-yemekten-sonra-aile-turu",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-35 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Ailece / Çift"
+    },
+    {
+      "slug": "hareket-yerde-esne",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-yoga-tek-ders",
+      "categoryLabel": "Hareket",
+      "isFree": false,
+      "cost": "~₺600 tek ders",
+      "duration": "60-100 dk",
+      "place": "Spor stüdyosu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-yurume-bandi-yerine",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "hareket-yuz-kez-comel-kalk",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "5-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "hareket-yuz-serbest-atis",
+      "categoryLabel": "Hareket",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "iyilik-apartman-merdivenini-supur",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-apartman-paylasim-rafi",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-arizayi-belediyeye-bildir",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-askida-ekmek",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺200 birkaç ekmek",
+      "duration": "15-30 dk",
+      "place": "Fırın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-askida-kahve",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺250 bir fincan",
+      "duration": "15-30 dk",
+      "place": "Kahveci",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-barinaga-mama",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺800 mama",
+      "duration": "60-120 dk",
+      "place": "Hayvan barınağı",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "iyilik-battaniyeleri-hayvanlara",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-bir-ogrenciyi-destekle",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺6000 dönemlik",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-buyugun-telefonu",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Ailece"
+    },
+    {
+      "slug": "iyilik-cocuga-kirtasiye",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺900 tek set",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-cocuklara-top",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺400 top",
+      "duration": "20-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "iyilik-esnafa-yorum",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-fatura-sessizce",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺500 tek fatura",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-gonullu-ol",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺100 ulaşım",
+      "duration": "180-420 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "iyilik-gorevliye-cay-gotur",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺80 çay ve kap",
+      "duration": "10-20 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "iyilik-hasta-tanidigi-ziyaret",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 meyve",
+      "duration": "40-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-hayir-yemegi",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺500 malzeme ve kap",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-hayvanlara-su",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺60 mama",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "iyilik-huzurevinde-sohbet",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 ikram",
+      "duration": "60-120 dk",
+      "place": "Huzurevi",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "iyilik-kan-bagisi",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Kan bağış merkezi",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "iyilik-kedi-kulubesi",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺400 kutu ve battaniye",
+      "duration": "40-80 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-kirik-oyuncagi-tamir",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "iyilik-kis-kiyafeti-topla",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-kitaplari-bagisla",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-komsu-cocugunun-odevi",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "iyilik-komsu-tatildeyken-cicek",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-komsuya-sor",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 alışveriş",
+      "duration": "25-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-koy-okuluna-kitap",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺500 kitap ve kargo",
+      "duration": "40-80 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-kucuge-ilk-kitap",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 tek kitap",
+      "duration": "30-60 dk",
+      "place": "Kitapçı",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "iyilik-kuryeye-ikram",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺80 ikram",
+      "duration": "5-10 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-ogrenci-kartina-bakiye",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 bakiye",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-ozgecmisini-duzelt",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-sebepsiz-cicek",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺150 küçük demet",
+      "duration": "20-40 dk",
+      "place": "Çiçekçi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-tesekkur-et",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-uc-sey-bagisla",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "iyilik-yabanciya-iltifat",
+      "categoryLabel": "İyilik",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "2-10 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "iyilik-yasli-komsuya-market",
+      "categoryLabel": "İyilik",
+      "isFree": false,
+      "cost": "~₺400 alışveriş",
+      "duration": "45-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-acik-hava-konseri",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺150 ulaşım",
+      "duration": "90-150 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "kultur-ayni-makamda-uc-eser",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-buyuk-sanat-kitabi",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺3500 tek kitap",
+      "duration": "60-120 dk",
+      "place": "Kitapçı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-cocuk-tiyatrosu",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺1200 iki-üç bilet",
+      "duration": "90-150 dk",
+      "place": "Çocuk tiyatrosu",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "kultur-cocuklugun-kitabi",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "kultur-dede-korkut-hikayesi",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "kultur-dogdugun-gunun-gazetesi",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "kultur-donemlik-kursa-yazil",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺8000 dönemlik",
+      "duration": "60-120 dk",
+      "place": "Kurs merkezi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-iki-film-ust-uste",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺800 iki bilet",
+      "duration": "240-330 dk",
+      "place": "Sinema",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-kalabaliksiz-saatte-muze",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺450 giriş",
+      "duration": "60-100 dk",
+      "place": "Müze",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-karagoz-oyunu",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "kultur-konser-bileti",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺1500 tek bilet",
+      "duration": "120-200 dk",
+      "place": "Konser salonu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-kutuphane",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Kütüphane",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-maca-tribunden-git",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺1200 tek bilet",
+      "duration": "150-240 dk",
+      "place": "Stadyum",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "kultur-muze",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺250 giriş",
+      "duration": "60-120 dk",
+      "place": "Müze",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "kultur-muzekart-al",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺1200 yıllık kart",
+      "duration": "90-180 dk",
+      "place": "Müze",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-okuma-listesini-doldur",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺3000 beş kitap",
+      "duration": "40-60 dk",
+      "place": "Kitapçı",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-opera-bale-bileti",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺700 tek bilet",
+      "duration": "150-240 dk",
+      "place": "Opera sahnesi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-oren-yeri-gez",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺1200 ulaşım ve giriş",
+      "duration": "180-360 dk",
+      "place": "Ören yeri",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "kultur-ozan-turkuleri",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-plak-al",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺900 tek plak",
+      "duration": "60-100 dk",
+      "place": "Plakçı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-rehberli-sehir-gezisi",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺500 katılım",
+      "duration": "120-210 dk",
+      "place": "Rehberli gezi",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "kultur-ressamin-uc-tablosu",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-sahafta-kitap",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺250 tek kitap",
+      "duration": "40-80 dk",
+      "place": "Sahaf",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-sergi-katalogu",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺800 katalog",
+      "duration": "90-150 dk",
+      "place": "Sergi salonu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-siir-sesli-oku",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-sinema-tek",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺400 tek bilet",
+      "duration": "120-180 dk",
+      "place": "Sinema",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-stand-up-izle",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺900 tek bilet",
+      "duration": "120-180 dk",
+      "place": "Gösteri salonu",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "kultur-tiyatro-bileti",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺900 tek bilet",
+      "duration": "120-180 dk",
+      "place": "Tiyatro",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-ucretsiz-sergi",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Kültür merkezi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "kultur-yeni-roman-sec",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺450 tek kitap",
+      "duration": "40-90 dk",
+      "place": "Kitapçı",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-yerel-gazete-al",
+      "categoryLabel": "Kültür",
+      "isFree": false,
+      "cost": "~₺60 gazete",
+      "duration": "25-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "kultur-yesilcam-filmi",
+      "categoryLabel": "Kültür",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "90-130 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-baharat-rafini-duzenle",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "mutfak-bayat-ekmegi-degerlendir",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-biber-kurut",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 sebze",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-biciklari-bile",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺100 bileyi",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "mutfak-birine-yemek-goster",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺200 malzeme",
+      "duration": "60-110 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-bitki-cayi-harmanla",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 kuru bitki",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-bulgur-pilavi",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺100 malzeme",
+      "duration": "30-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-cay-demle",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-dagitmak-icin-asure",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺400 malzeme",
+      "duration": "150-240 dk",
+      "place": "Evde",
+      "companion": "Ailece / Tek başına"
+    },
+    {
+      "slug": "mutfak-dolaptaki-uc-sey",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-domates-sosu-kavanoz",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺350 domates ve kavanoz",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "mutfak-eksi-maya",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺80 un",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-elma-kabugundan-sirke",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-25 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "mutfak-etsiz-cig-kofte",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺250 malzeme",
+      "duration": "50-80 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "mutfak-hafta-yemek-hazirla",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺500 haftalık malzeme",
+      "duration": "120-180 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-haftalik-yemek-plani",
+      "categoryLabel": "Mutfak",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-kavanoz-tursu",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺80 sebze",
+      "duration": "25-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-kislik-eriste-kes",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺100 un ve yumurta",
+      "duration": "60-100 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "mutfak-kumpir-yap",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 malzeme",
+      "duration": "50-80 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-kurabiye-tepsisi",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺300 malzeme",
+      "duration": "50-80 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-kuru-fasulye-islat",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺120 fasulye",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-limonata-sik",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺120 limon",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-makinesiz-dondurma",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 krema",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-manti-hamuru",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺350 malzeme",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Çift / Ailece"
+    },
+    {
+      "slug": "mutfak-mercimek-corbasi",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺90 malzeme",
+      "duration": "35-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-patlican-kozle",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 malzeme",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-pizza-hamurdan",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺350 malzeme",
+      "duration": "90-120 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-recel-kur",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺250 meyve, şeker",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-sicak-pogaca",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺120 malzeme",
+      "duration": "90-130 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-tarhana-ilk-corba",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺80 tarhana",
+      "duration": "25-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-tavada-ekmek",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺40 un",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-turk-kahvesi",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺50 kahve",
+      "duration": "15-25 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "mutfak-un-helvasi",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺60 un, şeker",
+      "duration": "25-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-yaprak-sarma",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺350 malzeme",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Çift / Ailece"
+    },
+    {
+      "slug": "mutfak-yogurt-mayala",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺120 süt",
+      "duration": "30-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "mutfak-zeytinyagli-sebze",
+      "categoryLabel": "Mutfak",
+      "isFree": false,
+      "cost": "~₺150 sebze",
+      "duration": "45-80 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-adini-eski-yaziyla",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-anlatacak-kadar",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-75 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-belgesel-not-al",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "50-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-carpim-tablosu-oyunla",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "ogrenme-dikis-makinesi",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺100 iplik",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-dugum",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-ehliyet-kursu",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺15000 kurs ücreti",
+      "duration": "60-120 dk",
+      "place": "Sürücü kursu",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-elektrik-panosu",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-enstruman-ozel-ders",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺6000 dört ders",
+      "duration": "60-90 dk",
+      "place": "Özel ders",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-gunluk-atolye",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺1500 tek katılım",
+      "duration": "150-300 dk",
+      "place": "Atölye",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-guzel-yazi-alistirmasi",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺80 defter ve kalem",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-haritadan-ulke",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-ilk-programini-yaz",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-isaret-dili",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-kafadan-yuzde",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-kelime-kokeni",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-kursa-yazil",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺4000 aylık",
+      "duration": "60-120 dk",
+      "place": "Kurs merkezi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-kutuphane-uyeligi",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "35-70 dk",
+      "place": "Kütüphane",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-mors-alfabesi",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-on-cumle",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-on-klavye-kisayolu",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-on-parmak",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-pille-ampul-yak",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺150 pil, ampul, kablo",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-podcast-yabanci",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-siir-ezberle",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-soyagaci-cikar",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "ogrenme-tek-video-beceri",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ogrenme-telefonsuz-yon-bul",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-temel-fotograf-atolyesi",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺1500 tek atölye",
+      "duration": "150-300 dk",
+      "place": "Fotoğraf atölyesi",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "ogrenme-ustadan-sor",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ogrenme-yemegin-kokeni",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "ogrenme-zeka-kupu-ilk-kat",
+      "categoryLabel": "Öğrenme",
+      "isFree": false,
+      "cost": "~₺150 zeka küpü",
+      "duration": "40-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ogrenme-zihin-haritasi",
+      "categoryLabel": "Öğrenme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "oyun-balonla-voleybol",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺30 balon",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-bes-tas-ogren",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-bilardo-langirt",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺400 saatlik",
+      "duration": "60-120 dk",
+      "place": "Oyun salonu",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "oyun-bowling-iki-oyun",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺500 kişi başı",
+      "duration": "60-100 dk",
+      "place": "Bowling salonu",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-bulmaca-bitir",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺40 dergi",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "oyun-cizerek-anlatma",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-cocukla-saklambac",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "oyun-dama-turnuvasi",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Ailece / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-eski-konsolu-ac",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-evde-bilgi-yarismasi",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Ailece / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-gercek-kartlarla-pasyans",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "oyun-hazine-avi",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺50 ödül",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "oyun-kacis-odasi",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺500 kişi başı",
+      "duration": "60-100 dk",
+      "place": "Kaçış odası",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "oyun-kagida-dokuz-tas",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-kagit-kalem-oyunu",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-kagit-oyunu-ogret",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺60 deste",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-kagit-ucaklari-uzaga-at",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-kagittan-hafiza-kartlari",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-kart-hilesi-ogren",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺60 deste",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "oyun-karton-kutudan-labirent",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-kartondan-tangram",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "oyun-kelime-zinciri",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-kitaplarla-mini-golf",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-kutu-oyunu-bitir",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-mangala-ogren",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-masada-kagit-futbolu",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-mendil-kapmaca",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Çocuklu / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-pet-sise-bowlingi",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-sarkiyi-uc-notadan-bil",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "oyun-satranc-acilis",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-sessiz-sinema",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-90 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "oyun-sirayla-hikaye-uydur",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-sokak-oyunu-ogret",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "oyun-tavla-okey",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-90 dk",
+      "place": "Evde",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-tombala-gecesi",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺150 takım",
+      "duration": "40-90 dk",
+      "place": "Evde",
+      "companion": "Ailece / Arkadaşlarla"
+    },
+    {
+      "slug": "oyun-yapboz-baslat",
+      "categoryLabel": "Oyun",
+      "isFree": false,
+      "cost": "~₺250 yapboz",
+      "duration": "30-90 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-yasak-kelime-kartlari",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "oyun-yastiklardan-kale",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-90 dk",
+      "place": "Evde",
+      "companion": "Çocuklu / Ailece"
+    },
+    {
+      "slug": "oyun-yirmi-soruda-bul",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-40 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "oyun-zarlarla-sayi-oyunu",
+      "categoryLabel": "Oyun",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "sosyal-aileyi-bir-gece-cikar",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺7000 aile, bir gece",
+      "duration": "720-1440 dk",
+      "place": "Konaklama",
+      "companion": "Ailece / Çift"
+    },
+    {
+      "slug": "sosyal-aileyi-gunubirlik-gezdir",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺4000 aile, ulaşım ve yemek",
+      "duration": "420-720 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Ailece / Çift"
+    },
+    {
+      "slug": "sosyal-anne-babanin-isini-ustlen",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-90 dk",
+      "place": "Evde",
+      "companion": "Ailece"
+    },
+    {
+      "slug": "sosyal-arkadasa-ev-yapimi-tatli",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺150 malzeme",
+      "duration": "60-100 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-arkadasi-cagir",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺150 ikram",
+      "duration": "90-180 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "sosyal-arkadaslari-yemege-cikar",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺3000 üç-dört kişi",
+      "duration": "120-210 dk",
+      "place": "Lokanta",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "sosyal-ayni-kitabi-birlikte-basla",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "sosyal-ayni-masada-sessiz-calis",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-bankta-buyukle-sohbet",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-birlikte-pisirme-daveti",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺400 malzeme",
+      "duration": "90-180 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "sosyal-buyukten-hikaye-kaydet",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-70 dk",
+      "place": "Evde",
+      "companion": "Ailece"
+    },
+    {
+      "slug": "sosyal-cocukla-ilgilen",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺100",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "sosyal-cocukluk-arkadasi-eski-sokak",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺120 ulaşım",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-dogum-gunu-kutlamasi-kur",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺5000 kutlama",
+      "duration": "180-300 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "sosyal-esinle-haftayi-planla",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Çift"
+    },
+    {
+      "slug": "sosyal-eski-ogretmenini-bul",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-grup-sohbetini-bulusmaya-cevir",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺300 buluşma",
+      "duration": "90-180 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-habersiz-ziyaret",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺200 ikram",
+      "duration": "60-120 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "sosyal-herkes-bir-tabak-getirsin",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺150 çay ve ikram",
+      "duration": "120-210 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "sosyal-ilk-tanistiginiz-gun",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-kahvalti-sofrasi",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺500 sofra",
+      "duration": "90-180 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "sosyal-kapisina-cicek-gonder",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺1200 teslimatlı demet",
+      "duration": "15-30 dk",
+      "place": "Çiçekçi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-komsudan-odunc-iste",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "sosyal-komsuya-cay",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺100 ikram",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "sosyal-komsuyla-tanis",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-25 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "sosyal-kopan-arkadas",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-25 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-mahalle-esnafini-tani",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺200 alışveriş",
+      "duration": "25-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-ortak-film-gecesi",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺250 atıştırmalık",
+      "duration": "120-200 dk",
+      "place": "Evde",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "sosyal-sesli-mesaj-birak",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-25 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-tasinmaya-yardim",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "60-180 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "sosyal-telefonla-ara",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "sosyal-telefonlar-sepete",
+      "categoryLabel": "Sosyal",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Ailece / Çift"
+    },
+    {
+      "slug": "sosyal-yeni-komsuya-hos-geldin",
+      "categoryLabel": "Sosyal",
+      "isFree": false,
+      "cost": "~₺150 küçük ikram",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-abonelikleri-iptal",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-acil-numaralar-kagida",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "ufak-ayakkabi-tabani",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺150 tamir",
+      "duration": "20-40 dk",
+      "place": "Ayakkabı tamircisi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-beyaz-esya-altini-supur",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-biten-pilleri-topla",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "ufak-camasir-makinesi-filtresi",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-camasir-yiginini-katla",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-cuzdani-ayikla",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-davlumbaz-yagini-sok",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺80 yağ çözücü",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-dolaptan-on-parca",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-eposta-kutusunu-sifirla",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-evraki-bitir",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-fatura-arsivini-duzenle",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-galeriyi-temizle",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-garanti-belgeleri-zarf",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-gelecek-ayin-takvimi",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-iade-paketini-gonder",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺80 kargo",
+      "duration": "20-40 dk",
+      "place": "Kargo şubesi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-ilac-dolabini-gozden-gecir",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "ufak-indirilenler-klasoru",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-kapi-kollarini-sikistir",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-kimlik-ehliyet-tarihi",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-lastik-havasini-kontrol-et",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Benzin istasyonu",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-mentese-yagla",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺60 makine yağı",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-oduncu-sahibine-ver",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-on-uygulama-sil",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-otomatik-odeme-talimati",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-perlator-kirec",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺60 kireç çözücü",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-priz-koruyucu-tak",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺150 koruyucu kapaklar",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "ufak-randevu-al",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-rehberi-birlestir",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-saatleri-ayarla",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "10-20 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-sarj-girisini-temizle",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "5-10 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-sifreleri-yenile",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-telefon-yedegi-al",
+      "categoryLabel": "Ufak işler",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-terziye-tadilat",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺400 tadilat",
+      "duration": "20-40 dk",
+      "place": "Terzi",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-yanan-ampulleri-degistir",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺250 ampul",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-yavas-akan-lavabo",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺80 karbonat ve sirke",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "ufak-yedek-anahtar-cikart",
+      "categoryLabel": "Ufak işler",
+      "isFree": false,
+      "cost": "~₺250 anahtar",
+      "duration": "25-45 dk",
+      "place": "Anahtarcı",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-ahsap-oyma",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺900 alet ve ahşap",
+      "duration": "90-180 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-aile-fotografi-cektir",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺5000 çekim ve baskı",
+      "duration": "120-240 dk",
+      "place": "Fotoğraf stüdyosu",
+      "companion": "Ailece / Çift"
+    },
+    {
+      "slug": "uretme-baktigini-ciz",
+      "categoryLabel": "Üretme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-balkon-bahcesi-kur",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺900 saksı ve fide",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "uretme-boya-seti-al",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1200 set ve tuval",
+      "duration": "90-180 dk",
+      "place": "Kırtasiye",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-defter-tut-baslat",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺400 defter",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-dergilerden-kolaj",
+      "categoryLabel": "Üretme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-80 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-deriden-anahtarlik",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺450 deri seti",
+      "duration": "60-100 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-dokuma-tezgahi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺5000 tezgah ve yün",
+      "duration": "120-240 dk",
+      "place": "Hobi mağazası",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "uretme-elle-mektup",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺50 pul, zarf",
+      "duration": "25-50 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-enstruman-al",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺6000 başlangıç seti",
+      "duration": "120-240 dk",
+      "place": "Müzik mağazası",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-eski-fotograflari-aktar",
+      "categoryLabel": "Üretme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-70 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "uretme-fotograflari-bastir",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1200 baskı ve çerçeve",
+      "duration": "90-180 dk",
+      "place": "Fotoğraf baskı yeri",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-hazir-bazdan-sabun",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺400 sabun bazı ve kalıp",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "uretme-hediye-kendin-yap",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺600 malzeme",
+      "duration": "60-180 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-ikinci-el-fotograf-makinesi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺12000 ikinci el",
+      "duration": "120-300 dk",
+      "place": "Fotoğrafçı",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-ilk-dikis-makinesi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺9000 dikiş makinesi",
+      "duration": "90-180 dk",
+      "place": "Elektronik mağazası",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kanavice-cerceve",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺350 kanaviçe ve ip",
+      "duration": "60-150 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "uretme-kartpostal-gonder",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺150 kart ve pul",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kayit-icin-mikrofon",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1500 mikrofon",
+      "duration": "45-90 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kendine-portre-cekimi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1500 kısa seans",
+      "duration": "40-60 dk",
+      "place": "Fotoğraf stüdyosu",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kiyafet-degistir",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺80 iplik, düğme",
+      "duration": "30-70 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kumastan-bez-canta",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺350 kumaş ve iplik",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-kuru-cicekten-ayrac",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺80 şeffaf bant",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-linol-baski",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺480 linolyum ve mürekkep",
+      "duration": "90-150 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-maket-seti",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1200 maket seti",
+      "duration": "90-240 dk",
+      "place": "Hobi mağazası",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-makrome-saksi-askisi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺400 pamuk ip",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-mum-dok",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺700 malzeme",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-on-fotograf",
+      "categoryLabel": "Üretme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-orgu-baslat",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺600 ip ve şiş",
+      "duration": "45-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-portre-cek",
+      "categoryLabel": "Üretme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-45 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "uretme-saksiya-ek",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺100 toprak, saksı",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "uretme-seramik-atolyesi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺1500 tek atölye",
+      "duration": "120-180 dk",
+      "place": "Seramik atölyesi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-suda-mermerleme",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺140 boya ve kağıt",
+      "duration": "30-60 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-tek-kullanimlik-makine",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺500 makine ve banyo",
+      "duration": "30-60 dk",
+      "place": "Fotoğrafçı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-telefona-genis-aci-mercek",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺150 klipsli mercek",
+      "duration": "20-40 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "uretme-tisort-boya",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺400 tişört ve boya",
+      "duration": "60-120 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "uretme-tripodla-gece-fotografi",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺450 küçük tripod",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "uretme-uc-kareyi-kagida-bastir",
+      "categoryLabel": "Üretme",
+      "isFree": false,
+      "cost": "~₺100 üç baskı",
+      "duration": "20-40 dk",
+      "place": "Fotoğraf baskı yeri",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-bakkala-ugra",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺250 alışveriş",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "yakin-banka-otur",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "20-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-bulusmayi-yuruyuste-yap",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "50-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "yakin-cesme-bul",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "35-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-cop-topla",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yakin-en-yuksek-nokta",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-is-cikisi-yuruyerek-don",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yakin-isiklar-yanarken-carsi",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-kirtasiyeye-gir",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺150 tek ürün",
+      "duration": "25-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "yakin-kitabi-disarida-oku",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-75 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yakin-koprunun-altina-in",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-mahalle-haritasi-ciz",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-75 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "yakin-mahalle-sahasi-mac",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "45-100 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yakin-merdivenli-sokak",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-75 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-muhtarlik-ilan-panosu",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yakin-ogle-arasi-disari",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "15-20 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yakin-otobuste-pencere",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺120 ulaşım",
+      "duration": "40-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yakin-oturup-insan-izle",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺150 içecek",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-parkin-gitmedigin-kosesi",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-50 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-postayla-kartpostal",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺80 kart ve pul",
+      "duration": "25-45 dk",
+      "place": "Postane",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yakin-sabah-erken-cik",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺80 fırın",
+      "duration": "35-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-semt-pazari",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺200 alışveriş",
+      "duration": "40-80 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-sokak-kedilerini-tani",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çocuklu"
+    },
+    {
+      "slug": "yakin-son-durak",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺120 ulaşım",
+      "duration": "60-150 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-su-kenari",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-tabelalari-oku",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-vitrin-turu",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "40-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-yeni-acilan-yere-gir",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": false,
+      "cost": "~₺150 küçük alışveriş",
+      "duration": "20-40 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yakin-yeni-sokaklar",
+      "categoryLabel": "Dışarı / yakın",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "35-70 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-acilista-kahvecide-otur",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 içecek ve tatlı",
+      "duration": "30-50 dk",
+      "place": "Kahveci",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yeme-ailecek-iyi-lokanta",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺4500 aile",
+      "duration": "90-150 dk",
+      "place": "Lokanta",
+      "companion": "Ailece / Çocuklu"
+    },
+    {
+      "slug": "yeme-arkadasla-serpme-kahvalti",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺1400 iki kişilik",
+      "duration": "90-150 dk",
+      "place": "Kahvaltı salonu",
+      "companion": "Arkadaşlarla / Çift"
+    },
+    {
+      "slug": "yeme-arkadaslarla-mangal",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺1500 et ve kömür",
+      "duration": "150-240 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Arkadaşlarla / Ailece"
+    },
+    {
+      "slug": "yeme-balikci-tezgahi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺600 iki kişilik",
+      "duration": "50-90 dk",
+      "place": "Balıkçı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-borekcide-su-boregi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 porsiyon ve çay",
+      "duration": "25-45 dk",
+      "place": "Börekçi",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-cay-ocagi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺60 bir bardak",
+      "duration": "20-40 dk",
+      "place": "Çay ocağı",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-cekirdek-kahve-al",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺450 200 gram",
+      "duration": "30-60 dk",
+      "place": "Kahve dükkanı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-corbaciya-sabah",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺250 tek kişilik",
+      "duration": "30-50 dk",
+      "place": "Çorbacı",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-dogum-gunu-pasta-ismarla",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺3000 ısmarlama pasta",
+      "duration": "30-60 dk",
+      "place": "Pastane",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "yeme-dondurmaci-iki-top",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺150 iki top",
+      "duration": "15-30 dk",
+      "place": "Dondurmacı",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yeme-doyasiya-aksam-yemegi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺1400 iki kişilik",
+      "duration": "90-150 dk",
+      "place": "Lokanta",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-durumcu-dene",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 tek porsiyon",
+      "duration": "20-40 dk",
+      "place": "Dürümcü",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-esnaf-lokantasi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 tek kişilik",
+      "duration": "40-70 dk",
+      "place": "Esnaf lokantası",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-firin-onunde-lahmacun",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺350 tek kişilik",
+      "duration": "25-45 dk",
+      "place": "Lahmacuncu",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-hic-yemedigin-tatli",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺250 tek porsiyon",
+      "duration": "20-45 dk",
+      "place": "Tatlıcı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-kahvaltiyi-disari-tasi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺120 malzeme",
+      "duration": "45-90 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yeme-kahve-demleme-aleti",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺1400 alet ve kahve",
+      "duration": "30-60 dk",
+      "place": "Kahve dükkanı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-kahve-ve-tatli",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺400 tek kişilik",
+      "duration": "40-70 dk",
+      "place": "Kahveci",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-kasap-lokantasi-kofte",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺500 tek porsiyon",
+      "duration": "40-70 dk",
+      "place": "Kasap lokantası",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "yeme-kisin-boza",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺120 bir kase",
+      "duration": "20-40 dk",
+      "place": "Bozacı",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yeme-kitapla-kahveci",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 içecek",
+      "duration": "60-90 dk",
+      "place": "Kahveci",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yeme-kokorecci-yarim-ekmek",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺350 yarım ekmek ve ayran",
+      "duration": "20-40 dk",
+      "place": "Kokoreççi",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-koylu-tezgahi-tereyagi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺500 bir kalıp",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-kozde-kestane-misir",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺120 bir külah",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-kuruyemisciden-karisik",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺150 karışık paket",
+      "duration": "15-30 dk",
+      "place": "Kuruyemişçi",
+      "companion": "Tek başına / Ailece"
+    },
+    {
+      "slug": "yeme-lokum-komsuya",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺150 küçük kutu",
+      "duration": "20-40 dk",
+      "place": "Şekerci",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-mantici-bir-tabak",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺450 tek porsiyon",
+      "duration": "30-60 dk",
+      "place": "Mantıcı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-menemen-pisir",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺100 malzeme",
+      "duration": "20-35 dk",
+      "place": "Evde",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-pazarda-meyve-tat",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺150 meyve",
+      "duration": "30-60 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yeme-pideciye-git",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺250 tek kişilik",
+      "duration": "30-55 dk",
+      "place": "Fırın",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-sac-gozleme",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺300 iki kişilik",
+      "duration": "30-50 dk",
+      "place": "Gözlemeci",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-sade-kahvalti",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺350 tek kişilik",
+      "duration": "45-80 dk",
+      "place": "Kahvaltıcı",
+      "companion": "Farketmez"
+    },
+    {
+      "slug": "yeme-sicak-kunefe-paylas",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺450 tek porsiyon",
+      "duration": "30-50 dk",
+      "place": "Tatlıcı",
+      "companion": "Çift / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-sicak-salep",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺150 bir fincan",
+      "duration": "20-40 dk",
+      "place": "Pastane",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-simit-cay-sabah",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺100 simit ve çay",
+      "duration": "15-30 dk",
+      "place": "Dışarı / Yakın",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-sofra-kur",
+      "categoryLabel": "Yeme-içme",
+      "isFree": true,
+      "cost": "₺0 Bedava",
+      "duration": "25-45 dk",
+      "place": "Evde",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yeme-taze-portakal-suyu",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺120 büyük boy",
+      "duration": "10-20 dk",
+      "place": "Büfe",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-tek-basina-iyi-ogle-yemegi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺1200 tek kişilik",
+      "duration": "60-90 dk",
+      "place": "Lokanta",
+      "companion": "Tek başına"
+    },
+    {
+      "slug": "yeme-tek-porsiyon-tatli",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺200 tek porsiyon",
+      "duration": "25-45 dk",
+      "place": "Tatlıcı",
+      "companion": "Tek başına / Çift"
+    },
+    {
+      "slug": "yeme-tostcuda-karisik-tost",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺260 tost ve içecek",
+      "duration": "20-35 dk",
+      "place": "Tostçu",
+      "companion": "Tek başına / Arkadaşlarla"
+    },
+    {
+      "slug": "yeme-ureticiden-zeytinyagi",
+      "categoryLabel": "Yeme-içme",
+      "isFree": false,
+      "cost": "~₺4000 teneke",
+      "duration": "30-90 dk",
+      "place": "Kooperatif",
+      "companion": "Tek başına / Ailece"
+    }
+  ]
+}

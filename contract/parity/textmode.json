@@ -1,0 +1,1096 @@
+{
+  "cases": [
+    {
+      "text": "param yok ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "parasız ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "parasiz ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "bedava ne yapsam",
+      "parsed": {
+        "budget_key": "bedava",
+        "keywords": [
+          "ucuz"
+        ]
+      }
+    },
+    {
+      "text": "ücretsiz ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "ucretsiz ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "beş kuruşum yok ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "bes kurusum yok ne yapsam",
+      "parsed": {
+        "budget_key": "bedava",
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "bütçem yok ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "butcem yok ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "meteliksiz ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "cebim delik ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "sıfır bütçe ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "harcamak istemiyorum ne yapsam",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "bugün param var",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "bugün bütçe sorun değil",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "bugün butce sorun degil",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "bugün fark etmez param",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "sevgilim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "eşim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "esim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "nişanlım bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "nisanlim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "partnerim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "ikimiz bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "arkadaş bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "arkadas bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "dostum bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "kankam bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "grupça bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "grupca bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "ailem bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "family"
+      }
+    },
+    {
+      "text": "ailece bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "family"
+      }
+    },
+    {
+      "text": "annem bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "family"
+      }
+    },
+    {
+      "text": "babam bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "family"
+      }
+    },
+    {
+      "text": "kardeşim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "kardesim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "akraba bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "family"
+      }
+    },
+    {
+      "text": "çocuk bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "cocuk bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "çocuğum bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "cocugum bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "yeğen bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "yegen bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "kids"
+      }
+    },
+    {
+      "text": "tek başıma bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "tek basima bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "yalnızım bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "yalnizim bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "kendi başıma bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "kendi basima bir şey yapmak istiyorum",
+      "parsed": {
+        "companions": "solo"
+      }
+    },
+    {
+      "text": "bugün yorgun",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün enerjim yok",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün halim yok",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün bitkin",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün uykusuz",
+      "parsed": {
+        "energy": "low",
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "bugün yoruldum",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün üşengeç",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün usengec",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün canım hiçbir şey istemiyor",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün canim hicbir sey istemiyor",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "bugün enerjim var",
+      "parsed": {
+        "energy": "high"
+      }
+    },
+    {
+      "text": "bugün hareket etmek",
+      "parsed": {
+        "energy": "high",
+        "keywords": [
+          "hareket"
+        ]
+      }
+    },
+    {
+      "text": "bugün kıpırdamak",
+      "parsed": {
+        "energy": "high"
+      }
+    },
+    {
+      "text": "bugün kipirdamak",
+      "parsed": {
+        "energy": "high"
+      }
+    },
+    {
+      "text": "bugün koşmak",
+      "parsed": {
+        "energy": "high"
+      }
+    },
+    {
+      "text": "bugün kosmak",
+      "parsed": {
+        "energy": "high"
+      }
+    },
+    {
+      "text": "evde",
+      "parsed": {
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "evden çıkmak istemiyorum",
+      "parsed": {
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "evden cikmak istemiyorum",
+      "parsed": {
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "dışarı çıkamam",
+      "parsed": {
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "dışarı",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "disari",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "dışarıda",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "disarida",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "sokağa",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "sokaga",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "çıkmak istiyorum",
+      "parsed": {
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "canım yürü istiyor",
+      "parsed": {
+        "keywords": [
+          "yürümek"
+        ]
+      }
+    },
+    {
+      "text": "canım yuru istiyor",
+      "parsed": {
+        "keywords": [
+          "yürümek"
+        ]
+      }
+    },
+    {
+      "text": "canım yürüyüş istiyor",
+      "parsed": {
+        "keywords": [
+          "yürümek"
+        ]
+      }
+    },
+    {
+      "text": "canım yuruyus istiyor",
+      "parsed": {
+        "keywords": [
+          "yürümek"
+        ]
+      }
+    },
+    {
+      "text": "canım sakin istiyor",
+      "parsed": {
+        "keywords": [
+          "sakin"
+        ]
+      }
+    },
+    {
+      "text": "canım sessiz istiyor",
+      "parsed": {
+        "keywords": [
+          "sakin"
+        ]
+      }
+    },
+    {
+      "text": "canım huzur istiyor",
+      "parsed": {
+        "keywords": [
+          "sakin"
+        ]
+      }
+    },
+    {
+      "text": "canım dingin istiyor",
+      "parsed": {
+        "keywords": [
+          "sakin"
+        ]
+      }
+    },
+    {
+      "text": "canım deniz istiyor",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "canım su istiyor",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "canım doğa istiyor",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "canım doga istiyor",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "canım kahve istiyor",
+      "parsed": {
+        "keywords": [
+          "kahve"
+        ]
+      }
+    },
+    {
+      "text": "canım çay istiyor",
+      "parsed": {
+        "keywords": [
+          "kahve"
+        ]
+      }
+    },
+    {
+      "text": "canım cay istiyor",
+      "parsed": {
+        "keywords": [
+          "kahve"
+        ]
+      }
+    },
+    {
+      "text": "canım yemek istiyor",
+      "parsed": {
+        "keywords": [
+          "yemek"
+        ]
+      }
+    },
+    {
+      "text": "canım aç istiyor",
+      "parsed": {
+        "keywords": [
+          "yemek"
+        ]
+      }
+    },
+    {
+      "text": "canım yemek yapmak istiyor",
+      "parsed": {
+        "keywords": [
+          "yemek"
+        ]
+      }
+    },
+    {
+      "text": "canım pişir istiyor",
+      "parsed": {
+        "keywords": [
+          "yemek"
+        ]
+      }
+    },
+    {
+      "text": "canım öğren istiyor",
+      "parsed": {
+        "keywords": [
+          "öğrenmek"
+        ]
+      }
+    },
+    {
+      "text": "canım ogren istiyor",
+      "parsed": {
+        "keywords": [
+          "öğrenmek"
+        ]
+      }
+    },
+    {
+      "text": "canım kurs istiyor",
+      "parsed": {
+        "keywords": [
+          "öğrenmek"
+        ]
+      }
+    },
+    {
+      "text": "canım merak istiyor",
+      "parsed": {
+        "keywords": [
+          "öğrenmek"
+        ]
+      }
+    },
+    {
+      "text": "canım fotoğraf istiyor",
+      "parsed": {
+        "keywords": [
+          "fotoğraf"
+        ]
+      }
+    },
+    {
+      "text": "canım fotograf istiyor",
+      "parsed": {
+        "keywords": [
+          "fotoğraf"
+        ]
+      }
+    },
+    {
+      "text": "canım çek istiyor",
+      "parsed": {
+        "keywords": [
+          "fotoğraf"
+        ]
+      }
+    },
+    {
+      "text": "canım kalabalık istemiyorum istiyor",
+      "parsed": {
+        "keywords": [
+          "kalabalık olmasın"
+        ]
+      }
+    },
+    {
+      "text": "canım tenha istiyor",
+      "parsed": {
+        "keywords": [
+          "kalabalık olmasın"
+        ]
+      }
+    },
+    {
+      "text": "canım el işi istiyor",
+      "parsed": {
+        "keywords": [
+          "ellerimi kullanayım"
+        ]
+      }
+    },
+    {
+      "text": "canım elimle istiyor",
+      "parsed": {
+        "keywords": [
+          "ellerimi kullanayım"
+        ]
+      }
+    },
+    {
+      "text": "canım üret istiyor",
+      "parsed": {
+        "keywords": [
+          "ellerimi kullanayım"
+        ]
+      }
+    },
+    {
+      "text": "canım uret istiyor",
+      "parsed": {
+        "keywords": [
+          "ellerimi kullanayım"
+        ]
+      }
+    },
+    {
+      "text": "canım yeni istiyor",
+      "parsed": {
+        "keywords": [
+          "yeni bir şey"
+        ]
+      }
+    },
+    {
+      "text": "canım farklı istiyor",
+      "parsed": {
+        "keywords": [
+          "yeni bir şey"
+        ]
+      }
+    },
+    {
+      "text": "canım farkli istiyor",
+      "parsed": {
+        "keywords": [
+          "yeni bir şey"
+        ]
+      }
+    },
+    {
+      "text": "canım kısa istiyor",
+      "parsed": {
+        "keywords": [
+          "kısa sürsün"
+        ]
+      }
+    },
+    {
+      "text": "canım kisa istiyor",
+      "parsed": {
+        "keywords": [
+          "kısa sürsün"
+        ]
+      }
+    },
+    {
+      "text": "canım çabuk istiyor",
+      "parsed": {
+        "keywords": [
+          "kısa sürsün"
+        ]
+      }
+    },
+    {
+      "text": "canım gece istiyor",
+      "parsed": {
+        "keywords": [
+          "gece"
+        ]
+      }
+    },
+    {
+      "text": "canım akşam istiyor",
+      "parsed": {
+        "keywords": [
+          "gece"
+        ]
+      }
+    },
+    {
+      "text": "canım aksam istiyor",
+      "parsed": {
+        "keywords": [
+          "gece"
+        ]
+      }
+    },
+    {
+      "text": "canım spor istiyor",
+      "parsed": {
+        "keywords": [
+          "hareket"
+        ]
+      }
+    },
+    {
+      "text": "canım hareket istiyor",
+      "parsed": {
+        "keywords": [
+          "hareket"
+        ]
+      }
+    },
+    {
+      "text": "canım egzersiz istiyor",
+      "parsed": {
+        "keywords": [
+          "hareket"
+        ]
+      }
+    },
+    {
+      "text": "canım ucuz istiyor",
+      "parsed": {
+        "keywords": [
+          "ucuz"
+        ]
+      }
+    },
+    {
+      "text": "canım bedava istiyor",
+      "parsed": {
+        "budget_key": "bedava",
+        "keywords": [
+          "ucuz"
+        ]
+      }
+    },
+    {
+      "text": "3 saatim var",
+      "parsed": {
+        "duration_max": 180
+      }
+    },
+    {
+      "text": "yarım saatim var",
+      "parsed": {
+        "duration_max": 30
+      }
+    },
+    {
+      "text": "yarim saat",
+      "parsed": {
+        "duration_max": 30
+      }
+    },
+    {
+      "text": "45 dk boşum",
+      "parsed": {
+        "duration_max": 45
+      }
+    },
+    {
+      "text": "90 dakika",
+      "parsed": {
+        "duration_max": 90
+      }
+    },
+    {
+      "text": "bütün gün evdeyim",
+      "parsed": {
+        "duration_max": 480,
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "butun gun",
+      "parsed": {
+        "duration_max": 480
+      }
+    },
+    {
+      "text": "tüm gün",
+      "parsed": {
+        "duration_max": 480
+      }
+    },
+    {
+      "text": "1 saat 30 dakika",
+      "parsed": {
+        "duration_max": 60
+      }
+    },
+    {
+      "text": "2saat",
+      "parsed": {
+        "duration_max": 120
+      }
+    },
+    {
+      "text": "0 tl",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "1 tl",
+      "parsed": {
+        "budget_key": "az"
+      }
+    },
+    {
+      "text": "150 tl",
+      "parsed": {
+        "budget_key": "az"
+      }
+    },
+    {
+      "text": "151 tl",
+      "parsed": {
+        "budget_key": "orta"
+      }
+    },
+    {
+      "text": "499 lira",
+      "parsed": {
+        "budget_key": "orta"
+      }
+    },
+    {
+      "text": "500 ₺",
+      "parsed": {
+        "budget_key": "orta"
+      }
+    },
+    {
+      "text": "501 tl",
+      "parsed": {
+        "budget_key": "iyi"
+      }
+    },
+    {
+      "text": "1500 tl",
+      "parsed": {
+        "budget_key": "iyi"
+      }
+    },
+    {
+      "text": "1501 tl",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "20000 lira",
+      "parsed": {
+        "budget_key": "bol"
+      }
+    },
+    {
+      "text": "200tl",
+      "parsed": {
+        "budget_key": "orta"
+      }
+    },
+    {
+      "text": "3 saatim var param yok",
+      "parsed": {
+        "budget_key": "bedava",
+        "duration_max": 180
+      }
+    },
+    {
+      "text": "canım biraz deniz gördü",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "200 tl bütçem var",
+      "parsed": {
+        "budget_key": "orta"
+      }
+    },
+    {
+      "text": "sevgilimle bir şey yapalım",
+      "parsed": {
+        "companions": "couple"
+      }
+    },
+    {
+      "text": "arkadaşımla takılacağız",
+      "parsed": {
+        "companions": "friends"
+      }
+    },
+    {
+      "text": "çok yorgunum",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "40 dakikam var",
+      "parsed": {
+        "duration_max": 40
+      }
+    },
+    {
+      "text": "param yok evde takılayım",
+      "parsed": {
+        "budget_key": "bedava",
+        "place_pref": "ev"
+      }
+    },
+    {
+      "text": "ailemle dışarı çıkmak istiyorum 2 saat",
+      "parsed": {
+        "duration_max": 120,
+        "companions": "family",
+        "place_pref": "disari"
+      }
+    },
+    {
+      "text": "Param Yok",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "PARAM YOK",
+      "parsed": {
+        "budget_key": "bedava"
+      }
+    },
+    {
+      "text": "  çok   yorgunum  ",
+      "parsed": {
+        "energy": "low"
+      }
+    },
+    {
+      "text": "IŞIK",
+      "parsed": {}
+    },
+    {
+      "text": "İstanbul'da değilim",
+      "parsed": {}
+    },
+    {
+      "text": "susadım",
+      "parsed": {
+        "keywords": [
+          "dışarı"
+        ]
+      }
+    },
+    {
+      "text": "açık havada bir şey",
+      "parsed": {
+        "keywords": [
+          "yemek"
+        ]
+      }
+    },
+    {
+      "text": "çekmece düzenlemek",
+      "parsed": {
+        "keywords": [
+          "fotoğraf"
+        ]
+      }
+    },
+    {
+      "text": "sıkıldım",
+      "parsed": {}
+    },
+    {
+      "text": "",
+      "parsed": {}
+    },
+    {
+      "text": "   ",
+      "parsed": {}
+    }
+  ]
+}
