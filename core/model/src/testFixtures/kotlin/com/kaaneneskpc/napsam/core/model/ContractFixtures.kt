@@ -1,34 +1,56 @@
 package com.kaaneneskpc.napsam.core.model
 
 import java.io.File
+import java.math.BigDecimal
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.boolean
+import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 /**
- * Web'den dışa aktarılan `contract/` dosyalarını testlerde okur.
+ * Web'den dışa aktarılan `contract/` dosyalarını testlerde okur (`:core:model` ve `:core:domain`).
  *
  * Klasör yolu Gradle tarafından `napsam.contract.dir` sistem özelliğiyle verilir
  * (JvmLibraryConventionPlugin). Uygulamanın asıl içerik eşleyicisi `:core:data`'dadır;
- * bu dosya yalnızca model testlerinin ihtiyacı kadar ayrıştırma yapar.
+ * bu dosya yalnızca testlerin ihtiyacı kadar ayrıştırma yapar.
  */
-internal object ContractFixtures {
+public object ContractFixtures {
     private val root: File by lazy {
         val path = System.getProperty("napsam.contract.dir")
             ?: error("napsam.contract.dir tanımlı değil; testleri Gradle ile çalıştır.")
         File(path)
     }
 
-    fun json(relativePath: String): JsonElement = Json.parseToJsonElement(root.resolve(relativePath).readText())
+    public fun json(relativePath: String): JsonElement = Json.parseToJsonElement(root.resolve(relativePath).readText())
 
-    val suggestions: List<Suggestion> by lazy {
+    public val suggestions: List<Suggestion> by lazy {
         json("content/suggestions.json").jsonArray.map { it.jsonObject.toSuggestion() }
     }
+
+    private val meta: JsonObject by lazy { json("content/meta.json").jsonObject }
+
+    /** Uygulamaya gömülen varsayılan bütçe kademeleri (web seed değerleri). */
+    public val budgetTiers: List<BudgetTier> by lazy {
+        meta.getValue("budgetTiers").jsonArray.map { budgetTier(it.jsonObject) }
+    }
+
+    /** Dışa aktarma anındaki net asgari ücret. */
+    public val wage: BigDecimal by lazy { BigDecimal(meta.string("wage")) }
+
+    /** Mobil API ve dışa aktarma biçimindeki bir kademe: oranlar hassasiyet kaybı olmasın diye metindir. */
+    public fun budgetTier(json: JsonObject): BudgetTier = BudgetTier(
+        key = json.string("key"),
+        label = json.string("label"),
+        hint = json.string("hint"),
+        order = json.int("order"),
+        ratioMin = BigDecimal(json.string("ratioMin")),
+        ratioMax = json.getValue("ratioMax").jsonPrimitive.contentOrNull?.let { BigDecimal(it) },
+    )
 
     private fun JsonObject.string(name: String): String = getValue(name).jsonPrimitive.content
 

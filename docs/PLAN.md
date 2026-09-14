@@ -11,8 +11,8 @@
 | 1 | Web backend hazırlığı (napsamweb, yerel dal) | ✅ |
 | 2 | Proje iskeleti | ✅ |
 | 3 | `:core:model` | ✅ |
-| 4 | `:core:designsystem` | 🟨 onay bekliyor |
-| 5 | `:core:domain` + parite testleri | ⬜ |
+| 4 | `:core:designsystem` | ✅ |
+| 5 | `:core:domain` + parite testleri | 🟨 onay bekliyor |
 | 6 | `:core:data` | ⬜ |
 | 7 | `:feature:home` | ⬜ |
 | 8 | `:feature:suggestion` | ⬜ |
@@ -201,18 +201,33 @@
       yeşil; 7 Android modülünde lint "No issues found"
 
 ## Faz 5 — `:core:domain`
-- [ ] BudgetCalculator (HALF_EVEN, amountText biçimi)
-- [ ] ChipCatalog (saat → set)
-- [ ] TextParser (C6, kaynak listelerden birebir)
-- [ ] SuggestionEngine (C4; Random ve Clock enjekte)
-- [ ] WeeklyThemeRule (C4.7)
-- [ ] Repository arayüzleri
-- [ ] Parite testleri (C8) + çeşitlilik istatistik testi
+> Başlamadan önce Faz 4 tasarımı son Stitch dışa aktarımıyla yeniden karşılaştırıldı (14.09.2026):
+> en yeni zip yalnızca kullanılan iki ekran + DESIGN.md içeriyor, tüm görünür metinler katalogla aynı,
+> eksik yok. Stitch MCP bu oturumda tanımlı değildi (anahtar gerekir, MCP oturum başında yüklenir).
+- [x] `EngineConstants`: web motor sabitleri + DISMISS_COOLDOWN_DAYS, RECENT_STATES, SESSION_EXCLUDED, MAX_*
+- [x] `BudgetCalculator`: oran × ücret → 10 TL'ye HALF_EVEN yuvarlama, "~1-150 TL" / "1.500 TL+" metni,
+      bilinmeyen kademe tavanı 0, bant alt sınırı
+- [x] `ChipCatalog`: saat → set (4 pencere)
+- [x] `TextParser`: C6 listeleri web kaynağından birebir, Unicode boşluk/rakam ve dilden bağımsız küçük harf
+      (Python ile aynı), `applyTo` = web `build_context` birleştirmesi (metin bütçeyi ezer, seçimleri ezmez)
+- [x] `WeeklyThemeRule`: C4.7 + config teması yoksa yerel rotasyon
+- [x] `SuggestionEngine`: sert filtreler web sırasıyla, puan, yakınlık eşiği + havuzla ölçeklenen kapak,
+      gevşetme (bütçe hariç), son çare bedava öneri. `Random` ve `ZoneId` enjekte; yerel saat bağlamdan
+      gelir, bekleme süresi karşılaştırması için zaman dilimiyle ana çevrilir. Yalnızca SEED öneriler havuzda
+- [x] Repository arayüzleri: içerik, kullanıcı durumu, config, uzak öneri (AI), tercihler (yalnızca tema;
+      web bütçeyi hatırlamıyor) + `Outcome`/`DataError`
+- [x] `contract/` okuyucusu `:core:model` testFixtures'a taşındı; model ve domain testleri ortak kullanıyor
+- [x] Parite testleri (C8): bütçe (5 ücret × 5 kademe + gömülü meta), chips (24 saat), metin (164 cümle),
+      sert filtre (73 bağlam), gevşetme (6 bağlam), kapak, tema (80), motor sabitleri — hepsi web ile aynı
+- [x] Davranış testleri (web `VarietyTests` eşikleri, sabit tohum): 150 seçimde havuzun %40'ından fazlası,
+      tema payı < %85, kelime isabeti 25/25, seçim her zaman havuzdan, bekleme süresi sınırı, son çare,
+      bütçe hiç gevşemiyor, AI öneriler havuz dışı, puan ağırlıkları, son 5 kayıt, gevşetme sırası
+- [x] 31 domain + 16 model + 9 designsystem testi yeşil
 
 ## Faz 6 — `:core:data`
 - [ ] Room: içerik tablosu (+ sürüm), kullanıcı durum tablosu, şema export, DAO testleri
 - [ ] İçerik içe aktarma (K3), sürüm değişiminde transaction'lı yenileme + test
-- [ ] DataStore: tema, son bütçe, kurulum kimliği, config önbelleği
+- [ ] DataStore: tema, kurulum kimliği, config önbelleği (web gibi bütçe hatırlanmaz; her açılışta "Bedava")
 - [ ] Ktor: config (GET, retry), suggest (POST, 5 sn, retry yok), 429/5xx/zaman aşımı → Outcome
 - [ ] Repository implementasyonları + Hilt modülleri + fake'li testler
 
@@ -220,6 +235,8 @@
 - [ ] HomeUiState: bütçe, daraltma paneli (kapalı), mod, chip seçimi, metin, kart, meşgul/iskelet, kayıt sayısı
 - [ ] Web sırası (K19): başlık → bütçe paneli → Canlı Öneri kartı → üç tanıtım kutusu → alt bilgi + Gizlilik
 - [ ] Açılışta kart (K4), NAPSAM? akışı, oturumda son 30 hariç tutma
+- [ ] Bağlam web isteğiyle aynı sınırlarda kurulur: seçili kelimelerden ilk 8'i (`MAX_KEYWORDS`), sonra
+      "Yaz" metni `TextParser.applyTo` ile; haftalık tema `WeeklyThemeRule.activeThemeKey`
 - [ ] ViewModel testleri (Turbine) + Compose UI testi (NAPSAM? → kart)
 - [ ] Dar ekran/%200 font yerleşimi
 
