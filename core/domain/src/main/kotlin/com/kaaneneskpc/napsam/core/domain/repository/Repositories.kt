@@ -48,12 +48,17 @@ public interface ConfigRepository {
     /** Önce gömülü varsayılan (`contract/content/meta.json`), sunucu yanıtı gelince güncellenir. */
     public fun observeConfig(): Flow<AppConfig>
 
+    /**
+     * Önbellek 12 saatten eskiyse ve hız sınırı ertelemesi bitmişse sunucudan çeker (spesifikasyon B7);
+     * gerek yoksa istek atmadan başarı döner. Hata durumunda önbellek ve varsayılan korunur.
+     */
     public suspend fun refresh(): Outcome<Unit>
 }
 
 /** `POST /api/v1/suggest/`: yalnızca "Yaz" modunda ve config'te AI açıkken çağrılır. */
 public interface RemoteSuggestionRepository {
-    public suspend fun suggest(context: SuggestionContext, text: String): Outcome<Suggestion>
+    /** Yanıt 5 saniyede gelmezse [com.kaaneneskpc.napsam.core.domain.DataError.TIMEOUT]. */
+    public suspend fun suggest(context: SuggestionContext, text: String): Outcome<RemoteSuggestionResult>
 }
 
 /** Web'deki gibi yalnızca tema tercihi saklanır; bütçe her açılışta varsayılana ("Bedava") döner. */

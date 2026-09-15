@@ -12,8 +12,8 @@
 | 2 | Proje iskeleti | ✅ |
 | 3 | `:core:model` | ✅ |
 | 4 | `:core:designsystem` | ✅ |
-| 5 | `:core:domain` + parite testleri | 🟨 onay bekliyor |
-| 6 | `:core:data` | ⬜ |
+| 5 | `:core:domain` + parite testleri | ✅ |
+| 6 | `:core:data` | 🟨 onay bekliyor |
 | 7 | `:feature:home` | ⬜ |
 | 8 | `:feature:suggestion` | ⬜ |
 | 9 | `:feature:saved` + `:feature:privacy` | ⬜ |
@@ -225,11 +225,29 @@
 - [x] 31 domain + 16 model + 9 designsystem testi yeşil
 
 ## Faz 6 — `:core:data`
-- [ ] Room: içerik tablosu (+ sürüm), kullanıcı durum tablosu, şema export, DAO testleri
-- [ ] İçerik içe aktarma (K3), sürüm değişiminde transaction'lı yenileme + test
-- [ ] DataStore: tema, kurulum kimliği, config önbelleği (web gibi bütçe hatırlanmaz; her açılışta "Bedava")
-- [ ] Ktor: config (GET, retry), suggest (POST, 5 sn, retry yok), 429/5xx/zaman aşımı → Outcome
-- [ ] Repository implementasyonları + Hilt modülleri + fake'li testler
+- [x] Room (v1, şema `core/data/schemas/` altında): `suggestion`, `content_info` (sürüm), `user_state`
+      (içerikten ayrı, yabancı anahtar yok). Liste alanları JSON dizisi. Destructive migration yok
+- [x] İçerik asset olarak paketlenir: yeni `napsam.android.content` convention'ı `contract/content`'ten
+      yalnızca `suggestions.json` + `meta.json`'u variant API ile asset yapar (parite dosyaları APK'ya girmez)
+- [x] İçe aktarma (K3): meta sürümü DB'dekinden farklıysa tek transaction'da yenileme; kullanıcı kayıtları
+      korunur, artık olmayan önerilerin kayıtları silinir; bozuk içerik (bilinmeyen anahtar, sayı tutmuyor,
+      yinelenen slug) hiç yazılmaz. Kontrol süreç başına bir kez, ilk öneri isteğinde (B11.2)
+- [x] Kullanıcı durumu geçişleri web `api_state` + `engine.mark_*` ile birebir (unsave `updated_at`'e dokunmaz,
+      kaydetmek beklemeyi kaldırır, içerikte olmayan slug için kayıt açılmaz); Kaydedilenler `-saved_at` sırasıyla
+- [x] DataStore (K12, kotlinx.serialization): tema, kurulum kimliği (UUID v4), config önbelleği ve 429
+      ertelemesi. Bozuk dosya varsayılana döner. Web gibi bütçe saklanmaz
+- [x] Ktor (Android motoru, çerez/CSRF yok, connect 10 sn / request 20 sn): config GET — önbellek 12 saat,
+      ağ/zaman aşımı/5xx için 2 yeniden deneme (1 sn, 2 sn), 429'da deneme yok + 10 dk erteleme, geçersiz
+      yanıt önbelleğe yazılmaz. Suggest POST — web gövdesi ve sınırları, 5 sn istemci zaman aşımı, yeniden deneme yok
+- [x] AI yanıtı domain'de `RemoteSuggestion` (Seed = yerel slug, Generated = sunucudan kart alanları + rozet
+      metinleri) + `aiQuotaLeft`; arayüz değişikliği `RemoteSuggestionRepository`'de
+- [x] Hilt modülleri (dispatcher'lar, uygulama scope'u, Room, DataStore, HttpClient, Clock/Random/motor,
+      @Binds). Robolectric kurulumu ayrı `napsam.android.robolectric` convention'ına taşındı (ekran görüntüsü
+      testleri de onu kullanıyor)
+- [x] Testler (26): içe aktarma 5 (birebir içerik, tekrar okumama, sürüm yenileme + yetim temizliği, bozuk
+      içerik, istisna sızmaması), kullanıcı durumu 5, config 7 (MockEngine + gerçek DataStore + sanal zaman),
+      AI isteği 6 (gövde, kurulum kimliği, seed/ai eşleme, hata tipleri, 5 sn zaman aşımı), ayarlar 3
+- [ ] Ertelenen: AI önerisinin cihazda kaydedilmesi → Faz 8 (kart ve kaydetme akışıyla)
 
 ## Faz 7 — `:feature:home`
 - [ ] HomeUiState: bütçe, daraltma paneli (kapalı), mod, chip seçimi, metin, kart, meşgul/iskelet, kayıt sayısı
@@ -244,6 +262,7 @@
 - [ ] Kart (A6.4 alanları ve biçimleri)
 - [ ] Başka fikir = dismiss + yeni + kart başına kaydırma (regresyon testi)
 - [ ] Kaydet / kayıttan çıkar · Tamam yapıyorum mesajı ve mesajı gizleyen X (K6)
+- [ ] AI önerisi (`RemoteSuggestion.Generated`) kartı ve kaydedilmesi: tam içeriğin cihazda saklanması (C3.4)
 - [ ] Yaz modu: yerel ayrıştırıcı; aiEnabled ise mobil API, 1 sn iskelet, 5 sn yerel düşüş
 
 ## Faz 9 — `:feature:saved` + `:feature:privacy`
@@ -254,6 +273,7 @@
 ## Faz 10 — `:app`
 - [ ] Application (Hilt), MainActivity (edge-to-edge), splash
 - [ ] Navigation 3: Home, Saved, Privacy; predictive back
+- [ ] Hilt grafiği ilk kez uçtan uca kullanılır (Faz 6 bağlamaları); Network Security Config (cleartext kapalı)
 - [ ] Üst bar (logo, Kaydedilenler + sayı, tema düğmesi); seçilen tema DataStore'da
 - [ ] Network Security Config, strings TR/EN, uyarlanabilir yerleşim (≥ 600dp)
 - [ ] Emülatörde (Pixel_9_Pro_API_37) tam akış + ekran görüntüleri, TalkBack, uçak modu

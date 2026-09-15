@@ -520,7 +520,8 @@ Ayarlar ekranı YOK; tema düğmesi üst barda (web gibi — C11-K18)
   - Tüm DAO sorguları suspend veya Flow döner.
 
 Tercihler (DataStore)
-  - Tema (sistem/açık/koyu), son seçilen bütçe, kurulum kimliği (C3.2), config önbelleği.
+  - Tema (sistem/açık/koyu), kurulum kimliği (C3.2), config önbelleği. Bütçe web gibi hatırlanmaz,
+    her açılışta "Bedava" (web yalnızca temayı saklıyor).
   - Proto mu, kotlinx.serialization ile tipli DataStore mu: C11-K12.
   - SharedPreferences YASAK.
 
@@ -542,7 +543,8 @@ Ktor Client 3.5.2 + kotlinx.serialization
   - JSON: ignoreUnknownKeys = true, explicitNulls = false
   - Timeout: connect 10s, request 20s (AI çağrısı istemci tarafında 5s — aşağıya bak)
   - Çerez YOK, CSRF YOK. Kimlik yalnızca X-Napsam-Install başlığı (C3.2).
-  - Retry: yalnızca GET config'te, exponential backoff, max 2 deneme. POST'ta retry YOK.
+  - Retry: yalnızca GET config'te, ağ hatası/zaman aşımı/5xx için ilk istek + en fazla 2 yeniden
+    deneme (1 sn, 2 sn). POST'ta retry YOK.
   - 429 (Vercel WAF veya sunucu kotası): retry yok, sessizce yerel motora düş,
     config için bir sonraki denemeyi en az 10 dakika ertele.
   - Tüm DTO'lar ayrı; domain modele mapper ile çevrilir. DTO UI'a sızmaz.
@@ -934,7 +936,8 @@ bunları şimdilik istemedi; Android işi bunlara dokunmaz.
 ### C3.2 Kimlik
 - İstemci ilk açılışta rastgele bir UUID v4 üretir, DataStore'da saklar: `X-Napsam-Install`.
 - Yalnızca AI kotasının kimlik kapsamı için kullanılır (web'deki `anon:<uuid>` karşılığı).
-- Cihaz kimliği, reklam kimliği veya donanım bilgisi KULLANILMAZ. "Verilerimi sil" yeni UUID üretir.
+- Cihaz kimliği, reklam kimliği veya donanım bilgisi KULLANILMAZ. Uygulama verileri sistem
+  ayarlarından temizlenince yeni UUID üretilir ("verilerimi sil" düğmesi yok, C11-K18).
 
 ### C3.3 `GET /api/v1/config/`
 ```json
@@ -998,8 +1001,10 @@ Yanıt (web'deki `suggestion_to_dict` + meta):
   "meta": {"mode": "text", "budget": "bedava", "keywords": [], "isNight": false, "aiQuotaLeft": 4}
 }
 ```
-- `source: "ai"` olan öneri yerel havuzda yoktur; kart bilgisi yanıttan çizilir, kaydedilirse
-  tam içeriği kullanıcı tablosunda saklanır.
+- `source: "ai"` olan öneri yerel havuzda yoktur; kart bilgisi yanıttan çizilir (rozet metinleri
+  sunucudan gelir). `source: "seed"` ise yalnızca slug kullanılır, kart yerel içerikten çizilir.
+  AI önerisinin kaydedilmesi (tam içeriğin cihazda saklanması) Faz 8'de kart ve kaydetme akışıyla
+  birlikte yapılır; Faz 6'da kullanıcı tablosu yalnızca yerel havuzdaki önerileri tutar.
 - Hatalar gövdesi `{"error": "…"}`: `400` başlık eksik/geçersiz UUID v4 veya bozuk JSON ·
   `405` yanlış yöntem · `429` **yalnızca Vercel WAF**'tan gelir · `5xx`.
   Hepsinde istemci sessizce yerel motora düşer.

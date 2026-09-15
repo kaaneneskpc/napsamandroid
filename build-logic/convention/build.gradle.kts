@@ -50,6 +50,14 @@ gradlePlugin {
             id = libs.plugins.napsam.android.feature.get().pluginId
             implementationClass = "AndroidFeatureConventionPlugin"
         }
+        register("androidRobolectric") {
+            id = libs.plugins.napsam.android.robolectric.get().pluginId
+            implementationClass = "AndroidRobolectricConventionPlugin"
+        }
+        register("androidContentAssets") {
+            id = libs.plugins.napsam.android.content.get().pluginId
+            implementationClass = "AndroidContentAssetsConventionPlugin"
+        }
         register("androidScreenshot") {
             id = libs.plugins.napsam.android.screenshot.get().pluginId
             implementationClass = "AndroidScreenshotTestConventionPlugin"

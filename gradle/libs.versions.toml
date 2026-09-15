@@ -143,6 +143,8 @@ spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 # Convention plugin'ler (build-logic)
 napsam-android-application = { id = "napsam.android.application" }
 napsam-android-compose = { id = "napsam.android.compose" }
+napsam-android-content = { id = "napsam.android.content" }
+napsam-android-robolectric = { id = "napsam.android.robolectric" }
 napsam-android-feature = { id = "napsam.android.feature" }
 napsam-android-library = { id = "napsam.android.library" }
 napsam-android-room = { id = "napsam.android.room" }
