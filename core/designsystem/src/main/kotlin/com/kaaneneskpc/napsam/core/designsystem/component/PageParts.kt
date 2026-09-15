@@ -206,7 +206,7 @@ fun OverlinePill(text: String, modifier: Modifier = Modifier) {
                 .background(colors.accentDot),
         )
         Text(
-            text = text.toUpperCase(LocaleList.current),
+            text = text.toUpperCase(ContentLocale),
             style = NapsamTheme.typography.overline,
             color = colors.overlineText,
         )
@@ -217,7 +217,7 @@ fun OverlinePill(text: String, modifier: Modifier = Modifier) {
 @Composable
 fun CtaNote(text: String, modifier: Modifier = Modifier) {
     Text(
-        text = text.toUpperCase(LocaleList.current),
+        text = text.toUpperCase(ContentLocale),
         style = NapsamTheme.typography.ctaNote,
         color = NapsamTheme.colors.textTertiary,
         textAlign = TextAlign.Center,
@@ -291,9 +291,9 @@ fun StageHeader(accentText: String, secondaryText: String, modifier: Modifier = 
         horizontalArrangement = Arrangement.spacedBy(NapsamTheme.spacing.md),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(text = accentText.toUpperCase(LocaleList.current), style = style, color = colors.accent)
+        Text(text = accentText.toUpperCase(ContentLocale), style = style, color = colors.accent)
         Text(text = "/", style = style, color = colors.separator)
-        Text(text = secondaryText.toUpperCase(LocaleList.current), style = style, color = colors.textTertiary)
+        Text(text = secondaryText.toUpperCase(ContentLocale), style = style, color = colors.textTertiary)
     }
 }
 
@@ -313,7 +313,7 @@ fun ValuePropCard(kicker: String, title: String, text: String, modifier: Modifie
         verticalArrangement = Arrangement.spacedBy(NapsamTheme.spacing.xs),
     ) {
         Text(
-            text = kicker.toUpperCase(LocaleList.current),
+            text = kicker.toUpperCase(ContentLocale),
             style = NapsamTheme.typography.valueKicker,
             color = colors.accent,
         )

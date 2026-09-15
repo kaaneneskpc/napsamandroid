@@ -149,5 +149,6 @@ napsam-android-feature = { id = "napsam.android.feature" }
 napsam-android-library = { id = "napsam.android.library" }
 napsam-android-room = { id = "napsam.android.room" }
 napsam-android-screenshot = { id = "napsam.android.screenshot" }
+napsam-contract-tests = { id = "napsam.contract.tests" }
 napsam-hilt = { id = "napsam.hilt" }
 napsam-jvm-library = { id = "napsam.jvm.library" }

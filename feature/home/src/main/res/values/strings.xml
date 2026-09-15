@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
+
+    <!-- Başlık (web templates/index.html, spesifikasyon A6.7) -->
+    <string name="home_overline">Karar verme motoru · Sıfır tereddüt</string>
+    <string name="home_title">“Ne yapsam ya?”</string>
+    <string name="home_subtitle">Sonsuz listelere ve kararsızlığa son.\n10 saniyede somut, uygulanabilir tek bir eylem.</string>
+
+    <!-- Karar paneli -->
+    <string name="home_budget_label">Bütçe durumu</string>
+    <string name="home_napsam">NAPSAM?</string>
+    <string name="home_cta_note">Tek dokunuş · Tek kesin karar · Sonsuz kaydırma yok</string>
+    <string name="home_refine_toggle">İstersen daralt — kelime seç ya da yaz</string>
+    <string name="home_refine_expanded">Açık</string>
+    <string name="home_refine_collapsed">Kapalı</string>
+    <string name="home_refine_tab_chips">Kelime Seç</string>
+    <string name="home_refine_tab_text">Yaz</string>
+    <string name="home_refine_clear">Temizle</string>
+    <string name="home_refine_text_label">Ne istediğini yaz</string>
+    <string name="home_refine_text_placeholder">Örn: “3 saatim var param yok”</string>
+    <plurals name="home_refine_keyword_count">
+        <item quantity="one">%1$d kelime</item>
+        <item quantity="other">%1$d kelime</item>
+    </plurals>
+    <string name="home_refine_written">yazıldı</string>
+
+    <!-- Öneri bölümü -->
+    <string name="home_stage_accent">Canlı Öneri</string>
+    <string name="home_stage_secondary">Hemen şimdi başla</string>
+    <string name="home_commit_title">Harika seçim. Şimdi ekranı kapat.</string>
+    <string name="home_commit_body">Bu uygulamada iyi bir oturum, kısa bitendir.</string>
+    <string name="home_commit_close">Kapat</string>
+
+    <!-- Tanıtım kutuları -->
+    <string name="home_value_1_kicker">01 / Kararsızlık yok</string>
+    <string name="home_value_1_title">Tekil odak</string>
+    <string name="home_value_1_text">Seçenekler çoğaldıkça felç olursun. NAPSAM tek ve net bir yön önerir.</string>
+    <string name="home_value_2_kicker">02 / Sıfır maliyet</string>
+    <string name="home_value_2_title">Varsayılan: 0 TL</string>
+    <string name="home_value_2_text">Zaman geçirmek parayla ölçülmez. Tüm öneriler önce bütçesiz kurgulanır.</string>
+    <string name="home_value_3_kicker">03 / Anında hareket</string>
+    <string name="home_value_3_title">Somut adımlar</string>
+    <string name="home_value_3_text">Soyut tavsiye değil, hemen şimdi yapabileceğin sıralı adımlar.</string>
+
+    <!-- Alt bilgi -->
+    <string name="home_footer_text">Konum bağımsız, reklamsız, hemen harekete geçiren Türkiye boş zaman rehberi.</string>
+    <string name="home_footer_privacy">Gizlilik</string>
+</resources>

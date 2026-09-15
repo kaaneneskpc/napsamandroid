@@ -77,7 +77,7 @@ fun NapsamPrimaryButton(text: String, onClick: () -> Unit, modifier: Modifier = 
             modifier = Modifier.size(CtaIconSize),
         )
         Text(
-            text = text.toUpperCase(LocaleList.current),
+            text = text.toUpperCase(ContentLocale),
             style = NapsamTheme.typography.cta,
             color = colors.onCta,
             textAlign = TextAlign.Center,
@@ -90,7 +90,7 @@ fun NapsamPrimaryButton(text: String, onClick: () -> Unit, modifier: Modifier = 
 fun NapsamCommitButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val colors = NapsamTheme.colors
     ActionButtonLayout(
-        text = text.toUpperCase(LocaleList.current),
+        text = text.toUpperCase(ContentLocale),
         icon = NapsamIcons.Check,
         onClick = onClick,
         background = colors.selected,

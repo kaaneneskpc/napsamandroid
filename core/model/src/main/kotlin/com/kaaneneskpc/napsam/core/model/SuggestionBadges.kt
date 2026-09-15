@@ -4,7 +4,7 @@ package com.kaaneneskpc.napsam.core.model
  * Öneri kartındaki rozetlerin YAPISI (spesifikasyon A6.4).
  *
  * Metin burada üretilmez: "Bedava", "dk", "Evde" gibi kelimeler arayüz kaynaklarında
- * (strings.xml, Türkçe + İngilizce) durur. Hangi parçanın gösterileceğine dair kurallar
+ * (`:core:ui` strings.xml, web gibi Türkçe) durur. Hangi parçanın gösterileceğine dair kurallar
  * web'deki `Suggestion.cost_badge`, `duration_badge`, `place_badge` ve `companion_badge`
  * ile birebir aynıdır ve `contract/parity/badges.json` ile test edilir.
  */

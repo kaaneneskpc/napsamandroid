@@ -22,14 +22,15 @@ public interface SuggestionRepository {
     public suspend fun suggestions(): List<Suggestion>
 }
 
-/** Kullanıcının önerilerle ilişkisi; v1'de yalnızca cihazda (web ile senkron yok). */
+/**
+ * Kullanıcının önerilerle ilişkisi; web gibi yalnızca eylemlerle (geç, kaydet, yaptım) kayıt açılır,
+ * önerinin gösterilmesi kayıt açmaz. Hafıza cihazdadır (web ile senkron yok).
+ */
 public interface UserStateRepository {
     public suspend fun states(): List<UserSuggestionState>
 
     /** Kaydedilenler listesi; üst bardaki sayı da buradan türer. */
     public fun observeSaved(): Flow<List<Suggestion>>
-
-    public suspend fun markShown(slug: String)
 
     /** "Başka fikir": [EngineConstants.DISMISS_COOLDOWN_DAYS] gün boyunca tekrar gösterilmez. */
     public suspend fun dismiss(slug: String)

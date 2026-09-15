@@ -27,6 +27,8 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
             extensions.configure<ComposeCompilerGradlePluginExtension> {
                 reportsDestination.set(layout.buildDirectory.dir("compose_compiler"))
                 metricsDestination.set(layout.buildDirectory.dir("compose_compiler"))
+                // :core:model tipleri Compose'suz bir modülde tanımlı ama değiştirilemez; kararlı sayılır.
+                stabilityConfigurationFiles.add(rootProject.layout.projectDirectory.file("compose-stability.conf"))
             }
 
             dependencies {

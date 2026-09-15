@@ -234,7 +234,6 @@ class ContentImporterTest {
         dismissedUntil = null,
         savedAt = 1L,
         doneAt = null,
-        shownCount = 1,
         updatedAt = 1L,
     )
 }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b6aad70d5c9aba6051aebb99f7721241",
+    "identityHash": "870780c4f8ebbeb5acf081dc4922f1ae",
     "entities": [
       {
         "tableName": "suggestion",
@@ -186,7 +186,7 @@
       },
       {
         "tableName": "user_state",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`slug` TEXT NOT NULL, `status` TEXT NOT NULL, `dismissed_until` INTEGER, `saved_at` INTEGER, `done_at` INTEGER, `shown_count` INTEGER NOT NULL, `updated_at` INTEGER NOT NULL, PRIMARY KEY(`slug`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`slug` TEXT NOT NULL, `status` TEXT NOT NULL, `dismissed_until` INTEGER, `saved_at` INTEGER, `done_at` INTEGER, `updated_at` INTEGER NOT NULL, PRIMARY KEY(`slug`))",
         "fields": [
           {
             "fieldPath": "slug",
@@ -216,12 +216,6 @@
             "affinity": "INTEGER"
           },
           {
-            "fieldPath": "shownCount",
-            "columnName": "shown_count",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
             "fieldPath": "updatedAt",
             "columnName": "updated_at",
             "affinity": "INTEGER",
@@ -249,7 +243,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b6aad70d5c9aba6051aebb99f7721241')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '870780c4f8ebbeb5acf081dc4922f1ae')"
     ]
   }
 }

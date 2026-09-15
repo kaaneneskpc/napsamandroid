@@ -107,7 +107,7 @@ fun CardBand(categoryLabel: String, modifier: Modifier = Modifier, badges: @Comp
         verticalArrangement = Arrangement.spacedBy(spacing.lg, Alignment.Top),
     ) {
         Text(
-            text = categoryLabel.toUpperCase(LocaleList.current),
+            text = categoryLabel.toUpperCase(ContentLocale),
             style = NapsamTheme.typography.categoryChip,
             color = colors.categoryChipText,
             modifier = Modifier
@@ -129,7 +129,7 @@ fun CardBand(categoryLabel: String, modifier: Modifier = Modifier, badges: @Comp
 @Composable
 fun SectionLabel(text: String, modifier: Modifier = Modifier) {
     Text(
-        text = text.toUpperCase(LocaleList.current),
+        text = text.toUpperCase(ContentLocale),
         style = NapsamTheme.typography.stepsLabel,
         color = NapsamTheme.colors.textTertiary,
         modifier = modifier,
@@ -197,7 +197,7 @@ fun FallbackBlock(title: String, text: String, modifier: Modifier = Modifier) {
         )
         Column(verticalArrangement = Arrangement.spacedBy(spacing.xxs)) {
             Text(
-                text = title.toUpperCase(LocaleList.current),
+                text = title.toUpperCase(ContentLocale),
                 style = NapsamTheme.typography.fallbackTitle,
                 color = colors.fallbackTitle,
             )

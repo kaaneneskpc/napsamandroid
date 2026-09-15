@@ -30,7 +30,6 @@ dependencies {
     implementation(projects.feature.home)
     implementation(projects.feature.privacy)
     implementation(projects.feature.saved)
-    implementation(projects.feature.suggestion)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)

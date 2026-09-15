@@ -56,16 +56,11 @@ class OfflineUserStateRepositoryTest {
     }
 
     @Test
-    fun `gosterim durumu degistirmez, sayaci ve guncelleme zamanini arttirir`() = runTest {
-        repository.markShown(first.slug)
-        assertEquals(StateStatus.SHOWN, state(first.slug).status)
+    fun `kayit yalnizca eylemle acilir`() = runTest {
+        assertTrue(repository.states().isEmpty())
 
         repository.save(first.slug)
-        clock.advance(Duration.ofMinutes(1))
-        repository.markShown(first.slug)
-
         val entity = requireNotNull(database.userStateDao().find(first.slug))
-        assertEquals(2, entity.shownCount)
         assertEquals(StateStatus.SAVED.key, entity.status)
         assertEquals(clock.millis(), entity.updatedAt)
     }

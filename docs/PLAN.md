@@ -13,9 +13,9 @@
 | 3 | `:core:model` | ✅ |
 | 4 | `:core:designsystem` | ✅ |
 | 5 | `:core:domain` + parite testleri | ✅ |
-| 6 | `:core:data` | 🟨 onay bekliyor |
-| 7 | `:feature:home` | ⬜ |
-| 8 | `:feature:suggestion` | ⬜ |
+| 6 | `:core:data` | ✅ |
+| 7 | `:feature:home` + `:core:ui` (Faz 8 dahil) | 🟨 onay bekliyor |
+| 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
 | 9 | `:feature:saved` + `:feature:privacy` | ⬜ |
 | 10 | `:app` | ⬜ |
 | 11 | `:benchmark` | ⬜ |
@@ -263,20 +263,40 @@
       havuz önbelleği içerik sürümüne bağlı
 
 ## Faz 7 — `:feature:home`
-- [ ] HomeUiState: bütçe, daraltma paneli (kapalı), mod, chip seçimi, metin, kart, meşgul/iskelet, kayıt sayısı
-- [ ] Web sırası (K19): başlık → bütçe paneli → Canlı Öneri kartı → üç tanıtım kutusu → alt bilgi + Gizlilik
-- [ ] Açılışta kart (K4), NAPSAM? akışı, oturumda son 30 hariç tutma
-- [ ] Bağlam web isteğiyle aynı sınırlarda kurulur: seçili kelimelerden ilk 8'i (`MAX_KEYWORDS`), sonra
-      "Yaz" metni `TextParser.applyTo` ile; haftalık tema `WeeklyThemeRule.activeThemeKey`
-- [ ] ViewModel testleri (Turbine) + Compose UI testi (NAPSAM? → kart)
-- [ ] Dar ekran/%200 font yerleşimi
+> **Yapı kararı (15.09.2026):** kart ana ekranın parçası (K4, web'de de öyle) ve kendi ekranı yok; ayrı
+> `:feature:suggestion` modülü kaldırıldı, Faz 8 bu faza katıldı. Ana ekran ile Kaydedilenler'in paylaştığı
+> öneri arayüzü (kart, rozet ve kategori metinleri) yeni `:core:ui` modülünde.
+- [x] Web sırası (K19): başlık → karar paneli (bütçe, NAPSAM?, not, "İstersen daralt") → Canlı Öneri kartı
+      → "Tamam, yapıyorum" mesajı → üç tanıtım kutusu → alt bilgi + Gizlilik bağlantısı
+- [x] Açılışta hazır kart (K4); NAPSAM? seçili bütçe ve mod ile yeni öneri ister ve kart bölümüne kaydırır;
+      bütçe seçmek tek başına öneri istemez (web gibi); istek sürerken yenisi başlamaz
+- [x] Daraltma paneli kapalı başlar; "Kelime Seç / Yaz" sekmeleri, saate göre chip seti, "yazıldı" /
+      kelime / "N kelime" özeti, yalnızca seçim varken "Temizle"; Yaz sekmesi yazı alanını odaklar,
+      klavyedeki "Gönder" öneri ister (kaydırmaz)
+- [x] Bağlam web isteğiyle aynı: kelime modunda ilk 8 kelime, yaz modunda yalnızca metin (`TextParser.applyTo`,
+      metindeki bütçe ifadesi seçili kademeyi ezer), oturumda gösterilen son 30 hariç, kullanıcı kayıtları,
+      haftalık tema `WeeklyThemeRule.activeThemeKey`
+- [x] Kart (A6.4): kategori bandı + 4 rozet, başlık, kanca, "Nasıl yapılır (N adım)", gerekenler (varsa),
+      olmazsa alternatifi, eylemler; ~260 ms giriş animasyonu (web `cardIn`)
+- [x] Başka fikir = geç (30 gün) + yeni öneri + kart başına kaydırma · Kaydet / kayıttan çıkar (kalp dolu)
+      · Tamam, yapıyorum = yapıldı + mesaj, X yalnızca mesajı gizler (K6), yeni öneri mesajı kaldırır
+- [x] Web hiçbir yerde `mark_shown` çağırmıyor: "gösterildi" kaydı ve `shown_count` kaldırıldı
+- [x] Rozet ve kategori metinleri `strings.xml`'de (web gibi yalnızca Türkçe), 500 öneride `badges.json`
+      ile birebir; büyük harf dönüşümü cihaz dilinden bağımsız Türkçe ("CANLI ÖNERİ")
+- [x] Tasarım sistemi eki: `RefineTabs`, `NapsamTextField` (DESIGN.md "Inputs"); `compose-stability.conf`
+      ile `:core:model` tipleri kararlı; `contract/` test ayarı `napsam.contract.tests` convention'ı
+- [x] Geçici kabuk: `MainActivity` ana ekranı açar (edge-to-edge içerik boşluğuyla); üst bar, navigasyon,
+      Gizlilik ve tema düğmesi Faz 9–10
+- [x] Testler: ViewModel 10 (açılış, bant, kelime filtresi ve özet, yaz modu, modların ayrılığı, son 30,
+      başka fikir, kaydet, tamam mesajı, config değişimi), arayüz 3 (NAPSAM? → yeni kart, daraltma paneli,
+      tamam mesajı), ekran görüntüsü 6 (açık, koyu, %200, kelime seçimi, yaz modu koyu, en uzun öneri +
+      kayıtlı + mesaj), rozet paritesi 1 (500 öneri)
+- [ ] Ertelenen: "Yaz" modunda AI yolu (mobil API, 1 sn iskelet, 5 sn yerel düşüş) → Faz 13, sunucu
+      yayını ve AI açma kararıyla birlikte. Bugün sunucuda AI kapalı; web de metni yerel kurallarla işliyor
 
 ## Faz 8 — `:feature:suggestion`
-- [ ] Kart (A6.4 alanları ve biçimleri)
-- [ ] Başka fikir = dismiss + yeni + kart başına kaydırma (regresyon testi)
-- [ ] Kaydet / kayıttan çıkar · Tamam yapıyorum mesajı ve mesajı gizleyen X (K6)
-- [ ] AI önerisi (`RemoteSuggestion.Generated`) kartı ve kaydedilmesi: tam içeriğin cihazda saklanması (C3.4)
-- [ ] Yaz modu: yerel ayrıştırıcı; aiEnabled ise mobil API, 1 sn iskelet, 5 sn yerel düşüş
+> Faz 7'ye katıldı (kart ve eylemleri orada). AI önerisi kartı, kaydedilmesi ve "Yaz" modunda AI yolu
+> Faz 13'e ertelendi (sunucu yayını + AI açma kararı).
 
 ## Faz 9 — `:feature:saved` + `:feature:privacy`
 - [ ] Kaydedilenler: LazyColumn (key = slug), kaldır, boş durum metinleri
@@ -305,6 +325,8 @@
 - [ ] İmzalama yapılandırması (keystore repoda değil)
 - [ ] Data Safety taslağı · KVKK aydınlatma metni (K15 bilgileriyle)
 - [ ] Web gizlilik sayfasına Android bölümü (napsamweb)
+- [ ] Sunucu (mobil API: config, suggest, content) yayınlanacak mı kararı; yayınlanırsa "Yaz" modunda AI yolu
+      (5 sn zaman aşımı, 1 sn iskelet, yerel düşüş) ve AI önerisi kartının cihazda kaydedilmesi
 - [ ] Marka araştırması sonucu → isim ve applicationId kesinleşir (K1)
 - [ ] Mağaza metinleri ve ekran görüntüleri
 

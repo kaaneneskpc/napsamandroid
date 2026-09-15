@@ -413,7 +413,7 @@ bildirilerek yükseltilir (`./gradlew buildEnvironment` ile doğrulanır).
 :core:domain              Öneri motoru (C4), metin ayrıştırıcı (C6), chip seti (C7),
                           bütçe hesabı, repository arayüzleri
 :feature:home             Ana ekran
-:feature:suggestion       Öneri kartı + chip/yaz modları
+:core:ui                  Öneriye özgü ortak arayüz: kart, rozet ve kategori metinleri (home + saved)
 :feature:saved            Kaydedilenler
 :feature:privacy          Gizlilik (web gizlilik sayfası + veri sorumlusu, C11-K18)
 :build-logic              Convention plugin'ler
@@ -825,7 +825,7 @@ Faz 4   :core:designsystem (Stitch son tasarımı + Manrope)
 Faz 5   :core:domain — motor, metin ayrıştırıcı, chip, bütçe + parite testleri
 Faz 6   :core:data — Room, içerik içe aktarma, DataStore, Ktor, repository'ler
 Faz 7   :feature:home
-Faz 8   :feature:suggestion — kart, chip ve yaz modları
+Faz 8   (Faz 7'ye katıldı: kart ana ekranın parçası, ayrı modül yok — :core:ui + :feature:home)
 Faz 9   :feature:saved + :feature:privacy
 Faz 10  :app — Navigation 3, Hilt, splash, edge-to-edge, predictive back
 Faz 11  :benchmark — Macrobenchmark + Baseline Profile

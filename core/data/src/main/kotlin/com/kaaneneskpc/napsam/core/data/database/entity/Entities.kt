@@ -62,6 +62,5 @@ internal data class UserStateEntity(
     @ColumnInfo(name = "dismissed_until") val dismissedUntil: Long?,
     @ColumnInfo(name = "saved_at") val savedAt: Long?,
     @ColumnInfo(name = "done_at") val doneAt: Long?,
-    @ColumnInfo(name = "shown_count") val shownCount: Int,
     @ColumnInfo(name = "updated_at") val updatedAt: Long,
 )

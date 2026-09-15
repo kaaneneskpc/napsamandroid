@@ -70,6 +70,10 @@ gradlePlugin {
             id = libs.plugins.napsam.hilt.get().pluginId
             implementationClass = "HiltConventionPlugin"
         }
+        register("contractTests") {
+            id = libs.plugins.napsam.contract.tests.get().pluginId
+            implementationClass = "ContractTestsConventionPlugin"
+        }
         register("jvmLibrary") {
             id = libs.plugins.napsam.jvm.library.get().pluginId
             implementationClass = "JvmLibraryConventionPlugin"

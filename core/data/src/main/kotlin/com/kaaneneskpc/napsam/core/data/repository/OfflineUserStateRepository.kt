@@ -16,9 +16,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 /**
- * Kullanıcı kayıtları (spesifikasyon C4.6). Durum geçişleri web `views.api_state` ve `engine.mark_*` ile
- * birebir aynıdır; motorun "son 5 kayıt" cezası `updated_at`'e baktığı için hangi eylemin bu alanı
- * güncellediği de web'deki gibidir.
+ * Kullanıcı kayıtları (spesifikasyon C4.6). Durum geçişleri web `views.api_state` ile birebir aynıdır;
+ * motorun "son 5 kayıt" cezası `updated_at`'e baktığı için hangi eylemin bu alanı güncellediği de web'deki
+ * gibidir. Web önerinin gösterilmesini kaydetmez (`mark_shown` hiç çağrılmıyor); burada da kaydedilmez.
  */
 internal class OfflineUserStateRepository @Inject constructor(
     private val dao: UserStateDao,
@@ -28,12 +28,6 @@ internal class OfflineUserStateRepository @Inject constructor(
     override suspend fun states(): List<UserSuggestionState> = dao.all().mapNotNull { it.toModelOrNull() }
 
     override fun observeSaved(): Flow<List<Suggestion>> = dao.observeSaved().map { list -> list.map { it.toModel() } }
-
-    /** Web `mark_shown`: durum değişmez, gösterim sayısı artar. */
-    override suspend fun markShown(slug: String) = modify(slug) { state, now ->
-        val current = state ?: newState(slug, now)
-        current.copy(shownCount = current.shownCount + 1, updatedAt = now)
-    }
 
     /** Web `mark_dismissed`: bekleme süresi başlar; kayıt tarihi olduğu gibi kalır. */
     override suspend fun dismiss(slug: String) = modify(slug) { state, now ->
@@ -78,7 +72,6 @@ internal class OfflineUserStateRepository @Inject constructor(
         dismissedUntil = null,
         savedAt = null,
         doneAt = null,
-        shownCount = 0,
         updatedAt = now,
     )
 

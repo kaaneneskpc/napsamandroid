@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
+
+    <!-- Kategori etiketleri (web Category.label, contract/content/meta.json) -->
+    <string name="category_ev_ici">Ev içi</string>
+    <string name="category_mutfak">Mutfak</string>
+    <string name="category_disari_yakin">Dışarı / yakın</string>
+    <string name="category_yeme_icme">Yeme-içme</string>
+    <string name="category_hareket">Hareket</string>
+    <string name="category_kultur">Kültür</string>
+    <string name="category_sosyal">Sosyal</string>
+    <string name="category_ogrenme">Öğrenme</string>
+    <string name="category_uretme">Üretme</string>
+    <string name="category_doga">Doğa</string>
+    <string name="category_kendine_bakim">Kendine bakım</string>
+    <string name="category_iyilik">İyilik</string>
+    <string name="category_oyun">Oyun</string>
+    <string name="category_ufak_isler">Ufak işler</string>
+
+    <!-- Rozetler (web Suggestion.cost_badge, duration_badge, place_badge, companion_badge) -->
+    <string name="badge_cost_free">₺0 Bedava</string>
+    <string name="badge_cost_approximate">~₺%1$d</string>
+    <string name="badge_cost_approximate_note">~₺%1$d %2$s</string>
+    <string name="badge_duration_exact">%1$d dk</string>
+    <string name="badge_duration_range">%1$d-%2$d dk</string>
+    <string name="badge_place_home">Evde</string>
+    <string name="badge_place_nearby">Dışarı / Yakın</string>
+    <string name="badge_place_venue">Mekanlı</string>
+    <string name="badge_companion_anyone">Farketmez</string>
+    <string name="badge_companion_separator">" / "</string>
+    <string name="companion_solo">Tek başına</string>
+    <string name="companion_couple">Çift</string>
+    <string name="companion_friends">Arkadaşlarla</string>
+    <string name="companion_family">Ailece</string>
+    <string name="companion_kids">Çocuklu</string>
+
+    <!-- Öneri kartı -->
+    <plurals name="card_steps_label">
+        <item quantity="one">Nasıl yapılır (%1$d adım)</item>
+        <item quantity="other">Nasıl yapılır (%1$d adım)</item>
+    </plurals>
+    <string name="card_needs_label">Gerekenler</string>
+    <string name="card_fallback_title">Olmazsa alternatifi</string>
+    <string name="card_commit">Tamam, yapıyorum</string>
+    <string name="card_another_idea">Başka fikir</string>
+    <string name="card_save">Kaydet</string>
+    <string name="card_unsave">Kayıttan çıkar</string>
+</resources>
