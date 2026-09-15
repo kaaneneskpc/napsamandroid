@@ -31,6 +31,19 @@ internal data class ContentSuggestionDto(
     @SerialName("night_unsafe_solo") val nightUnsafeSolo: Boolean,
 )
 
+/** `GET /api/v1/content/`: veritabanındaki (Supabase) güncel içerik, fixture biçiminde. */
+@Serializable
+internal data class ContentResponseDto(
+    val schema: Int,
+    val contentVersion: String,
+    val count: Int,
+    val suggestions: List<ContentSuggestionDto>,
+) {
+    companion object {
+        const val SUPPORTED_SCHEMA = 1
+    }
+}
+
 /** `contract/content/meta.json`: uygulamanın yerel varsayılanları (web `mobile_export.build_meta`). */
 @Serializable
 internal data class ContentMetaDto(

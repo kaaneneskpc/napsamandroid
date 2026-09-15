@@ -32,9 +32,19 @@ internal data class SuggestionEntity(
     @ColumnInfo(name = "night_unsafe_solo") val nightUnsafeSolo: Boolean,
 )
 
-/** Veritabanındaki içeriğin sürümü (`contract/content/meta.json` contentVersion); tek satır. */
+/** Veritabanındaki içeriğin kimliği; tek satır. */
 @Entity(tableName = "content_info")
-internal data class ContentInfoEntity(@PrimaryKey val id: Int = SINGLE_ROW_ID, val version: String, val count: Int) {
+internal data class ContentInfoEntity(
+    @PrimaryKey val id: Int = SINGLE_ROW_ID,
+    /** Veritabanındaki içeriğin sürümü: uygulamayla gelen kopya veya sunucudan indirilen. */
+    val version: String,
+    /**
+     * Bu içeriği yazan uygulamanın gömülü içerik sürümü. Sunucudan indirilen içerik bir sonraki açılışta
+     * gömülü kopyayla ezilmez; yalnızca uygulama yeni bir gömülü içerikle güncellenince yeniden kurulur.
+     */
+    @ColumnInfo(name = "embedded_version") val embeddedVersion: String,
+    val count: Int,
+) {
     companion object {
         const val SINGLE_ROW_ID = 0
     }

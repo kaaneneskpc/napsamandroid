@@ -47,6 +47,45 @@ class NetworkConfigRepositoryTest {
 
     private val clock = MutableClock(Instant.parse("2026-09-15T09:00:00Z"))
     private val requests = mutableListOf<HttpRequestData>()
+    private val syncedVersions = mutableListOf<String>()
+    private var syncOutcome: Outcome<Unit> = Outcome.Success(Unit)
+
+    @Test
+    fun `sunucunun icerik surumu esitlemeye iletilir`() = runTest {
+        val repository = repository { respondJson(configJson()) }
+
+        assertEquals(Outcome.Success(Unit), repository.refresh())
+        assertEquals(listOf("sha256:abc"), syncedVersions)
+
+        // Önbellek taze: config istenmez ama önceki indirme başarısız olduysa içerik yeniden denenir.
+        repository.refresh()
+        assertEquals(1, requests.size)
+        assertEquals(listOf("sha256:abc", "sha256:abc"), syncedVersions)
+    }
+
+    @Test
+    fun `config alinamazsa icerik esitlenmez`() = runTest {
+        val repository = repository { respond("", HttpStatusCode.ServiceUnavailable) }
+
+        assertEquals(Outcome.Failure(DataError.SERVER), repository.refresh())
+        assertTrue(syncedVersions.isEmpty())
+    }
+
+    @Test
+    fun `icerik indirme 429 alirsa 10 dakika ertelenir`() = runTest {
+        val repository = repository { respondJson(configJson()) }
+        syncOutcome = Outcome.Failure(DataError.RATE_LIMITED)
+
+        assertEquals(Outcome.Failure(DataError.RATE_LIMITED), repository.refresh())
+        clock.advance(Duration.ofMinutes(5))
+        assertEquals(Outcome.Success(Unit), repository.refresh())
+        assertEquals(1, syncedVersions.size)
+
+        clock.advance(Duration.ofMinutes(5))
+        syncOutcome = Outcome.Success(Unit)
+        assertEquals(Outcome.Success(Unit), repository.refresh())
+        assertEquals(2, syncedVersions.size)
+    }
 
     @Test
     fun `sunucu yanit vermeden gomulu varsayilan gecerli`() = runTest {
@@ -159,6 +198,10 @@ class NetworkConfigRepositoryTest {
             api = NapsamApi(NapsamApi.createClient(engine, napsamJson)),
             settings = SettingsDataSource(testDataStore(folder.newFolder(), backgroundScope)),
             metaProvider = ContentMetaProvider(source, napsamJson, Dispatchers.Unconfined),
+            contentSynchronizer = { version ->
+                syncedVersions += version
+                syncOutcome
+            },
             clock = clock,
         )
     }

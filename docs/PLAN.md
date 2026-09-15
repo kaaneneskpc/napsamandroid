@@ -73,7 +73,7 @@
 |---|---|---|---|
 | K1 | applicationId / isim | geliştirmede `com.kaaneneskpc.napsam`, Play öncesi marka araştırması | ✅ |
 | K2 | targetSdk | 37 | ✅ |
-| K3 | İçerik taşıma | JSON asset + ilk açılışta içe aktarma | ✅ |
+| K3 | İçerik taşıma | Supabase içeriğinin gömülü kopyası + içe aktarma; Supabase'de değişince mobil API'den indirme; hafıza cihazda (15.09 revize) | ✅ |
 | K4 | Açılış | hazır kart (0 dokunuş) | ✅ |
 | K5 | Filtre arayüzü | v1'de yok | ✅ |
 | K6 | "Tamam, yapıyorum" | web mesajı + mesajı gizleyen X; uygulamayı kapatan düğme yok (revize) | ✅ |
@@ -248,6 +248,19 @@
       içerik, istisna sızmaması), kullanıcı durumu 5, config 7 (MockEngine + gerçek DataStore + sanal zaman),
       AI isteği 6 (gövde, kurulum kimliği, seed/ai eşleme, hata tipleri, 5 sn zaman aşımı), ayarlar 3
 - [ ] Ertelenen: AI önerisinin cihazda kaydedilmesi → Faz 8 (kart ve kaydetme akışıyla)
+
+### Faz 6 eki — Supabase veri seti ile güncelleme (15.09.2026, proje sahibinin kararı)
+> Soru: "Mobilde veri seti ve hafıza web'deki gibi Supabase'den mi gelsin?" Supabase salt okunur
+> incelendi: 500 etkin seed öneri uygulamadaki kopyayla birebir (slug/başlık/maliyet/süre imzası
+> eşleşti), bütçe kademeleri ve temalar aynı, tüm tablolarda RLS açık ve anon/authenticated yetkisiz
+> (doğrudan istemci erişimi kapalı). Web hafızası tarayıcı çerezine bağlı anonim profil (50 profil,
+> 337 kayıt), hesap yok. Karar: **veri seti = gömülü kopya + sunucudan güncelleme**, **hafıza cihazda**.
+- [x] Web (`feature/mobile-api-v1`, yerel): `GET /api/v1/content/` (C3.4b), içerik sürümü artık veritabanı
+      içeriğinin kanonik SHA-256'sı (config, içerik ucu ve dışa aktarma aynı hesap), öneri değişince önbellek düşer
+- [x] Android: `content_info.embedded_version` (şema v1, yayınlanmamış olduğu için migration gerekmedi);
+      indirilen içerik gömülü kopyayla ezilmez, uygulama güncellemesi gömülü kopyayı yeniden kurar;
+      config yenilemesi sürüm farklıysa içeriği indirir, doğrular, tek transaction'da yazar; 429 erteleme ortak;
+      havuz önbelleği içerik sürümüne bağlı
 
 ## Faz 7 — `:feature:home`
 - [ ] HomeUiState: bütçe, daraltma paneli (kapalı), mod, chip seçimi, metin, kart, meşgul/iskelet, kayıt sayısı

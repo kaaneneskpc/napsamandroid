@@ -8,9 +8,11 @@ import com.kaaneneskpc.napsam.core.data.content.ContentMetaProvider
 import com.kaaneneskpc.napsam.core.data.database.NapsamDatabase
 import com.kaaneneskpc.napsam.core.data.inMemoryDatabase
 import com.kaaneneskpc.napsam.core.data.napsamJson
+import com.kaaneneskpc.napsam.core.data.network.NapsamApi
 import com.kaaneneskpc.napsam.core.domain.EngineConstants
 import com.kaaneneskpc.napsam.core.model.ContractFixtures
 import com.kaaneneskpc.napsam.core.model.StateStatus
+import io.ktor.client.engine.mock.MockEngine
 import java.time.Duration
 import java.time.Instant
 import kotlinx.coroutines.Dispatchers
@@ -41,6 +43,7 @@ class OfflineUserStateRepositoryTest {
             source = source,
             metaProvider = ContentMetaProvider(source, napsamJson, Dispatchers.Unconfined),
             dao = database.contentDao(),
+            api = NapsamApi(NapsamApi.createClient(MockEngine { error("sunucuya istek atılmamalı") }, napsamJson)),
             json = napsamJson,
             defaultDispatcher = Dispatchers.Unconfined,
         ).importIfNeeded()

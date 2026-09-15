@@ -13,10 +13,11 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.SerializationException
 
 /**
- * Motorun havuzu. İçerik değişmediği sürece bellekte tutulur; her "NAPSAM?" dokunuşunda 500 satır
- * yeniden okunmaz.
+ * Motorun havuzu. İçerik sürümü değişmediği sürece bellekte tutulur; her "NAPSAM?" dokunuşunda 500 satır
+ * yeniden okunmaz. Sunucudan yeni içerik inince sürüm değiştiği için bir sonraki istekte yeniden okunur.
  */
 @Singleton
 internal class OfflineSuggestionRepository @Inject constructor(
@@ -25,29 +26,31 @@ internal class OfflineSuggestionRepository @Inject constructor(
     @DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher,
 ) : SuggestionRepository {
     private val mutex = Mutex()
-    private var cache: List<Suggestion>? = null
+    private var cache: Pair<String?, List<Suggestion>>? = null
 
     /**
      * İçe aktarma hatası dışarı sızmaz (spesifikasyon B3.8): gömülü içerik bozuksa veritabanındaki son
      * geçerli içerikle devam edilir. İçerik derleme sırasında web doğrulayıcısından geçtiği için beklenmez.
      */
     override suspend fun ensureContentImported() {
-        val refreshed = try {
+        try {
             importer.importIfNeeded()
         } catch (e: CancellationException) {
             throw e
         } catch (e: IllegalArgumentException) {
-            false
-        } catch (e: kotlinx.serialization.SerializationException) {
-            false
+            // Son geçerli içerikle devam.
+        } catch (e: SerializationException) {
+            // Aynı.
         }
-        if (refreshed) mutex.withLock { cache = null }
     }
 
     override suspend fun suggestions(): List<Suggestion> {
         ensureContentImported()
         return mutex.withLock {
-            cache ?: withContext(defaultDispatcher) { dao.suggestions().map { it.toModel() } }.also { cache = it }
+            val version = dao.info()?.version
+            cache?.takeIf { it.first == version }?.second
+                ?: withContext(defaultDispatcher) { dao.suggestions().map { it.toModel() } }
+                    .also { cache = version to it }
         }
     }
 }

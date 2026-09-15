@@ -510,7 +510,8 @@ Ayarlar ekranı YOK; tema düğmesi üst barda (web gibi — C11-K18)
 ```
 İçerik (Room, KSP)
   - Kaynak: napsamweb/core/fixtures/suggestions.json (500 öneri, C5).
-  - Faz 1'deki dışa aktarma betiğiyle Android'e taşınır; içerik sürümü = JSON'un SHA-256'sı.
+  - Faz 1'deki dışa aktarma betiğiyle Android'e taşınır; Supabase'de içerik değişince mobil API'den
+    indirilir (C3.4b). İçerik sürümü = içeriğin kanonik JSON'unun SHA-256'sı.
   - Uygulamaya taşıma biçimi (hazır .db asset'i mi, JSON asset + ilk açılışta içe aktarma mı):
     C11-K3. İçerik tablosu sürüm değişince tek transaction'da yenilenir.
   - Kullanıcı verisi (kaydedilen, geçilen + dismissed_until, yapılan, son görülenler) içerik
@@ -963,8 +964,8 @@ bunları şimdilik istemedi; Android işi bunlara dokunmaz.
 - Ücret ve oranlar **metin** (ondalık hassasiyeti korunur; istemci BigDecimal ile okur).
 - `androidMinVersionCode` sunucudaki `RemoteConfig` anahtarı `android_min_version_code`'dan gelir (varsayılan 1).
 - `Cache-Control: public, max-age=3600`. Yanıtta çerez yoktur.
-- İstemci config'i önbellekler; `contentVersion` uygulamadakinden farklıysa v1'de yalnızca
-  bilgi amaçlıdır (içerik uygulama güncellemesiyle gelir — C11-K3).
+- İstemci config'i önbellekler; `contentVersion` cihazdakinden farklıysa içerik C3.4b ucundan
+  indirilir (C11-K3).
 
 ### C3.4 `POST /api/v1/suggest/` — Android bunu yalnızca "Yaz" modu + AI açıkken çağırır
 İstek (web gövdesiyle aynı alanlar):
@@ -1013,8 +1014,22 @@ Yanıt (web'deki `suggestion_to_dict` + meta):
 - Uç her modu kabul eder (sunucu tarafı seçim), ama offline-first kuralı gereği Android
   `quick` ve `chips` modlarını yerelde çalıştırır.
 
+### C3.4b `GET /api/v1/content/` — Supabase içeriğiyle güncelleme (15.09.2026)
+```json
+{"schema": 1, "contentVersion": "sha256:…", "count": 500, "suggestions": [ {fixture biçiminde 22 alan}, … ]}
+```
+- Yalnızca etkin seed öneriler (AI üretimleri ve pasifler girmez), slug sırasıyla.
+- `contentVersion` = içeriğin kanonik JSON'unun (`sort_keys`, `ensure_ascii=False`, ayırıcısız)
+  SHA-256'sı; config'teki ve dışa aktarılan meta'daki sürümle aynı hesap. Supabase'de öneri
+  değişince sürüm değişir (önbellek `post_save`/`post_delete` sinyaliyle düşer).
+- `ETag` = sürüm, `If-None-Match` eşleşirse `304`. `Cache-Control: public, max-age=3600`. Çerez yok.
+- İstemci: config yenilenince sunucu sürümü cihazdakinden farklıysa indirir, doğrular (şema, sayı,
+  yinelenen slug, bilinmeyen anahtar) ve tek transaction'da yazar. İndirilen içerik sonraki açılışta
+  gömülü kopyayla ezilmez; gömülü kopya yalnızca uygulama yeni içerikle güncellenince yeniden kurulur.
+- Uç sunucu yayınlanana kadar (Faz 13) çalışmaz; uygulama gömülü kopyayla tam çalışır.
+
 ### C3.5 v1'de olmayanlar
-Kayıt senkronu (`/state`) · içerik güncelleme ucu (`/content`) · paylaşım sayfası. Hepsi
+Kayıt senkronu (`/state`; hafıza web gibi cihazda — C11-K3) · paylaşım sayfası. Hepsi
 C11 kararlarına bağlı olarak sonraki sürümlerde.
 
 ## C4. Öneri motoru spesifikasyonu (web `core/engine.py`, birebir)
@@ -1167,8 +1182,9 @@ night_unsafe_solo gece tek başına önerilmesin (13 öneri)
    Çıktı deterministiktir (iki çalıştırma bayt bayt aynı; export_date gibi değişken alan yok).
 2. napsam: contract/ Android reposunda commit edilir; modüller buradan okur
    (content → uygulama asset'leri, parity → :core:domain test kaynakları). Kopya çoğaltılmaz.
-3. Uygulama: içerik sürümü değiştiyse içerik tablosu tek transaction'da yenilenir;
-   kullanıcı tablosu korunur, artık var olmayan slug'lara ait kayıtlar yetim bırakılmaz
+3. Uygulama: gömülü içerik sürümü değiştiyse (uygulama güncellemesi) veya sunucu yeni sürüm
+   bildirdiyse (C3.4b) içerik tablosu tek transaction'da yenilenir; kullanıcı tablosu korunur,
+   artık var olmayan slug'lara ait kayıtlar yetim bırakılmaz
 ```
 
 ### C5.5 Etiket evreni (18) ve havuzdaki sıklığı
@@ -1285,7 +1301,7 @@ Sans yükler, bu tasarım sistemiyle çelişen bir dışa aktarma ayrıntısıd�
 |---|---|---|---|
 | K1 | Uygulama adı ve applicationId | Geliştirmede `com.kaaneneskpc.napsam`; Play yüklemesinden önce marka araştırması | Paket adı ilk yüklemeden sonra değişmez |
 | K2 | targetSdk | 37 | Stabil; bir sonraki Play şartına hazır; bu uygulamayı etkileyen değişiklik az |
-| K3 | İçeriğin uygulamaya taşınması | JSON asset + ilk açılışta içe aktarma (hazır .db değil) | Room kimlik karması uyuşmazlığı riski yok; içerik sürümü değişince yenilemek kolay |
+| K3 | İçeriğin uygulamaya taşınması | Supabase içeriğinin gömülü JSON kopyası + ilk açılışta içe aktarma; Supabase'de içerik değişince `GET /api/v1/content/`'ten indirme (15.09.2026 revize). Hafıza (kayıtlar) web gibi cihazda | Veri seti web ile aynı ve güncel kalır, internetsiz çalışır; hesap olmadığı için web hafızası cihazlar arası taşınmıyor |
 | K4 | Açılış davranışı | Web gibi açılışta hazır kart (0 dokunuş), öneri kartı ana ekranın parçası | Hız vaadi; web'de doğrulanmış |
 | K5 | 4 opsiyonel filtrenin arayüzü | v1'de yok | Web'de yok; Sadelik md.6; motor destekliyor, sonra açılabilir |
 | K6 | "Tamam, yapıyorum" sonrası | Web'deki mesaj ve mesajı gizleyen X; uygulamayı kapatan düğme **yok** (14.09.2026 revize) | Web birebirliği; kendiliğinden kapanma Android'de hata gibi algılanır |

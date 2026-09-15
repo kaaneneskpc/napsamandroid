@@ -8,8 +8,18 @@ import com.kaaneneskpc.napsam.core.data.database.entity.UserStateEntity
 import com.kaaneneskpc.napsam.core.data.embeddedMeta
 import com.kaaneneskpc.napsam.core.data.inMemoryDatabase
 import com.kaaneneskpc.napsam.core.data.napsamJson
+import com.kaaneneskpc.napsam.core.data.network.NapsamApi
 import com.kaaneneskpc.napsam.core.data.repository.OfflineSuggestionRepository
+import com.kaaneneskpc.napsam.core.data.respondJson
+import com.kaaneneskpc.napsam.core.domain.DataError
+import com.kaaneneskpc.napsam.core.domain.Outcome
 import com.kaaneneskpc.napsam.core.model.ContractFixtures
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.MockRequestHandleScope
+import io.ktor.client.engine.mock.respond
+import io.ktor.client.request.HttpRequestData
+import io.ktor.client.request.HttpResponseData
+import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.JsonArray
@@ -26,10 +36,14 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** İçerik içe aktarma (karar K3, spesifikasyon C5.4) — Robolectric üzerinde bellek içi Room. */
+/** İçeriğin cihaza gelişi: gömülü kopya ve sunucudan güncelleme (karar K3) — Robolectric, bellek içi Room. */
 @RunWith(AndroidJUnit4::class)
 class ContentImporterTest {
     private lateinit var database: NapsamDatabase
+    private val requests = mutableListOf<HttpRequestData>()
+    private var serverHandler: suspend MockRequestHandleScope.(HttpRequestData) -> HttpResponseData = {
+        error("sunucuya istek atılmamalı")
+    }
 
     @Before
     fun setUp() {
@@ -42,12 +56,14 @@ class ContentImporterTest {
     }
 
     @Test
-    fun `ilk acilista gomulu icerik birebir aktarilir`() = runTest {
+    fun `ilk acilista gomulu icerik birebir kurulur`() = runTest {
         assertTrue(importer().importIfNeeded())
 
         val imported = database.contentDao().suggestions().map { it.toModel() }.sortedBy { it.slug }
         assertEquals(ContractFixtures.suggestions.sortedBy { it.slug }, imported)
-        assertEquals(embeddedMeta.contentVersion, database.contentDao().version())
+        val info = requireNotNull(database.contentDao().info())
+        assertEquals(embeddedMeta.contentVersion, info.version)
+        assertEquals(embeddedMeta.contentVersion, info.embeddedVersion)
     }
 
     @Test
@@ -65,30 +81,28 @@ class ContentImporterTest {
     }
 
     @Test
-    fun `surum degisince icerik yenilenir, kullanici kayitlari korunur, yetimler silinir`() = runTest {
+    fun `uygulama guncellenince gomulu icerik yeniden kurulur, kayitlar korunur, yetimler silinir`() = runTest {
         assertTrue(importer().importIfNeeded())
         val kept = ContractFixtures.suggestions[0].slug
         val removed = ContractFixtures.suggestions[1].slug
         listOf(kept, removed).forEach { database.userStateDao().upsert(state(it)) }
 
-        val updated = FakeContentSource(
-            suggestions = suggestionsJson { items -> items.filterNot { it.slug() == removed } },
-            meta = metaJson(version = "sha256:yeni", count = 499),
+        val updatedApp = FakeContentSource(
+            suggestions = contentItems().filterNot { it.slug() == removed }.toJsonString(),
+            meta = metaJson(version = "sha256:yeni-gomulu", count = 499),
         )
-        assertTrue(importer(updated).importIfNeeded())
+        assertTrue(importer(updatedApp).importIfNeeded())
 
         assertEquals(499, database.contentDao().suggestions().size)
-        assertEquals("sha256:yeni", database.contentDao().version())
+        assertEquals("sha256:yeni-gomulu", database.contentDao().info()?.version)
         assertEquals(listOf(kept), database.userStateDao().all().map { it.slug })
     }
 
     @Test
-    fun `bozuk icerik mevcut icerigi degistirmez`() = runTest {
+    fun `bozuk gomulu icerik mevcut icerigi degistirmez`() = runTest {
         assertTrue(importer().importIfNeeded())
         val unknownCategory = FakeContentSource(
-            suggestions = suggestionsJson { items ->
-                listOf(JsonObject(items.first() + ("category" to JsonPrimitive("uydurma")))) + items.drop(1)
-            },
+            suggestions = contentItems().withUnknownCategory().toJsonString(),
             meta = metaJson(version = "sha256:bozuk", count = 500),
         )
         val wrongCount = FakeContentSource(meta = metaJson(version = "sha256:eksik", count = 501))
@@ -96,36 +110,114 @@ class ContentImporterTest {
         listOf(unknownCategory, wrongCount).forEach { source ->
             val error = runCatching { importer(source).importIfNeeded() }.exceptionOrNull()
             assertTrue("$error", error is IllegalArgumentException)
-            assertEquals(embeddedMeta.contentVersion, database.contentDao().version())
+            assertEquals(embeddedMeta.contentVersion, database.contentDao().info()?.version)
             assertEquals(500, database.contentDao().suggestions().size)
         }
     }
 
     @Test
-    fun `havuz ilk istekte aktarilir, bozuk icerik istisna sizdirmaz`() = runTest {
-        assertEquals(500, repository(FakeContentSource()).suggestions().size)
+    fun `havuz ilk istekte kurulur, bozuk icerik istisna sizdirmaz`() = runTest {
+        assertEquals(500, repository(importer()).suggestions().size)
 
-        val broken = FakeContentSource(meta = metaJson(version = "sha256:eksik", count = 501))
+        val broken = importer(FakeContentSource(meta = metaJson(version = "sha256:eksik", count = 501)))
         assertEquals(500, repository(broken).suggestions().size)
     }
 
-    private fun importer(source: FakeContentSource = FakeContentSource()) = ContentImporter(
-        source = source,
-        metaProvider = ContentMetaProvider(source, napsamJson, Dispatchers.Unconfined),
-        dao = database.contentDao(),
-        json = napsamJson,
-        defaultDispatcher = Dispatchers.Unconfined,
-    )
+    @Test
+    fun `sunucu surumu farkliysa icerik indirilir, havuz yenilenir, gomulu kopya ezmez`() = runTest {
+        val importer = importer()
+        val repository = repository(importer)
+        assertEquals(500, repository.suggestions().size)
+        val removed = ContractFixtures.suggestions[1].slug
+        serverHandler =
+            { respondJson(serverContent("sha256:sunucu", contentItems().filterNot { it.slug() == removed })) }
 
-    private fun repository(source: FakeContentSource) =
-        OfflineSuggestionRepository(importer(source), database.contentDao(), Dispatchers.Unconfined)
+        assertEquals(Outcome.Success(Unit), importer.syncWithServer("sha256:sunucu"))
 
-    private fun suggestionsJson(transform: (List<JsonObject>) -> List<JsonObject>): String {
-        val items = napsamJson.parseToJsonElement(contractText("content/suggestions.json")).jsonArray.map {
-            it.jsonObject
-        }
-        return JsonArray(transform(items)).toString()
+        assertEquals("https://napsam.vercel.app/api/v1/content/", requests.single().url.toString())
+        assertEquals(499, repository.suggestions().size)
+        val info = requireNotNull(database.contentDao().info())
+        assertEquals("sha256:sunucu", info.version)
+        assertEquals(embeddedMeta.contentVersion, info.embeddedVersion)
+
+        // Uygulama yeniden açılıyor: aynı uygulama sürümü, indirilen içerik yerinde kalır.
+        assertFalse(importer().importIfNeeded())
+        assertEquals(499, database.contentDao().suggestions().size)
     }
+
+    @Test
+    fun `surum ayniysa indirme yapilmaz`() = runTest {
+        val importer = importer()
+        importer.importIfNeeded()
+
+        assertEquals(Outcome.Success(Unit), importer.syncWithServer(embeddedMeta.contentVersion))
+        assertTrue(requests.isEmpty())
+    }
+
+    @Test
+    fun `bozuk sunucu icerigi yazilmaz`() = runTest {
+        val importer = importer()
+        importer.importIfNeeded()
+        val bodies = listOf(
+            serverContent("sha256:a", contentItems().withUnknownCategory()),
+            serverContent("sha256:b", contentItems(), count = 501),
+            serverContent("sha256:c", emptyList()),
+            serverContent("sha256:d", contentItems(), schema = 2),
+            """{"schema": 1}""",
+        )
+        bodies.forEach { body ->
+            serverHandler = { respondJson(body) }
+            assertEquals(Outcome.Failure(DataError.INVALID_RESPONSE), importer.syncWithServer("sha256:yeni"))
+            assertEquals(embeddedMeta.contentVersion, database.contentDao().info()?.version)
+            assertEquals(500, database.contentDao().suggestions().size)
+        }
+    }
+
+    @Test
+    fun `sunucu hatasinda mevcut icerik korunur`() = runTest {
+        val importer = importer()
+        importer.importIfNeeded()
+        serverHandler = { respond("", HttpStatusCode.ServiceUnavailable) }
+
+        assertEquals(Outcome.Failure(DataError.SERVER), importer.syncWithServer("sha256:yeni"))
+        assertEquals(500, database.contentDao().suggestions().size)
+    }
+
+    private fun importer(source: FakeContentSource = FakeContentSource()): ContentImporter {
+        val engine = MockEngine { request ->
+            requests += request
+            serverHandler(request)
+        }
+        return ContentImporter(
+            source = source,
+            metaProvider = ContentMetaProvider(source, napsamJson, Dispatchers.Unconfined),
+            dao = database.contentDao(),
+            api = NapsamApi(NapsamApi.createClient(engine, napsamJson)),
+            json = napsamJson,
+            defaultDispatcher = Dispatchers.Unconfined,
+        )
+    }
+
+    private fun repository(importer: ContentImporter) =
+        OfflineSuggestionRepository(importer, database.contentDao(), Dispatchers.Unconfined)
+
+    private fun contentItems(): List<JsonObject> =
+        napsamJson.parseToJsonElement(contractText("content/suggestions.json")).jsonArray.map { it.jsonObject }
+
+    private fun List<JsonObject>.withUnknownCategory(): List<JsonObject> =
+        listOf(JsonObject(first() + ("category" to JsonPrimitive("uydurma")))) + drop(1)
+
+    private fun List<JsonObject>.toJsonString(): String = JsonArray(this).toString()
+
+    private fun serverContent(version: String, items: List<JsonObject>, count: Int = items.size, schema: Int = 1) =
+        JsonObject(
+            mapOf(
+                "schema" to JsonPrimitive(schema),
+                "contentVersion" to JsonPrimitive(version),
+                "count" to JsonPrimitive(count),
+                "suggestions" to JsonArray(items),
+            ),
+        ).toString()
 
     private fun metaJson(version: String, count: Int): String {
         val meta = napsamJson.parseToJsonElement(contractText("content/meta.json")).jsonObject

@@ -7,7 +7,9 @@ import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import androidx.datastore.dataStoreFile
 import androidx.room.Room
 import com.kaaneneskpc.napsam.core.data.content.AssetContentSource
+import com.kaaneneskpc.napsam.core.data.content.ContentImporter
 import com.kaaneneskpc.napsam.core.data.content.ContentSource
+import com.kaaneneskpc.napsam.core.data.content.ContentSynchronizer
 import com.kaaneneskpc.napsam.core.data.database.NapsamDatabase
 import com.kaaneneskpc.napsam.core.data.database.dao.ContentDao
 import com.kaaneneskpc.napsam.core.data.database.dao.UserStateDao
@@ -119,6 +121,9 @@ internal object EngineModule {
 internal abstract class BindingsModule {
     @Binds
     abstract fun contentSource(source: AssetContentSource): ContentSource
+
+    @Binds
+    abstract fun contentSynchronizer(importer: ContentImporter): ContentSynchronizer
 
     @Binds
     abstract fun suggestionRepository(repository: OfflineSuggestionRepository): SuggestionRepository

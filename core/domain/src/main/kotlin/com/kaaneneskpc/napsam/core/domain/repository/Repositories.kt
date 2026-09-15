@@ -50,7 +50,8 @@ public interface ConfigRepository {
 
     /**
      * Önbellek 12 saatten eskiyse ve hız sınırı ertelemesi bitmişse sunucudan çeker (spesifikasyon B7);
-     * gerek yoksa istek atmadan başarı döner. Hata durumunda önbellek ve varsayılan korunur.
+     * sunucunun bildirdiği içerik sürümü cihazdakinden farklıysa içeriği de indirir. Gerek yoksa istek
+     * atmadan başarı döner. Hata durumunda önbellek, varsayılan ve mevcut içerik korunur.
      */
     public suspend fun refresh(): Outcome<Unit>
 }

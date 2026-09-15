@@ -1,5 +1,6 @@
 package com.kaaneneskpc.napsam.core.data.network
 
+import com.kaaneneskpc.napsam.core.data.content.ContentResponseDto
 import com.kaaneneskpc.napsam.core.data.network.dto.ConfigDto
 import com.kaaneneskpc.napsam.core.data.network.dto.SuggestRequestDto
 import com.kaaneneskpc.napsam.core.data.network.dto.SuggestResponseDto
@@ -38,6 +39,9 @@ import kotlinx.serialization.json.Json
 internal class NapsamApi @Inject constructor(private val client: HttpClient) {
 
     suspend fun config(): Outcome<ConfigDto> = call { client.get("config/") }
+
+    /** Veritabanındaki (Supabase) güncel içerik; yalnızca sürüm cihazdakinden farklıysa çağrılır. */
+    suspend fun content(): Outcome<ContentResponseDto> = call { client.get("content/") }
 
     suspend fun suggest(installId: String, request: SuggestRequestDto): Outcome<SuggestResponseDto> = call {
         client.post("suggest/") {

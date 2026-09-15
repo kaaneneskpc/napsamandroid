@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9fa4fd72f2bb8fba4b7b6c181edc63cc",
+    "identityHash": "b6aad70d5c9aba6051aebb99f7721241",
     "entities": [
       {
         "tableName": "suggestion",
@@ -150,7 +150,7 @@
       },
       {
         "tableName": "content_info",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `version` TEXT NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `version` TEXT NOT NULL, `embedded_version` TEXT NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -161,6 +161,12 @@
           {
             "fieldPath": "version",
             "columnName": "version",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "embeddedVersion",
+            "columnName": "embedded_version",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -243,7 +249,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9fa4fd72f2bb8fba4b7b6c181edc63cc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b6aad70d5c9aba6051aebb99f7721241')"
     ]
   }
 }

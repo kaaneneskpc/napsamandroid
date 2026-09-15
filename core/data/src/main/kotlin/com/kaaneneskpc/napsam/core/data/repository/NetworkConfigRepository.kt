@@ -1,6 +1,7 @@
 package com.kaaneneskpc.napsam.core.data.repository
 
 import com.kaaneneskpc.napsam.core.data.content.ContentMetaProvider
+import com.kaaneneskpc.napsam.core.data.content.ContentSynchronizer
 import com.kaaneneskpc.napsam.core.data.content.toDefaultConfig
 import com.kaaneneskpc.napsam.core.data.datastore.SettingsDataSource
 import com.kaaneneskpc.napsam.core.data.network.NapsamApi
@@ -20,18 +21,21 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 
 /**
- * Uzaktan yapılandırma (spesifikasyon B7, B8). Her zaman gömülü bir varsayılanı vardır; sunucu yanıtı
- * doğrulanıp önbelleğe yazılınca onun yerine geçer.
+ * Uzaktan yapılandırma ve içerik güncellemesi (spesifikasyon B7, B8, C3). Her zaman gömülü bir varsayılanı
+ * vardır; sunucu yanıtı doğrulanıp önbelleğe yazılınca onun yerine geçer.
  *
- * - Önbellek 12 saatten eskiyse çekilir.
+ * - Config önbelleği 12 saatten eskiyse çekilir.
  * - Ağ hatası, zaman aşımı ve 5xx: ilk istek + en fazla 2 yeniden deneme (1 sn, 2 sn).
- * - 429: yeniden deneme yok, sonraki istek en az 10 dakika ertelenir.
+ * - 429: yeniden deneme yok, sonraki istek (config ve içerik) en az 10 dakika ertelenir.
+ * - Sunucunun bildirdiği içerik sürümü cihazdakinden farklıysa içerik indirilir; önceki indirme başarısız
+ *   olduysa önbellek taze olsa bile bir sonraki yenilemede yeniden denenir.
  */
 @Singleton
 internal class NetworkConfigRepository @Inject constructor(
     private val api: NapsamApi,
     private val settings: SettingsDataSource,
     private val metaProvider: ContentMetaProvider,
+    private val contentSynchronizer: ContentSynchronizer,
     private val clock: Clock,
 ) : ConfigRepository {
 
@@ -40,12 +44,24 @@ internal class NetworkConfigRepository @Inject constructor(
         .distinctUntilChanged()
 
     override suspend fun refresh(): Outcome<Unit> {
-        val now = clock.millis()
+        val pausedUntil = settings.current().configRetryAfterMillis
+        if (pausedUntil != null && clock.millis() < pausedUntil) return Outcome.Success(Unit)
+
+        val configOutcome = refreshConfigIfStale()
+        if (configOutcome is Outcome.Failure && configOutcome.error == DataError.RATE_LIMITED) return configOutcome
+
+        val serverConfig = settings.current().config?.takeIf { it.toModelOrNull() != null } ?: return configOutcome
+        val contentOutcome = contentSynchronizer.syncWithServer(serverConfig.contentVersion)
+        if (contentOutcome is Outcome.Failure && contentOutcome.error == DataError.RATE_LIMITED) pauseForRateLimit()
+
+        return if (configOutcome is Outcome.Failure) configOutcome else contentOutcome
+    }
+
+    private suspend fun refreshConfigIfStale(): Outcome<Unit> {
         val current = settings.current()
-        val rateLimited = current.configRetryAfterMillis?.let { now < it } == true
         val fresh = current.config != null &&
-            current.configFetchedAtMillis?.let { now - it < STALE_AFTER.toMillis() } == true
-        if (rateLimited || fresh) return Outcome.Success(Unit)
+            current.configFetchedAtMillis?.let { clock.millis() - it < STALE_AFTER.toMillis() } == true
+        if (fresh) return Outcome.Success(Unit)
 
         return when (val result = fetchWithRetry()) {
             is Outcome.Success -> {
@@ -64,12 +80,14 @@ internal class NetworkConfigRepository @Inject constructor(
             }
 
             is Outcome.Failure -> {
-                if (result.error == DataError.RATE_LIMITED) {
-                    settings.update { it.copy(configRetryAfterMillis = clock.millis() + RATE_LIMIT_PAUSE.toMillis()) }
-                }
+                if (result.error == DataError.RATE_LIMITED) pauseForRateLimit()
                 result
             }
         }
+    }
+
+    private suspend fun pauseForRateLimit() {
+        settings.update { it.copy(configRetryAfterMillis = clock.millis() + RATE_LIMIT_PAUSE.toMillis()) }
     }
 
     private suspend fun fetchWithRetry(): Outcome<ConfigDto> {

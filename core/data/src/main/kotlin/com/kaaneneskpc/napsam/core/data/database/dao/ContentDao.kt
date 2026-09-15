@@ -13,8 +13,8 @@ internal abstract class ContentDao {
     @Query("SELECT * FROM suggestion")
     abstract suspend fun suggestions(): List<SuggestionEntity>
 
-    @Query("SELECT version FROM content_info WHERE id = ${ContentInfoEntity.SINGLE_ROW_ID}")
-    abstract suspend fun version(): String?
+    @Query("SELECT * FROM content_info WHERE id = ${ContentInfoEntity.SINGLE_ROW_ID}")
+    abstract suspend fun info(): ContentInfoEntity?
 
     /**
      * İçeriği tek transaction'da değiştirir (spesifikasyon C5.4): ya yeni içerik tamamen yazılır ya da
