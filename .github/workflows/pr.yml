@@ -1,0 +1,52 @@
+# PR denetimi (docs/CI.md): biçim, lint, birim + parite + ekran görüntüsü testleri, R8'li sürüm derlemesi.
+# Gizli anahtar kullanmaz. Action'lar commit SHA'sıyla sabitlenir; güncellemeleri Dependabot açar.
+name: PR denetimi
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  denetim:
+    name: Biçim, lint, test, sürüm derlemesi
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: JDK, Gradle ve bellek ayarı
+        uses: ./.github/actions/gradle-kurulum
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+
+      # check = spotlessCheck + lint + birim testleri (contract/ parite testleri dahil).
+      # Aynı çağrıda verifyRoborazziDebug: ekran görüntüsü testleri bir kez, golden'larla karşılaştırılarak koşar.
+      - name: Biçim, lint ve testler
+        run: ./gradlew check verifyRoborazziDebug
+
+      # lintVitalRelease + R8; Baseline Profile üretimi burada yapılmaz (cihaz gerektirir, bkz. release.yml).
+      - name: Sürüm derlemesi
+        run: ./gradlew :app:assembleRelease
+
+      - name: Hata raporları
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: raporlar
+          path: |
+            **/build/reports/
+            **/build/outputs/roborazzi/
+            **/src/test/screenshots/*_compare.png
+            **/src/test/screenshots/*_actual.png
+          retention-days: 7

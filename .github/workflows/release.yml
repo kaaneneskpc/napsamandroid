@@ -1,0 +1,70 @@
+# Sürüm paketi (docs/CI.md): yönetilen emülatörde Baseline + Startup Profile üretir, profille AAB derler.
+# Şimdilik gizli anahtar yok: AAB hata ayıklama anahtarıyla imzalı bir deneme paketidir, Play'e yüklenmez.
+# Gerçek imzalama Faz 13'te; Play internal track yüklemesi hesap hazır olunca eklenecek.
+name: Sürüm
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  paket:
+    name: Baseline Profile ve AAB
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: JDK, Gradle ve bellek ayarı
+        uses: ./.github/actions/gradle-kurulum
+
+      # Yönetilen emülatörün donanım hızlandırması için.
+      - name: KVM erişimi
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      # CI=true iken :benchmark yalnızca yönetilen cihazı (pixel6Api34) kullanır.
+      - name: Baseline + Startup Profile üret
+        run: >-
+          ./gradlew :app:generateReleaseBaselineProfile
+          -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+          -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
+          -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
+
+      - name: AAB
+        run: ./gradlew :app:bundleRelease
+
+      # Üretilen profil repoya elle eklenir (app/src/release/generated/baselineProfiles/).
+      - name: Paketi yükle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: napsam-${{ github.ref_name }}
+          path: |
+            app/build/outputs/bundle/release/*.aab
+            app/build/outputs/mapping/release/mapping.txt
+            app/src/release/generated/baselineProfiles/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Hata raporları
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: raporlar
+          path: |
+            **/build/reports/
+            **/build/outputs/androidTest-results/
+          retention-days: 7

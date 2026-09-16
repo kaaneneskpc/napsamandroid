@@ -4,6 +4,9 @@ plugins {
     alias(libs.plugins.baselineprofile)
 }
 
+val isCi = providers.environmentVariable("CI").isPresent
+val ciDevice = "pixel6Api34"
+
 /*
  * Macrobenchmark modülü (spesifikasyon B11): Baseline + Startup Profile üretir ve soğuk açılış /
  * kaydırma ölçümlerini yapar. Testler cihazda (ya da emülatörde) çalışır; `:app`'in `benchmarkRelease`
@@ -32,11 +35,25 @@ android {
 
     // Ölçüm APK'sı uygulamayı kendi süreci dışından sürer.
     experimentalProperties["android.experimental.self-instrumenting"] = true
+
+    // CI'da (GitHub Actions) profil üretimi bu emülatörde yapılır; yerelde kullanılmaz.
+    testOptions {
+        managedDevices {
+            localDevices {
+                create(ciDevice) {
+                    device = "Pixel 6"
+                    apiLevel = 34
+                    systemImageSource = "aosp"
+                }
+            }
+        }
+    }
 }
 
 baselineProfile {
-    // Profil üretimi ve ölçüm bağlı cihazda yapılır (CI için Faz 12'de yönetilen cihaz eklenecek).
-    useConnectedDevices = true
+    // Yerelde bağlı cihaz (emülatör indirilmez); CI'da yalnızca yönetilen cihaz. GitHub Actions `CI=true` verir.
+    if (isCi) managedDevices += ciDevice
+    useConnectedDevices = !isCi
 }
 
 dependencies {

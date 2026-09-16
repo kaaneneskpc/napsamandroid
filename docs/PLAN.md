@@ -14,12 +14,12 @@
 | 4 | `:core:designsystem` | ✅ |
 | 5 | `:core:domain` + parite testleri | ✅ |
 | 6 | `:core:data` | ✅ |
-| 7 | `:feature:home` + `:core:ui` (Faz 8 dahil) | 🟨 onay bekliyor |
+| 7 | `:feature:home` + `:core:ui` (Faz 8 dahil) | ✅ |
 | 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
-| 9 | `:feature:saved` + `:feature:privacy` | 🟨 onay bekliyor |
-| 10 | `:app` | 🟨 onay bekliyor |
-| 11 | `:benchmark` | 🟨 onay bekliyor (cihaz ölçümü en sonda) |
-| 12 | CI | ⬜ |
+| 9 | `:feature:saved` + `:feature:privacy` | ✅ |
+| 10 | `:app` | ✅ |
+| 11 | `:benchmark` | ✅ (cihazda ölçüm en sonda) |
+| 12 | CI | 🟨 onay bekliyor (GitHub'da ilk çalıştırma Faz 14) |
 | 13 | Release hazırlığı | ⬜ |
 | 14 | GitHub (yalnızca proje sahibi isteyince) | ⛔ ertelendi |
 
@@ -340,9 +340,17 @@
   nabız ve ok animasyonları beste yerine çizim aşamasında okunuyor (`graphicsLayer`).
 
 ## Faz 12 — CI
-- [ ] PR iş akışı: spotless, lint, unit test (parite dahil), assembleRelease
-- [ ] Release iş akışı: bundle, baseline profile, (hesap hazırsa) internal track
-- [ ] Gerçek sır yok; secret adları belgelenir
+- [x] PR iş akışı (`.github/workflows/pr.yml`): `check verifyRoborazziDebug` (spotless, lint, birim + parite +
+      ekran görüntüsü testleri) ve `:app:assembleRelease`; hata olursa raporlar artifact
+- [x] Release iş akışı (`release.yml`): yönetilen emülatörde (`pixel6Api34`, KVM) Baseline + Startup Profile,
+      `bundleRelease`, AAB + mapping + profil artifact. Internal track: Play hesabı hazır olmadığı için yok
+- [x] Gerçek sır yok; ileride gerekecek secret adları `docs/CI.md`'de
+- [x] Ortak kurulum `.github/actions/gradle-kurulum` (JDK 21, `basic` Gradle önbelleği, 7 GB runner için
+      bellek ayarı); action'lar commit SHA'sıyla sabit, Dependabot haftalık günceller
+- [x] Golden'lar macOS'ta kaydedildiği için Linux'ta yeniden kaydetme akışı (`screenshots.yml`, elle)
+- [ ] GitHub'da ilk çalıştırma (Faz 14): Linux ekran görüntüsü farkı, runner belleği, emülatör süresi
+- Notlar: `:benchmark` CI'da (`CI=true`) yalnızca yönetilen cihazı, yerelde bağlı cihazı kullanır.
+  actionlint makinede yok; YAML sözdizimi Ruby ile, Gradle komutları yerelde CI bellek ayarıyla doğrulandı.
 
 ## Faz 13 — Release hazırlığı
 - [ ] R8 keep kuralları, release derlemesi R8 sonrası emülatörde çalışıyor

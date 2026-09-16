@@ -1,0 +1,13 @@
+# Action'lar commit SHA'sıyla sabit; sürüm güncellemelerini Dependabot PR olarak açar.
+# Gradle bağımlılıkları bilerek dışarıda: sürüm kataloğu elle doğrulanıyor (spesifikasyon B1).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directories:
+      - /
+      - /.github/actions/*
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']

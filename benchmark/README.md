@@ -47,5 +47,5 @@ Sonuçlar `benchmark/build/outputs/connected_android_test_additional_output/` al
 - Ölçüm sürümü sürüm (release) derlemesidir; `:app` bu aşamada hata ayıklama anahtarıyla imzalanır
   (gerçek imzalama Faz 13).
 - Emülatörde ölçmek gerekirse varsayılan 2 GB bellek yetmez: `-memory 4096 -gpu host` ile başlat.
-- CI'da cihaz gerektiği için bu testler PR akışında çalışmaz; Faz 12'de yalnızca sürüm dalında
-  (yönetilen cihazla) planlanıyor.
+- CI'da ölçümler koşmaz (emülatörde gürültülü). Profil üretimi `release.yml`'da yönetilen emülatörde yapılır:
+  `CI=true` iken bu modül yalnızca `pixel6Api34` yönetilen cihazını, yerelde ise bağlı cihazı kullanır.

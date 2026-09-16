@@ -1,0 +1,35 @@
+# Golden ekran görüntülerini Linux'ta yeniden kaydeder (elle tetiklenir, docs/CI.md).
+# Golden'lar macOS'ta kaydedildi; CI (ubuntu) yazı tipi işlemede fark bulursa bu akışla Linux golden'ları
+# üretilir, artifact olarak indirilip repoya eklenir. Repoya kendisi yazmaz.
+name: Ekran görüntülerini kaydet
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kaydet:
+    name: recordRoborazziDebug
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Kodu al
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: JDK, Gradle ve bellek ayarı
+        uses: ./.github/actions/gradle-kurulum
+
+      - name: Kaydet
+        run: ./gradlew recordRoborazziDebug
+
+      - name: Golden'ları yükle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: golden-ekran-goruntuleri
+          path: '**/src/test/screenshots/*.png'
+          if-no-files-found: error
+          retention-days: 7

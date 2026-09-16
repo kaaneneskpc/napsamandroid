@@ -1,0 +1,37 @@
+# Üç iş akışının ortak kurulumu: JDK 21, Gradle önbelleği, CI bellek ayarı.
+name: Gradle kurulumu
+description: JDK 21, Gradle (basic önbellek) ve küçük runner için bellek ayarı
+
+inputs:
+  cache-read-only:
+    description: "true ise önbelleğe yazılmaz (yalnızca main yazar)"
+    required: false
+    default: "true"
+
+runs:
+  using: composite
+  steps:
+    - name: JDK 21
+      uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+      with:
+        distribution: temurin
+        java-version: 21
+
+    # Repo private (K16): gradle/actions'ın varsayılan önbelleği private repolarda yalnızca önizleme ve
+    # kapalı kaynak; MIT lisanslı "basic" sağlayıcı kullanılır.
+    - name: Gradle
+      uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+      with:
+        cache-provider: basic
+        cache-read-only: ${{ inputs.cache-read-only }}
+
+    # Private repo runner'ı 2 çekirdek / 7 GB: proje ayarındaki 4 GB'lık Gradle + ayrı Kotlin süreci sığmayabilir.
+    # Kullanıcı düzeyindeki gradle.properties proje ayarını ezer; yerel geliştirme etkilenmez.
+    - name: CI bellek ayarı
+      shell: bash
+      run: |
+        mkdir -p ~/.gradle
+        {
+          echo 'org.gradle.jvmargs=-Xmx3g -Dfile.encoding=UTF-8'
+          echo 'kotlin.compiler.execution.strategy=in-process'
+        } >> ~/.gradle/gradle.properties
