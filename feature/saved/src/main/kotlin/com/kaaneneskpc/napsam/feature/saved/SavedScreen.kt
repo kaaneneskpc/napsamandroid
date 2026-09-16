@@ -75,7 +75,7 @@ fun SavedScreen(
     val typography = NapsamTheme.typography
     val layoutDirection = LocalLayoutDirection.current
 
-    // Zemin uygulama kabugunda (NapsamApp) bir kez cizilir; ekranlar uzerine yerlesir.
+    // Zemin uygulama kabuğunda (NapsamApp) bir kez çizilir; ekranlar üzerine yerleşir.
     Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),

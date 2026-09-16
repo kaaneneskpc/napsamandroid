@@ -18,7 +18,7 @@
 | 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
 | 9 | `:feature:saved` + `:feature:privacy` | 🟨 onay bekliyor |
 | 10 | `:app` | 🟨 onay bekliyor |
-| 11 | `:benchmark` | ⬜ |
+| 11 | `:benchmark` | 🟨 onay bekliyor (cihaz ölçümü en sonda) |
 | 12 | CI | ⬜ |
 | 13 | Release hazırlığı | ⬜ |
 | 14 | GitHub (yalnızca proje sahibi isteyince) | ⛔ ertelendi |
@@ -327,8 +327,17 @@
     etkinleştirdiği için sesli çıktı doğrulanamadı, etiketler erişilebilirlik ağacından okundu.
 
 ## Faz 11 — `:benchmark`
-- [ ] Baseline Profile + Startup Profile üretimi
-- [ ] Soğuk açılış ve kaydırma jank ölçümü (hedefler B11)
+- [x] `:benchmark` modülü (`com.android.test` + `androidx.baselineprofile`), `:app`'e `baselineProfile`
+      bağımlılığı ve `profileinstaller`; `benchmarkRelease` / `nonMinifiedRelease` türevleri derleniyor
+      (R8 açıkken sorunsuz, APK 1,9 MB)
+- [x] Baseline Profile + Startup Profile üretimi: `BaselineProfileGenerator` (açılış → kaydırma →
+      Kaydedilenler → Gizlilik), `./gradlew :app:generateReleaseBaselineProfile`
+- [x] Soğuk açılış ve kaydırma ölçümleri: `StartupBenchmark` (profilsiz ve profille), `ScrollBenchmark`
+      (`FrameTimingMetric`); "açılış → ilk öneri" için ana ekran `ReportDrawnWhen` ile bildiriyor
+- [ ] Cihazda çalıştırma ve sonuçların hedeflerle karşılaştırılması (B11) — cihaz denemeleri en sona toplandı
+- Kaydırma takılması için yapılan düzeltmeler (proje sahibinin bildirimi üzerine): zemin iki kez
+  çiziliyordu, artık yalnızca uygulama kabuğunda; ışıma fırçası önbelleğe alındı (`drawWithCache`);
+  nabız ve ok animasyonları beste yerine çizim aşamasında okunuyor (`graphicsLayer`).
 
 ## Faz 12 — CI
 - [ ] PR iş akışı: spotless, lint, unit test (parite dahil), assembleRelease

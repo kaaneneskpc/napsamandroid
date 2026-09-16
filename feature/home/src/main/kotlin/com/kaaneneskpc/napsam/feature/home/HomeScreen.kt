@@ -1,5 +1,6 @@
 package com.kaaneneskpc.napsam.feature.home
 
+import androidx.activity.compose.ReportDrawnWhen
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExitTransition
@@ -135,7 +136,10 @@ fun HomeScreen(
         }
     }
 
-    // Zemin uygulama kabugunda (NapsamApp) bir kez cizilir; ekranlar uzerine yerlesir.
+    // Açılışın bittiği an = ilk önerinin çizildiği an (spesifikasyon B11 ölçümü).
+    ReportDrawnWhen { state.suggestion != null }
+
+    // Zemin uygulama kabuğunda (NapsamApp) bir kez çizilir; ekranlar üzerine yerleşir.
     Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             state = listState,

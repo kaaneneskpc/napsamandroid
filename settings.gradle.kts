@@ -30,6 +30,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "napsam"
 
 include(":app")
+include(":benchmark")
 include(":core:model")
 include(":core:domain")
 include(":core:data")
