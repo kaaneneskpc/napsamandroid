@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.napsam.android.application)
     alias(libs.plugins.napsam.android.compose)
@@ -7,8 +9,45 @@ plugins {
     alias(libs.plugins.baselineprofile)
 }
 
+/*
+ * Sürüm imzası (spesifikasyon B10.1.5, docs/RELEASE.md): upload anahtar deposu repoya girmez. Bilgiler repo
+ * kökündeki git'e girmeyen `keystore.properties` dosyasından, yoksa ortam değişkenlerinden (CI) okunur.
+ * Hiçbiri yoksa sürüm hata ayıklama anahtarıyla imzalanır (PR denetimi, ölçüm); o paket Play'e yüklenemez.
+ * Bilgiler eksik verilirse derleme durur: yarım yapılandırma sessizce hata ayıklama anahtarına düşmez.
+ */
+val uploadSigning: Map<String, String>? = run {
+    val file = rootProject.file("keystore.properties")
+    val properties = Properties().apply { if (file.isFile) file.inputStream().use(::load) }
+    val values = mapOf(
+        "storeFile" to "NAPSAM_UPLOAD_STORE_FILE",
+        "storePassword" to "NAPSAM_UPLOAD_STORE_PASSWORD",
+        "keyAlias" to "NAPSAM_UPLOAD_KEY_ALIAS",
+        "keyPassword" to "NAPSAM_UPLOAD_KEY_PASSWORD",
+    ).mapValues { (key, env) ->
+        properties.getProperty(key)?.takeIf { it.isNotBlank() }
+            ?: providers.environmentVariable(env).orNull?.takeIf { it.isNotBlank() }
+    }
+    val missing = values.filterValues { it == null }.keys
+    when {
+        missing.isEmpty() -> values.mapValues { it.value.orEmpty() }
+        missing.size == values.size -> null
+        else -> throw GradleException("Sürüm imzası eksik yapılandırılmış, eksik alanlar: $missing (docs/RELEASE.md)")
+    }
+}
+
 android {
     namespace = "com.kaaneneskpc.napsam"
+
+    signingConfigs {
+        if (uploadSigning != null) {
+            create("upload") {
+                storeFile = rootProject.file(uploadSigning.getValue("storeFile"))
+                storePassword = uploadSigning.getValue("storePassword")
+                keyAlias = uploadSigning.getValue("keyAlias")
+                keyPassword = uploadSigning.getValue("keyPassword")
+            }
+        }
+    }
 
     defaultConfig {
         applicationId = "com.kaaneneskpc.napsam"
@@ -21,9 +60,7 @@ android {
             optimization {
                 enable = true
             }
-            // Geçici: ölçüm (macrobenchmark) ve deneme derlemeleri kurulabilsin diye hata ayıklama
-            // anahtarıyla imzalanır. Gerçek imzalama Faz 13'te (keystore repoda değil).
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("upload") ?: signingConfigs.getByName("debug")
         }
     }
 }

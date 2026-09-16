@@ -2,4 +2,6 @@
 <resources>
     <!-- Açılış ekranı ve pencere zemini; tasarımdaki açık tema zemini. -->
     <color name="app_background">#F9F9F8</color>
+    <!-- Uygulama ikonu ve splash ikon zemini: web favicon'unun rengi (tema ile değişmez). -->
+    <color name="ic_launcher_background">#F0643B</color>
 </resources>

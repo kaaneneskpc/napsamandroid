@@ -2,8 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
 
     <!--
-      Web gizlilik sayfasının (templates/privacy.html) uygulamaya uyarlanmış hâli: tarayıcı çerezi
-      yerine cihazda saklama, silme yolu sistem ayarları. Veri sorumlusu KVKK gereği burada (B17, K15).
+      KVKK aydınlatma metni (md. 10): web gizlilik sayfasının (templates/privacy.html) "Android uygulaması"
+      bölümüyle aynı içerik. Tarayıcı çerezi yerine cihazda saklama, silme yolu sistem ayarları, veri
+      sorumlusu ve başvuru yolu (B17, K15). Sunucu yayında, AI kapalı (Faz 13 kararı).
     -->
     <string name="privacy_back">Ana ekran</string>
     <string name="privacy_title">Gizlilik ve veriler</string>
@@ -15,15 +16,21 @@
     <string name="privacy_not_collected_3">Reklam kimliği, cihaz kimliği, çapraz uygulama takibi.</string>
 
     <string name="privacy_stored_title">Ne tutuyoruz</string>
-    <string name="privacy_stored_1">Kaydettiğin, geçtiğin ve &#8220;yapıyorum&#8221; dediğin önerilerin listesi. Bu liste yalnızca cihazında durur, sunucuya gönderilmez.</string>
-    <string name="privacy_stored_2">Tema tercihin ve rastgele üretilmiş bir kurulum kimliği. Kimlik kim olduğunu söylemez.</string>
+    <string name="privacy_stored_1">Kaydettiğin, geçtiğin ve &#8220;yapıyorum&#8221; dediğin önerilerin listesi. Bu liste yalnızca cihazında durur; sunucuya gönderilmez, buluta yedeklenmez.</string>
+    <string name="privacy_stored_2">Tema tercihin (açık ya da koyu).</string>
     <string name="privacy_stored_note">Bu kayıtlar ancak sen bir öneriyi kaydettiğinde, geçtiğinde ya da &#8220;yapıyorum&#8221; dediğinde oluşur. Sadece ana ekranı açıp çıkarsan hiçbir kayıt yazılmaz.</string>
 
     <string name="privacy_network_title">İnternet ne zaman kullanılıyor</string>
-    <string name="privacy_network_body">Öneriler cihazında üretilir; uygulama internetsiz de tam çalışır. Bağlantı yalnızca güncel bütçe tablosu ve öneri içeriği için kurulur. Bu isteklerde kişisel veri gönderilmez.</string>
+    <string name="privacy_network_body">Öneriler cihazında üretilir; uygulama internetsiz de tam çalışır. Bağlantı yalnızca güncel bütçe tablosunu ve öneri içeriğini indirmek için, en fazla 12 saatte bir kurulur. Bu isteklerde senden hiçbir bilgi gönderilmez; &#8220;Yaz&#8221; alanına yazdığın metin cihazından çıkmaz.</string>
+
+    <string name="privacy_transfer_title">Sunucu ve yurt dışına aktarım</string>
+    <string name="privacy_transfer_body">İndirme istekleri, her internet bağlantısında olduğu gibi cihazının IP adresini sunucuya ulaştırır. Sunucu Vercel üzerinde, Frankfurt\'ta (Almanya) çalışır. NAPSAM bu adresi kaydetmez; barındırma sağlayıcısı onu yalnızca hizmeti sunmak ve kötüye kullanımı sınırlamak için işler (KVKK md. 5/2-c ve 5/2-f).</string>
 
     <string name="privacy_delete_title">Verilerini silmek</string>
-    <string name="privacy_delete_body">Sistem ayarlarından uygulamanın verilerini temizlemen ya da uygulamayı kaldırman yeter: kaydettiklerin, tercihlerin ve kurulum kimliği silinir.</string>
+    <string name="privacy_delete_body">Sistem ayarlarından uygulamanın verilerini temizlemen ya da uygulamayı kaldırman yeter: kaydettiklerin ve tercihlerin silinir. Sunucuda sana ait bir kayıt yoktur.</string>
+
+    <string name="privacy_rights_title">Hakların</string>
+    <string name="privacy_rights_body">KVKK md. 11 uyarınca verilerinin işlenip işlenmediğini öğrenme, bilgi isteme, düzeltilmesini ya da silinmesini isteme ve işlenmesine itiraz etme hakkın var. Başvurunu aşağıdaki e-posta adresine gönderebilirsin; en geç 30 gün içinde yanıtlanır.</string>
 
     <string name="privacy_controller_title">Veri sorumlusu</string>
     <string name="privacy_controller_body" tools:ignore="Typos">Kaan Enes KAPICI · kaaneneskpc1@gmail.com</string>

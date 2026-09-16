@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 
-/** KVKK gereği veri sorumlusu ve silme yolu ekranda olmalı (spesifikasyon B17, K15). */
+/** KVKK aydınlatma metninin zorunlu öğeleri ekranda olmalı (md. 10; spesifikasyon B17, K15). */
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w393dp-h1600dp-xhdpi")
 class PrivacyScreenTest {
@@ -19,7 +19,7 @@ class PrivacyScreenTest {
     val composeRule = createComposeRule()
 
     @Test
-    fun `veri sorumlusu, silme yolu ve ana ekrana donus var`() {
+    fun `aydinlatma ogeleri ve ana ekrana donus var`() {
         var backClicked = false
         composeRule.setContent {
             NapsamTheme(darkTheme = false) {
@@ -31,6 +31,12 @@ class PrivacyScreenTest {
         composeRule.onNodeWithText("Kaan Enes KAPICI · kaaneneskpc1@gmail.com").assertExists()
         composeRule.onNodeWithText("Verilerini silmek").assertExists()
         composeRule.onNodeWithText("Sistem ayarlarından", substring = true).assertExists()
+        composeRule.onNodeWithText("Sunucu ve yurt dışına aktarım").assertExists()
+        composeRule.onNodeWithText("Frankfurt", substring = true).assertExists()
+        composeRule.onNodeWithText("Hakların").assertExists()
+        composeRule.onNodeWithText("KVKK md. 11", substring = true).assertExists()
+        // AI kapalı (Faz 13): uygulama kimlik üretmez, metin de iddia etmemeli.
+        composeRule.onNodeWithText("kurulum kimliği", substring = true).assertDoesNotExist()
 
         composeRule.onNodeWithText("Ana ekran").performClick()
         assertTrue(backClicked)

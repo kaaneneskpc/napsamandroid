@@ -4,7 +4,6 @@ import com.kaaneneskpc.napsam.core.data.repository.DataStorePreferencesRepositor
 import com.kaaneneskpc.napsam.core.data.testDataStore
 import com.kaaneneskpc.napsam.core.domain.repository.ThemeMode
 import java.io.File
-import java.util.UUID
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -12,18 +11,17 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 
-/** Tipli DataStore (karar K12) ve kurulum kimliği (spesifikasyon C3.2). */
+/** Tipli DataStore (karar K12). */
 class SettingsDataSourceTest {
     @get:Rule
     val folder = TemporaryFolder()
 
     @Test
-    fun `kurulum kimligi rastgele uuid v4, bir kez uretilir`() = runTest {
+    fun `eski surumdeki kurulum kimligi alani okunurken yok sayilir`() = runTest {
+        File(folder.root, AppSettingsSerializer.FILE_NAME).writeText("""{"themeMode":"dark","installId":"eski"}""")
         val settings = SettingsDataSource(testDataStore(folder.root, backgroundScope))
 
-        val first = settings.installId()
-        assertEquals(first, settings.installId())
-        assertEquals(4, UUID.fromString(first).version())
+        assertEquals(AppSettings(themeMode = AppSettings.THEME_DARK), settings.current())
     }
 
     @Test

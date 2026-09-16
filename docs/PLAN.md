@@ -19,8 +19,8 @@
 | 9 | `:feature:saved` + `:feature:privacy` | ✅ |
 | 10 | `:app` | ✅ |
 | 11 | `:benchmark` | ✅ (cihazda ölçüm en sonda) |
-| 12 | CI | 🟨 onay bekliyor (GitHub'da ilk çalıştırma Faz 14) |
-| 13 | Release hazırlığı | ⬜ |
+| 12 | CI | ✅ (GitHub'da ilk çalıştırma Faz 14) |
+| 13 | Release hazırlığı | 🟨 onay bekliyor (görseller ve cihaz denemesi en sonda) |
 | 14 | GitHub (yalnızca proje sahibi isteyince) | ⛔ ertelendi |
 
 ---
@@ -71,7 +71,7 @@
 ### 0.5 Kararlar (spesifikasyon C11) — onayını bekleyenler
 | # | Karar | Onaylanan (14.09.2026) | Onay |
 |---|---|---|---|
-| K1 | applicationId / isim | geliştirmede `com.kaaneneskpc.napsam`, Play öncesi marka araştırması | ✅ |
+| K1 | applicationId / isim | `com.kaaneneskpc.napsam` kesin (16.09); görünen ad için marka araştırması raporlandı | ✅ |
 | K2 | targetSdk | 37 | ✅ |
 | K3 | İçerik taşıma | Supabase içeriğinin gömülü kopyası + içe aktarma; Supabase'de değişince mobil API'den indirme; hafıza cihazda (15.09 revize) | ✅ |
 | K4 | Açılış | hazır kart (0 dokunuş) | ✅ |
@@ -90,6 +90,7 @@
 | K17 | Web API v1 | config + suggest | ✅ |
 | K18 | Ekranlar | Ana ekran, Kaydedilenler, Gizlilik; ayarlar ekranı ve sil düğmesi yok, tema üst barda | ✅ |
 | K19 | Ana ekran | web içeriği ve sırası (tanıtım kutuları + alt bilgi dahil), görünüm Stitch son tasarımı | ✅ |
+| K20 | Mobil API ve AI (16.09) | sunucu yayınlanır (config + içerik), AI kapalı; uygulamada AI istemcisi ve kurulum kimliği yok | ✅ |
 
 > **Web birebirliği (14.09.2026, proje sahibinin talimatı):** Android içerik olarak web'in, görünüm
 > olarak Stitch son tasarımının (`docs/design/`) aynısıdır; web'de olmayan özellik eklenmez.
@@ -353,14 +354,31 @@
   actionlint makinede yok; YAML sözdizimi Ruby ile, Gradle komutları yerelde CI bellek ayarıyla doğrulandı.
 
 ## Faz 13 — Release hazırlığı
-- [ ] R8 keep kuralları, release derlemesi R8 sonrası emülatörde çalışıyor
-- [ ] İmzalama yapılandırması (keystore repoda değil)
-- [ ] Data Safety taslağı · KVKK aydınlatma metni (K15 bilgileriyle)
-- [ ] Web gizlilik sayfasına Android bölümü (napsamweb)
-- [ ] Sunucu (mobil API: config, suggest, content) yayınlanacak mı kararı; yayınlanırsa "Yaz" modunda AI yolu
-      (5 sn zaman aşımı, 1 sn iskelet, yerel düşüş) ve AI önerisi kartının cihazda kaydedilmesi
-- [ ] Marka araştırması sonucu → isim ve applicationId kesinleşir (K1)
-- [ ] Mağaza metinleri ve ekran görüntüleri
+- [x] Sunucu kararı (16.09, K20): mobil API yayınlanır, **AI kapalı**. Uygulama yalnızca `config/` ve `content/`
+      çağırır; kullanılmayan AI istemcisi (`RemoteSuggestionRepository`, `suggest` DTO'ları) ve kurulum kimliği
+      kaldırıldı — metin cihazdan çıkmaz, kimlik üretilmez. Web dalının `main`'e alınması ve deploy'u proje
+      sahibinde (`docs/RELEASE.md`)
+- [x] Paket adı `com.kaaneneskpc.napsam` kesinleşti (K1). Görünen ad araştırması: napsam.net adlı Türkçe bir
+      öneri sitesi var (ad çakışması riski); TÜRKPATENT araştırması önerildi (`docs/play/store-listing.md`)
+- [x] R8: uygulamaya keep kuralı gerekmiyor — kütüphane kuralları ve Navigation 3'ün çalışma anı sınıf adı
+      serileştirmesi incelendi (`docs/RELEASE.md` R8 notları). Cihazda R8 sonrası deneme en sonda
+- [x] İmzalama: `keystore.properties` (git dışı) ya da ortam değişkenleri; yoksa hata ayıklama anahtarı, yarım
+      yapılandırmada derleme durur. Geçici test anahtarıyla uçtan uca doğrulandı. `release.yml` imza sırlarını
+      kullanıyor, yoksa uyarı + `hata-ayiklama-imzali` artifact adı
+- [x] KVKK aydınlatma metni (md. 10): Gizlilik ekranına sunucu/yurt dışı aktarım (Vercel, Frankfurt), hukuki
+      sebep, md. 11 hakları eklendi; kurulum kimliği ifadesi kaldırıldı. Hukukçu kontrolü önerilir
+- [x] Web gizlilik sayfası (napsamweb `feature/mobile-api-v1`, yerel commit `7b18171`): Android bölümü, Vercel +
+      Supabase bölgesi (ikisi de Frankfurt, `eu-central-1` doğrulandı), md. 11 hakları, veri sorumlusu; 151 web
+      testi yeşil
+- [x] Bulut yedeği kapalı (`allowBackup="false"` + `data_extraction_rules.xml`); cihazdan cihaza aktarım açık
+- [x] Uygulama ikonu: şablondaki Android robotu yerine web favicon'u (turuncu zemin, beyaz şimşek), temalı
+      ikon katmanı; splash ikonu turuncu daire içinde. Play ikonu 512×512 (`docs/play/assets/ikon-512.png`)
+- [x] Data Safety taslağı (`docs/play/data-safety.md`): "veri toplanmıyor/paylaşılmıyor", IP adresi karar
+      notuyla; kütüphanelerin veri davranışı
+- [x] Mağaza metinleri ve uygulama içeriği formları (`docs/play/store-listing.md`); IARC için 500 öneri alkol,
+      tütün ve şans oyunu açısından tarandı
+- [ ] Ekran görüntüleri (≤ 2:1 en-boy), öne çıkan görsel 1024×500, R8'li sürümün cihazda denenmesi — en sonda
+- [ ] Play Console hesabı, upload anahtarı oluşturma ve sırlar — proje sahibi (`docs/RELEASE.md`)
 
 ## Faz 14 — GitHub (proje sahibi "GitHub'da repo aç" dediğinde)
 - [ ] `gh api user --jq .login` = `kaaneneskpc` doğrulaması; değilse dur

@@ -9,6 +9,8 @@
     <style name="Theme.Napsam.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/app_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <!-- Beyaz şimşek açık zeminde kaybolmasın: ikon, uygulama ikonundaki gibi turuncu daire içinde. -->
+        <item name="windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
         <item name="postSplashScreenTheme">@style/Theme.Napsam</item>
     </style>
 </resources>

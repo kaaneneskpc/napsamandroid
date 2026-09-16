@@ -16,14 +16,20 @@ plugins {
 
 spotless {
     val ktlintVersion = libs.versions.ktlint.get()
+
+    // Çıktı klasörleri taramaya hiç girmez: `targetExclude` dosyaları sonradan eler ama klasörü yine gezer; paralel
+    // çalışan KSP `build/generated` klasörünü o sırada silip yeniden kurunca görev "okunamadı" hatasıyla düşüyordu.
+    fun sources(pattern: String) = fileTree(rootDir) {
+        include(pattern)
+        exclude("**/build/**", "**/.gradle/**", "**/.kotlin/**")
+    }
+
     kotlin {
-        target("**/*.kt")
-        targetExclude("**/build/**")
+        target(sources("**/*.kt"))
         ktlint(ktlintVersion).customRuleSets(listOf(libs.compose.rules.ktlint.get().toString()))
     }
     kotlinGradle {
-        target("**/*.gradle.kts")
-        targetExclude("**/build/**")
+        target(sources("**/*.gradle.kts"))
         ktlint(ktlintVersion)
     }
 }

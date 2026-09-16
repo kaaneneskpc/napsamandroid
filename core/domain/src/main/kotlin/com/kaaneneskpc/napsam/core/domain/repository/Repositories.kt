@@ -4,7 +4,6 @@ import com.kaaneneskpc.napsam.core.domain.EngineConstants
 import com.kaaneneskpc.napsam.core.domain.Outcome
 import com.kaaneneskpc.napsam.core.model.AppConfig
 import com.kaaneneskpc.napsam.core.model.Suggestion
-import com.kaaneneskpc.napsam.core.model.SuggestionContext
 import com.kaaneneskpc.napsam.core.model.UserSuggestionState
 import kotlinx.coroutines.flow.Flow
 
@@ -55,12 +54,6 @@ public interface ConfigRepository {
      * atmadan başarı döner. Hata durumunda önbellek, varsayılan ve mevcut içerik korunur.
      */
     public suspend fun refresh(): Outcome<Unit>
-}
-
-/** `POST /api/v1/suggest/`: yalnızca "Yaz" modunda ve config'te AI açıkken çağrılır. */
-public interface RemoteSuggestionRepository {
-    /** Yanıt 5 saniyede gelmezse [com.kaaneneskpc.napsam.core.domain.DataError.TIMEOUT]. */
-    public suspend fun suggest(context: SuggestionContext, text: String): Outcome<RemoteSuggestionResult>
 }
 
 /** Web'deki gibi yalnızca tema tercihi saklanır; bütçe her açılışta varsayılana ("Bedava") döner. */

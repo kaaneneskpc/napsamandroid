@@ -2,8 +2,6 @@ package com.kaaneneskpc.napsam.core.data.network
 
 import com.kaaneneskpc.napsam.core.data.content.ContentResponseDto
 import com.kaaneneskpc.napsam.core.data.network.dto.ConfigDto
-import com.kaaneneskpc.napsam.core.data.network.dto.SuggestRequestDto
-import com.kaaneneskpc.napsam.core.data.network.dto.SuggestResponseDto
 import com.kaaneneskpc.napsam.core.domain.DataError
 import com.kaaneneskpc.napsam.core.domain.Outcome
 import io.ktor.client.HttpClient
@@ -16,12 +14,7 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.request.get
-import io.ktor.client.request.header
-import io.ktor.client.request.post
-import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
-import io.ktor.http.ContentType
-import io.ktor.http.contentType
 import io.ktor.serialization.ContentConvertException
 import io.ktor.serialization.kotlinx.json.json
 import java.io.IOException
@@ -32,7 +25,8 @@ import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 
 /**
- * Django mobil API v1 (spesifikasyon C3, B8). Çerez ve CSRF yok; kimlik yalnızca `X-Napsam-Install`.
+ * Django mobil API v1 (spesifikasyon C3, B8): yalnızca okuma uçları (config, içerik). İsteklerde çerez,
+ * kimlik ya da kullanıcı verisi yoktur; AI önerisi v1'de kapalı (Faz 13 kararı), `suggest/` çağrılmaz.
  * Hiçbir istisna dışarı sızmaz: her çağrı [Outcome] döner.
  */
 @Singleton
@@ -42,14 +36,6 @@ internal class NapsamApi @Inject constructor(private val client: HttpClient) {
 
     /** Veritabanındaki (Supabase) güncel içerik; yalnızca sürüm cihazdakinden farklıysa çağrılır. */
     suspend fun content(): Outcome<ContentResponseDto> = call { client.get("content/") }
-
-    suspend fun suggest(installId: String, request: SuggestRequestDto): Outcome<SuggestResponseDto> = call {
-        client.post("suggest/") {
-            header(INSTALL_HEADER, installId)
-            contentType(ContentType.Application.Json)
-            setBody(request)
-        }
-    }
 
     private suspend inline fun <reified T> call(request: () -> HttpResponse): Outcome<T> = try {
         val response = request()
@@ -80,9 +66,8 @@ internal class NapsamApi @Inject constructor(private val client: HttpClient) {
     }
 
     companion object {
-        /** Sunucu Faz 13 kararına kadar canlıda olmayabilir; uygulama sunucusuz tam çalışır. */
+        /** Sunucu yayınlanana kadar uçlar 404 döner; uygulama sunucusuz tam çalışır. */
         const val BASE_URL = "https://napsam.vercel.app/api/v1/"
-        const val INSTALL_HEADER = "X-Napsam-Install"
         private const val CONNECT_TIMEOUT_MS = 10_000L
         private const val REQUEST_TIMEOUT_MS = 20_000L
 

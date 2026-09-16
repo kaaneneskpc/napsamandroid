@@ -19,13 +19,11 @@ import com.kaaneneskpc.napsam.core.data.napsamJson
 import com.kaaneneskpc.napsam.core.data.network.NapsamApi
 import com.kaaneneskpc.napsam.core.data.repository.DataStorePreferencesRepository
 import com.kaaneneskpc.napsam.core.data.repository.NetworkConfigRepository
-import com.kaaneneskpc.napsam.core.data.repository.NetworkRemoteSuggestionRepository
 import com.kaaneneskpc.napsam.core.data.repository.OfflineSuggestionRepository
 import com.kaaneneskpc.napsam.core.data.repository.OfflineUserStateRepository
 import com.kaaneneskpc.napsam.core.domain.engine.SuggestionEngine
 import com.kaaneneskpc.napsam.core.domain.repository.ConfigRepository
 import com.kaaneneskpc.napsam.core.domain.repository.PreferencesRepository
-import com.kaaneneskpc.napsam.core.domain.repository.RemoteSuggestionRepository
 import com.kaaneneskpc.napsam.core.domain.repository.SuggestionRepository
 import com.kaaneneskpc.napsam.core.domain.repository.UserStateRepository
 import dagger.Binds
@@ -133,9 +131,6 @@ internal abstract class BindingsModule {
 
     @Binds
     abstract fun configRepository(repository: NetworkConfigRepository): ConfigRepository
-
-    @Binds
-    abstract fun remoteSuggestionRepository(repository: NetworkRemoteSuggestionRepository): RemoteSuggestionRepository
 
     @Binds
     abstract fun preferencesRepository(repository: DataStorePreferencesRepository): PreferencesRepository

@@ -84,9 +84,19 @@ fun PrivacyScreen(onBack: () -> Unit, modifier: Modifier = Modifier, contentPadd
                     Paragraph(stringResource(R.string.privacy_network_body))
                 }
             }
+            item(key = "transfer") {
+                Section(title = stringResource(R.string.privacy_transfer_title)) {
+                    Paragraph(stringResource(R.string.privacy_transfer_body))
+                }
+            }
             item(key = "delete") {
                 Section(title = stringResource(R.string.privacy_delete_title)) {
                     Paragraph(stringResource(R.string.privacy_delete_body))
+                }
+            }
+            item(key = "rights") {
+                Section(title = stringResource(R.string.privacy_rights_title)) {
+                    Paragraph(stringResource(R.string.privacy_rights_body))
                 }
             }
             item(key = "controller") {
