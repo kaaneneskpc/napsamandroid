@@ -1,6 +1,7 @@
 package com.kaaneneskpc.napsam.feature.privacy
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,7 +18,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackLink
-import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.theme.NapsamTheme
 
 /**
@@ -36,7 +36,8 @@ fun PrivacyScreen(onBack: () -> Unit, modifier: Modifier = Modifier, contentPadd
     val typography = NapsamTheme.typography
     val layoutDirection = LocalLayoutDirection.current
 
-    NapsamBackground(modifier = modifier.fillMaxSize()) {
+    // Zemin uygulama kabugunda (NapsamApp) bir kez cizilir; ekranlar uzerine yerlesir.
+    Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(

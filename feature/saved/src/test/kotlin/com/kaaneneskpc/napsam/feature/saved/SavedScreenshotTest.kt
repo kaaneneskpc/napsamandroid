@@ -1,11 +1,14 @@
 package com.kaaneneskpc.napsam.feature.saved
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.github.takahirom.roborazzi.roborazziSystemPropertyOutputDirectory
+import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.theme.NapsamTheme
 import kotlinx.collections.immutable.toImmutableList
 import org.junit.Rule
@@ -36,7 +39,9 @@ class SavedScreenshotTest {
     private fun capture(name: String, state: SavedUiState, dark: Boolean) {
         composeRule.setContent {
             NapsamTheme(darkTheme = dark) {
-                SavedScreen(state = state, onRemove = {}, onBack = {})
+                NapsamBackground(modifier = Modifier.fillMaxSize()) {
+                    SavedScreen(state = state, onRemove = {}, onBack = {})
+                }
             }
         }
         composeRule.onRoot().captureRoboImage("${roborazziSystemPropertyOutputDirectory()}/$name.png")

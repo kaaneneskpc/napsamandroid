@@ -10,6 +10,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
@@ -43,7 +44,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kaaneneskpc.napsam.core.designsystem.component.BudgetSelector
 import com.kaaneneskpc.napsam.core.designsystem.component.CommitMessage
 import com.kaaneneskpc.napsam.core.designsystem.component.CtaNote
-import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamChip
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamConsole
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamDivider
@@ -135,7 +135,8 @@ fun HomeScreen(
         }
     }
 
-    NapsamBackground(modifier = modifier.fillMaxSize()) {
+    // Zemin uygulama kabugunda (NapsamApp) bir kez cizilir; ekranlar uzerine yerlesir.
+    Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             state = listState,
             modifier = Modifier.fillMaxSize(),

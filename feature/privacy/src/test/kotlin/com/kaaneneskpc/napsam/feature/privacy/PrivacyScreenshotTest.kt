@@ -1,11 +1,14 @@
 package com.kaaneneskpc.napsam.feature.privacy
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onRoot
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.github.takahirom.roborazzi.roborazziSystemPropertyOutputDirectory
+import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.theme.NapsamTheme
 import org.junit.Rule
 import org.junit.Test
@@ -30,7 +33,9 @@ class PrivacyScreenshotTest {
     private fun capture(name: String, dark: Boolean) {
         composeRule.setContent {
             NapsamTheme(darkTheme = dark) {
-                PrivacyScreen(onBack = {})
+                NapsamBackground(modifier = Modifier.fillMaxSize()) {
+                    PrivacyScreen(onBack = {})
+                }
             }
         }
         composeRule.onRoot().captureRoboImage("${roborazziSystemPropertyOutputDirectory()}/$name.png")

@@ -25,17 +25,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -74,16 +72,18 @@ fun NapsamBackground(modifier: Modifier = Modifier, content: @Composable BoxScop
     Box(
         modifier = modifier
             .background(colors.background)
-            .drawBehind {
-                if (colors.heroGlow.alpha > 0f) {
-                    drawRect(
-                        brush = Brush.radialGradient(
-                            colors = listOf(colors.heroGlow, Color.Transparent),
-                            center = Offset(size.width / 2f, size.height * HERO_GLOW_CENTER_Y),
-                            radius = size.maxDimension * HERO_GLOW_RADIUS,
-                        ),
+            // Işıma her karede değil, yalnızca boyut ya da renk değişince hazırlanır.
+            .drawWithCache {
+                val brush = if (colors.heroGlow.alpha > 0f) {
+                    Brush.radialGradient(
+                        colors = listOf(colors.heroGlow, Color.Transparent),
+                        center = Offset(size.width / 2f, size.height * HERO_GLOW_CENTER_Y),
+                        radius = size.maxDimension * HERO_GLOW_RADIUS,
                     )
+                } else {
+                    null
                 }
+                onDrawBehind { brush?.let { drawRect(brush = it) } }
             },
         content = content,
     )
@@ -207,7 +207,8 @@ fun OverlinePill(text: String, modifier: Modifier = Modifier) {
     val spacing = NapsamTheme.spacing
     val shape = NapsamTheme.shapes.pill
     val transition = rememberInfiniteTransition(label = "nabiz")
-    val pulse by transition.animateFloat(
+    // Değer bilerek `by` ile okunmaz: nabız her karede yeniden çizilir, yeniden bestelenmez.
+    val pulse = transition.animateFloat(
         initialValue = 1f,
         targetValue = PULSE_MIN_ALPHA,
         animationSpec = infiniteRepeatable(tween(PULSE_DURATION_MS), RepeatMode.Reverse),
@@ -225,7 +226,7 @@ fun OverlinePill(text: String, modifier: Modifier = Modifier) {
         Box(
             modifier = Modifier
                 .size(PulseDotSize)
-                .alpha(pulse)
+                .graphicsLayer { alpha = pulse.value }
                 .clip(shape)
                 .background(colors.accentDot),
         )
@@ -275,7 +276,8 @@ fun RefineToggle(
 ) {
     val colors = NapsamTheme.colors
     val spacing = NapsamTheme.spacing
-    val rotation by animateFloatAsState(
+    // `by` yok: ok dönerken yalnızca çizim yenilenir.
+    val rotation = animateFloatAsState(
         targetValue = if (expanded) 180f else 0f,
         animationSpec = tween(CHEVRON_ROTATION_MS),
         label = "daralt-ok",
@@ -296,7 +298,7 @@ fun RefineToggle(
             tint = colors.textTertiary,
             modifier = Modifier
                 .size(ChevronSize)
-                .rotate(rotation),
+                .graphicsLayer { rotationZ = rotation.value },
         )
         Text(text = text, style = NapsamTheme.typography.refineToggle, color = colors.textTertiary)
         if (summary != null) {

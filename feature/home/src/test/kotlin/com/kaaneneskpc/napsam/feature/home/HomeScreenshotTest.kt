@@ -1,6 +1,8 @@
 package com.kaaneneskpc.napsam.feature.home
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onRoot
@@ -10,6 +12,7 @@ import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.github.takahirom.roborazzi.roborazziSystemPropertyOutputDirectory
 import com.kaaneneskpc.napsam.core.designsystem.component.BudgetOption
+import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.theme.NapsamTheme
 import com.kaaneneskpc.napsam.core.domain.budget.BudgetCalculator
 import com.kaaneneskpc.napsam.core.domain.chips.ChipCatalog
@@ -88,22 +91,24 @@ class HomeScreenshotTest {
             val density = LocalDensity.current
             CompositionLocalProvider(LocalDensity provides Density(density = density.density, fontScale = fontScale)) {
                 NapsamTheme(darkTheme = dark) {
-                    HomeScreen(
-                        state = state,
-                        onBudgetSelect = {},
-                        onNapsamClick = {},
-                        onRefineToggle = {},
-                        onRefineModeSelect = {},
-                        onChipToggle = {},
-                        onTextChange = {},
-                        onTextSubmit = {},
-                        onRefineClear = {},
-                        onCommit = {},
-                        onAnotherIdea = {},
-                        onSaveToggle = {},
-                        onCommitMessageClose = {},
-                        onOpenPrivacy = {},
-                    )
+                    NapsamBackground(modifier = Modifier.fillMaxSize()) {
+                        HomeScreen(
+                            state = state,
+                            onBudgetSelect = {},
+                            onNapsamClick = {},
+                            onRefineToggle = {},
+                            onRefineModeSelect = {},
+                            onChipToggle = {},
+                            onTextChange = {},
+                            onTextSubmit = {},
+                            onRefineClear = {},
+                            onCommit = {},
+                            onAnotherIdea = {},
+                            onSaveToggle = {},
+                            onCommitMessageClose = {},
+                            onOpenPrivacy = {},
+                        )
+                    }
                 }
             }
         }

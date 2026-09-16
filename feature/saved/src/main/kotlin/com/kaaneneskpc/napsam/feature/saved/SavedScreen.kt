@@ -3,6 +3,7 @@ package com.kaaneneskpc.napsam.feature.saved
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,7 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackLink
-import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBackground
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamBadge
 import com.kaaneneskpc.napsam.core.designsystem.component.NapsamIconButton
 import com.kaaneneskpc.napsam.core.designsystem.icon.NapsamIcons
@@ -75,7 +75,8 @@ fun SavedScreen(
     val typography = NapsamTheme.typography
     val layoutDirection = LocalLayoutDirection.current
 
-    NapsamBackground(modifier = modifier.fillMaxSize()) {
+    // Zemin uygulama kabugunda (NapsamApp) bir kez cizilir; ekranlar uzerine yerlesir.
+    Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
