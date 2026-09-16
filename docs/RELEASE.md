@@ -95,13 +95,24 @@ base64 -i ~/Keystores/napsam-upload.jks | pbcopy
 ./gradlew check verifyRoborazziDebug
 ```
 
-5. **R8 sonrası cihaz denemesi** (emülatör de olur), imzalı sürüm derlemesiyle:
-   - açılış, öneri kartı, NAPSAM?, daraltma paneli (kelime ve yaz), kaydet, Kaydedilenler, Gizlilik, tema;
+5. **Cihazda parite testi:** JVM testleri Android'in regex motorunu (ICU) göremez; 16.09'da "Yaz" modu
+   `(?U)` bayrağı yüzünden cihazda çöküyordu. Emülatör açıkken:
+
+```bash
+./gradlew :core:data:connectedDebugAndroidTest
+```
+
+6. **R8 sonrası cihaz denemesi** (emülatör de olur), imzalı sürüm derlemesiyle:
+   - açılış, öneri kartı, NAPSAM?, daraltma paneli (kelime ve yaz, yazıp gönder), kaydet, Kaydedilenler,
+     Gizlilik, tema, "Tamam, yapıyorum";
    - süreç ölümü: uygulama Kaydedilenler ekranındayken arka plana al, `adb shell am kill com.kaaneneskpc.napsam`,
-     geri dön → ekran ve geri yığını korunmalı (Navigation 3 rota serileştirmesi R8 sonrası da çalışmalı);
+     launcher'dan geri dön → ekran ve geri yığını korunmalı, tek geri tuşu Ana ekrana dönmeli. Uygulamayı
+     `am start -n` ile açıp launcher'dan dönmek görevde ikinci bir örnek açar ve geri tuşunu "yutulmuş" gösterir;
+     denemede yalnızca launcher intent'i (`adb shell monkey -p com.kaaneneskpc.napsam -c
+     android.intent.category.LAUNCHER 1`) kullan;
    - uçak modunda soğuk açılış.
-6. **Paket:** `vX.Y.Z` etiketi → `release.yml` (imzalı AAB artifact) ya da yerelde `:app:bundleRelease`.
-7. **Play:** AAB'yi önce internal testing'e yükle, sürüm notunu Türkçe yaz, Play'in ön yükleme raporunu
+7. **Paket:** `vX.Y.Z` etiketi → `release.yml` (imzalı AAB artifact) ya da yerelde `:app:bundleRelease`.
+8. **Play:** AAB'yi önce internal testing'e yükle, sürüm notunu Türkçe yaz, Play'in ön yükleme raporunu
    (pre-launch report) kontrol et, sonra aşamalı yayın.
 
 ## R8 notları
@@ -115,5 +126,5 @@ Uygulamaya özel keep kuralı yok ve şu an gerekmiyor (16.09.2026'da kontrol ed
 - Ktor motoru açıkça veriliyor (`Android.create()`); ServiceLoader keşfi yok.
 - Sürüm manifestinde yalnızca `INTERNET` izni var; reklam kimliği (`AD_ID`) izni yok.
 
-Bir kütüphane eklenir ya da güncellenirse 5. maddedeki cihaz denemesi özellikle süreç ölümüyle birlikte
+Bir kütüphane eklenir ya da güncellenirse 6. maddedeki cihaz denemesi özellikle süreç ölümüyle birlikte
 tekrarlanır.

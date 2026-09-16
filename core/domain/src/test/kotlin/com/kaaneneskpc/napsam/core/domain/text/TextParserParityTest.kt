@@ -28,6 +28,16 @@ class TextParserParityTest {
         assertTrue(mismatches.joinToString("\n"), mismatches.isEmpty())
     }
 
+    @Test
+    fun `bosluk ve rakam siniflari Python str desenleriyle ayni`() {
+        // Python `\s`: bölünmez boşluk ve \x1c-\x1f de boşluktur; `\d`: her Unicode ondalık rakam.
+        assertEquals(180, TextParser.parse("3\u00A0saat", TestContract.budget).durationMax)
+        assertEquals(20, TextParser.parse("20\u001Cdakika", TestContract.budget).durationMax)
+        assertEquals(180, TextParser.parse("\u0663 saat", TestContract.budget).durationMax)
+        // Boşluklar tek boşluğa indirgenir; "param yok" ifadesi ideografik boşlukla yazılsa da eşleşir.
+        assertEquals("bedava", TextParser.parse("param\u3000\u2003yok", TestContract.budget).budgetKey)
+    }
+
     private fun JsonObject.toParsedText(): ParsedText = ParsedText(
         budgetKey = this["budget_key"]?.jsonPrimitive?.content,
         durationMax = this["duration_max"]?.jsonPrimitive?.int,

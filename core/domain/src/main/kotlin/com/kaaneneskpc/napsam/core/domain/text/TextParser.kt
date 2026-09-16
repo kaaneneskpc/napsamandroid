@@ -26,8 +26,10 @@ public data class ParsedText(
  * eşleşen kazanır). Alt dize eşleşmesinin bilinen yanlış pozitifleri ("açık hava" → yemek) bilinçli
  * olarak korunur (karar K14). `contract/parity/textmode.json` ile test edilir.
  *
- * Python'la aynı sonuç için boşluk ve rakam sınıfları Unicode'dur (`(?U)`), küçük harfe çevirme
- * dilden bağımsızdır ("İ" → "i̇", web `str.lower()` gibi).
+ * Python'la aynı sonuç için boşluk ve rakam sınıfları Unicode'dur, küçük harfe çevirme dilden bağımsızdır
+ * ("İ" → "i̇", web `str.lower()` gibi). Sınıflar bayrakla değil açıkça yazılır: Android'in ICU regex motoru
+ * `(?U)` bayrağını desteklemez ve ilk kullanımda uygulamayı çökertir; JVM testleri bunu göremez, cihaz
+ * testi (`:core:data` androidTest) görür.
  */
 public object TextParser {
     private const val PLENTY_KEY = "bol"
@@ -94,10 +96,16 @@ public object TextParser {
         "ucuz" to "ucuz", "bedava" to "ucuz",
     )
 
-    private val WHITESPACE = Regex("(?U)\\s+")
-    private val HOURS = Regex("(?U)(\\d+)\\s*saat")
-    private val MINUTES = Regex("(?U)(\\d+)\\s*(dakika|dk)")
-    private val AMOUNT = Regex("(?U)(\\d+)\\s*(tl|lira|₺)")
+    /** Python `str` deseninde `\s`: `str.isspace()` kümesi (Z kategorisi + denetim boşlukları). */
+    private const val SPACE = "[\\p{Z}\\t\\n\\u000B\\f\\r\\u001C-\\u001F\\u0085]"
+
+    /** Python `str` deseninde `\d`: Unicode ondalık rakamlar. */
+    private const val DIGIT = "\\p{Nd}"
+
+    private val WHITESPACE = Regex("$SPACE+")
+    private val HOURS = Regex("($DIGIT+)$SPACE*saat")
+    private val MINUTES = Regex("($DIGIT+)$SPACE*(dakika|dk)")
+    private val AMOUNT = Regex("($DIGIT+)$SPACE*(tl|lira|₺)")
 
     public fun parse(text: String, budget: BudgetCalculator): ParsedText {
         val normalized = WHITESPACE.replace(text.trim().lowercase(), " ")

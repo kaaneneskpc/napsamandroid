@@ -9,6 +9,17 @@ plugins {
 
 android {
     namespace = "com.kaaneneskpc.napsam.core.data"
+
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+androidComponents {
+    onVariants { variant ->
+        // Cihaz parite testi (src/androidTest) web'den dışa aktarılan "Yaz" cümlelerini okur; yalnızca test APK'sına girer.
+        variant.androidTest?.sources?.assets?.addStaticSourceDirectory(rootProject.file("contract/parity").path)
+    }
 }
 
 dependencies {
@@ -21,6 +32,11 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.serialization.kotlinx.json)
+
+    androidTestImplementation(testFixtures(projects.core.model))
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.junit)
 
     testImplementation(testFixtures(projects.core.model))
     testImplementation(libs.kotlinx.coroutines.test)
