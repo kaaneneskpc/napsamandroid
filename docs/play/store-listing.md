@@ -60,11 +60,10 @@ uygulama internetsiz de tam çalışır.
 |---|---|
 | Uygulama ikonu 512×512 PNG | Hazır: `docs/play/assets/ikon-512.png` (web favicon'undan üretildi, uygulama ikonuyla aynı) |
 | Öne çıkan görsel 1024×500 | Yapılacak — cihaz denemeleriyle birlikte en sonda |
-| Telefon ekran görüntüleri (en az 2, önerilen 4-8) | Yapılacak — en sonda; açık ve koyu tema: ana ekran (kart), daraltma paneli, Kaydedilenler, Gizlilik |
+| Telefon ekran görüntüleri (en az 2, önerilen 4-8) | Hazır: `docs/play/assets/ekran-01…08-*.png` — 1080×2160 (2:1), 24 bit PNG (Play alfa kabul etmez), R8'li sürüm, durum çubuğu demo modunda. Açık: ana ekran, öneri kartı, daraltma paneli, Kaydedilenler, Gizlilik; koyu: ana ekran, öneri kartı, Kaydedilenler |
 
 > Play ekran görüntülerinde uzun kenar kısa kenarın en fazla 2 katı olabilir. Pixel 9 Pro emülatörü
-> 1280×2856 (2,23:1) verdiği için doğrudan kullanılamaz: 1080×2160 (2:1) ya da 1080×1920 boyutlu bir
-> emülatörde çekilecek.
+> 1280×2856 (2,23:1) verdiği için görüntüler `adb shell wm size 1080x2160` ve `wm density 420` ile çekildi.
 
 ## Uygulama içeriği formları
 

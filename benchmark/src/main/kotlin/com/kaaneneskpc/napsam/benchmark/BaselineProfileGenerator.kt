@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
  * Baseline + Startup Profile üretir (spesifikasyon B11.1).
  *
  * `./gradlew :app:generateReleaseBaselineProfile` → `app/src/release/generated/baselineProfiles/`.
- * Gezilen yol kullanıcının ilk dakikasıdır: açılış, ana ekranda kaydırma, Kaydedilenler ve Gizlilik.
+ * Gezilen yol kullanıcının ilk dakikasıdır: açılış, ana ekranda kaydırma ve Kaydedilenler.
  */
 @RunWith(AndroidJUnit4::class)
 class BaselineProfileGenerator {
@@ -23,6 +23,6 @@ class BaselineProfileGenerator {
         startActivityAndWait()
         waitForHome()
         flingHome()
-        visitOtherScreens()
+        visitSaved()
     }
 }

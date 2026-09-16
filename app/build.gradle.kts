@@ -65,6 +65,17 @@ android {
     }
 }
 
+androidComponents {
+    // Baseline Profile eklentisi (1.5.0) profil toplama türevini `initWith(release)` ile kurup yalnızca eski
+    // `isMinifyEnabled`'ı kapatıyor; AGP 9'un `optimization` ayarı açık kaldığı için sınıf adları karışıyor ve
+    // toplanan kurallar sürüm derlemesine eşlenemiyordu. Bu geri çağrı eklentininkinden sonra çalışır.
+    finalizeDsl { android ->
+        android.buildTypes.findByName("nonMinifiedRelease")?.optimization {
+            enable = false
+        }
+    }
+}
+
 baselineProfile {
     // Profil yalnızca istenince üretilir; sürüm derlemesi cihaz gerektirmez (`:app:generateReleaseBaselineProfile`).
     automaticGenerationDuringBuild = false

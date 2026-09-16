@@ -11,7 +11,6 @@ internal const val PACKAGE_NAME = "com.kaaneneskpc.napsam"
 internal const val NAPSAM_BUTTON = "NAPSAM?"
 internal const val SAVED_LABEL = "Kaydedilenler"
 internal const val BACK_LINK = "Ana ekran"
-internal const val PRIVACY_LINK = "Gizlilik"
 
 private const val WAIT_MS = 10_000L
 private const val GESTURE_MARGIN_RATIO = 5
@@ -37,21 +36,14 @@ internal fun MacrobenchmarkScope.flingHome() {
     }
 }
 
-/** Profil üretiminde diğer iki ekran da gezilir: Kaydedilenler ve Gizlilik. */
-internal fun MacrobenchmarkScope.visitOtherScreens() {
-    device.findObject(By.text(SAVED_LABEL))?.click()
-    device.wait(Until.hasObject(By.text(BACK_LINK)), WAIT_MS)
-    device.pressBack()
-    waitForHome()
-
-    val list = device.findObject(By.scrollable(true))
-    list?.setGestureMargin(device.displayWidth / GESTURE_MARGIN_RATIO)
-    repeat(FLING_COUNT) {
-        list?.fling(Direction.DOWN)
-        device.waitForIdle()
-    }
-    device.findObject(By.text(PRIVACY_LINK))?.click()
-    device.wait(Until.hasObject(By.text(BACK_LINK)), WAIT_MS)
+/**
+ * Profil üretiminde Kaydedilenler ekranı da gezilir. Gizlilik ekranı gezilmez: alt bilgideki bağlantı metnin
+ * içinde bir aralık olduğu için UiAutomator'a ayrı düğüm olarak görünmez ve yeri ekran genişliğine göre değişir;
+ * ekran, Kaydedilenler'le aynı bileşenleri (liste, geri bağlantısı, metin) kullanır.
+ */
+internal fun MacrobenchmarkScope.visitSaved() {
+    checkNotNull(device.findObject(By.text(SAVED_LABEL))) { "Üst barda Kaydedilenler yok" }.click()
+    check(device.wait(Until.hasObject(By.text(BACK_LINK)), WAIT_MS)) { "Kaydedilenler açılmadı" }
     device.pressBack()
     waitForHome()
 }

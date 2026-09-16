@@ -18,7 +18,7 @@
 | 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
 | 9 | `:feature:saved` + `:feature:privacy` | ✅ |
 | 10 | `:app` | ✅ |
-| 11 | `:benchmark` | ✅ (cihazda ölçüm en sonda) |
+| 11 | `:benchmark` | ✅ |
 | 12 | CI | ✅ (GitHub'da ilk çalıştırma Faz 14) |
 | 13 | Release hazırlığı | 🟨 onay bekliyor (görseller ve cihaz denemesi en sonda) |
 | 14 | GitHub (yalnızca proje sahibi isteyince) | ⛔ ertelendi |
@@ -335,7 +335,13 @@
       Kaydedilenler → Gizlilik), `./gradlew :app:generateReleaseBaselineProfile`
 - [x] Soğuk açılış ve kaydırma ölçümleri: `StartupBenchmark` (profilsiz ve profille), `ScrollBenchmark`
       (`FrameTimingMetric`); "açılış → ilk öneri" için ana ekran `ReportDrawnWhen` ile bildiriyor
-- [ ] Cihazda çalıştırma ve sonuçların hedeflerle karşılaştırılması (B11) — cihaz denemeleri en sona toplandı
+- [x] Cihazda çalıştırma (16.09, emülatör): soğuk açılış medyan 209 → 158 ms profille (−%24), açılış → ilk öneri
+      293 → 209 ms (−%29); hedefler (800 ms / 1 sn) karşılanıyor. Kaydırma emülatörün tavanında: takılan kare %6,7,
+      aynı emülatörde sistem Ayarlar uygulaması %10,8. %1 hedefi gerçek cihazda ölçülecek (`benchmark/README.md`)
+- [x] **AGP 9 ile eklenti uyumsuzluğu bulundu:** profil toplama türevi R8 ile karıştırılıyordu (eklenti yalnızca
+      eski `isMinifyEnabled`'ı kapatıyor), kurallar kullanılamaz çıkıyordu; `finalizeDsl` ile düzeltildi. Profil
+      `app/src/release/generated/baselineProfiles/` altında (24.396 kural) ve sürüm APK'sına giriyor
+- [x] Profil gezintisinden Gizlilik çıkarıldı: alt bilgi bağlantısı UiAutomator'a ayrı düğüm olarak görünmüyor
 - Kaydırma takılması için yapılan düzeltmeler (proje sahibinin bildirimi üzerine): zemin iki kez
   çiziliyordu, artık yalnızca uygulama kabuğunda; ışıma fırçası önbelleğe alındı (`drawWithCache`);
   nabız ve ok animasyonları beste yerine çizim aşamasında okunuyor (`graphicsLayer`).
@@ -377,7 +383,17 @@
       notuyla; kütüphanelerin veri davranışı
 - [x] Mağaza metinleri ve uygulama içeriği formları (`docs/play/store-listing.md`); IARC için 500 öneri alkol,
       tütün ve şans oyunu açısından tarandı
-- [ ] Ekran görüntüleri (≤ 2:1 en-boy), öne çıkan görsel 1024×500, R8'li sürümün cihazda denenmesi — en sonda
+- [x] R8'li sürüm cihazda (16.09, Pixel_9_Pro_API_37, 4 GB): açılış, NAPSAM?, kelime filtresi ("kahve" → kahve
+      etiketli öneri), "Yaz" modu, kaydet/geç, "Tamam, yapıyorum" mesajı, Kaydedilenler, Gizlilik (yeni KVKK
+      bölümleri), koyu tema, uçak modunda soğuk açılış, launcher ikonu. Süreç ölümünden sonra Kaydedilenler ve geri
+      yığını geri geliyor, tek geri tuşu Ana ekrana dönüyor (yalnızca launcher intent'iyle denendiğinde; `am start -n`
+      ikinci örnek açıp yanıltıcı sonuç veriyor)
+- [x] **Cihazda bulunan hata:** "Yaz" modunda metin gönderince uygulama çöküyordu — `TextParser` regex'lerindeki
+      `(?U)` bayrağı Android'in ICU motorunda yok (`PatternSyntaxException`); JVM parite testleri göremiyordu.
+      Bayrak yerine Python `\s`/`\d` kümeleri açıkça yazıldı; 164 cümleyi ART üzerinde koşan
+      `:core:data` cihaz testi eklendi (düzeltmeden önce kırmızı, sonra yeşil) ve sürüm listesine girdi
+- [x] Play ekran görüntüleri: 8 adet, 1080×2160, 24 bit PNG, açık/koyu (`docs/play/assets/`)
+- [ ] Öne çıkan görsel 1024×500
 - [ ] Play Console hesabı, upload anahtarı oluşturma ve sırlar — proje sahibi (`docs/RELEASE.md`)
 
 ## Faz 14 — GitHub (proje sahibi "GitHub'da repo aç" dediğinde)
