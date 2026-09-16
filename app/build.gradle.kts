@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.napsam.android.application)
     alias(libs.plugins.napsam.android.compose)
     alias(libs.plugins.napsam.hilt)
+    alias(libs.plugins.napsam.contract.tests)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -33,4 +35,14 @@ dependencies {
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(testFixtures(projects.core.model))
 }

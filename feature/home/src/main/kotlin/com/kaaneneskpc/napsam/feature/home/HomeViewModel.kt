@@ -68,8 +68,7 @@ class HomeViewModel @Inject constructor(
             }
         }
         viewModelScope.launch { requestSuggestion() }
-        // Config ve (Supabase'de değiştiyse) içerik arka planda güncellenir; sonuç kullanıcıya gösterilmez.
-        viewModelScope.launch { configRepository.refresh() }
+        // Config ve içerik yenilemesi uygulama kabuğunda (NapsamAppViewModel) yapılır.
     }
 
     fun onBudgetSelect(key: String) {

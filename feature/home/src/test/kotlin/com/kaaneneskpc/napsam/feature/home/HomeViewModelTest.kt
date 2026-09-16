@@ -33,7 +33,6 @@ class HomeViewModelTest {
         )
         assertEquals("bedava", state.selectedBudget)
         assertFalse("daraltma kapalı başlar", state.refineExpanded)
-        assertEquals("config arka planda yenilenir", 1, fixture.config.refreshCount)
     }
 
     @Test

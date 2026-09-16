@@ -1,3 +1,8 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
     <string name="app_name">napsam</string>
+    <string name="brand">napsam</string>
+    <string name="top_bar_saved">Kaydedilenler</string>
+    <string name="theme_switch_to_dark">Koyu temaya geç</string>
+    <string name="theme_switch_to_light">Açık temaya geç</string>
 </resources>

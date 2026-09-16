@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Napsam" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Napsam" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/app_background</item>
+    </style>
+
+    <!-- Açılış: sistem splash'i, yapay bekleme yok (spesifikasyon B11.3). -->
+    <style name="Theme.Napsam.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/app_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Napsam</item>
+    </style>
 </resources>

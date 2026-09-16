@@ -17,7 +17,7 @@
 | 7 | `:feature:home` + `:core:ui` (Faz 8 dahil) | 🟨 onay bekliyor |
 | 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
 | 9 | `:feature:saved` + `:feature:privacy` | 🟨 onay bekliyor |
-| 10 | `:app` | ⬜ |
+| 10 | `:app` | 🟨 onay bekliyor |
 | 11 | `:benchmark` | ⬜ |
 | 12 | CI | ⬜ |
 | 13 | Release hazırlığı | ⬜ |
@@ -313,12 +313,18 @@
       gizlilik açık/koyu)
 
 ## Faz 10 — `:app`
-- [ ] Application (Hilt), MainActivity (edge-to-edge), splash
-- [ ] Navigation 3: Home, Saved, Privacy; predictive back
-- [ ] Hilt grafiği ilk kez uçtan uca kullanılır (Faz 6 bağlamaları); Network Security Config (cleartext kapalı)
-- [ ] Üst bar (logo, Kaydedilenler + sayı, tema düğmesi); seçilen tema DataStore'da
-- [ ] Network Security Config, strings TR/EN, uyarlanabilir yerleşim (≥ 600dp)
-- [ ] Emülatörde (Pixel_9_Pro_API_37) tam akış + ekran görüntüleri, TalkBack, uçak modu
+- [x] Application (Hilt), MainActivity (edge-to-edge), sistem splash'i (yapay bekleme yok)
+- [x] Navigation 3: Home, Saved, Privacy; `enableOnBackInvokedCallback` ile öngörülü geri
+- [x] Hilt grafiği ilk kez uçtan uca kullanılır (Faz 6 bağlamaları); Network Security Config (cleartext kapalı)
+- [x] Üst bar (logo, Kaydedilenler + sayı, tema düğmesi); seçilen tema DataStore'da
+- [x] Türkçe uygulama metinleri (K19: tek dil), geniş ekranda web `--stage` (760dp) genişliğinde ortalanmış içerik
+- [x] Emülatörde (Pixel_9_Pro_API_37) tam akış + ekran görüntüleri, TalkBack açıkken kullanım, uçak modu, %200 yazı, yatay
+- Notlar:
+  - `configRepository.refresh()` `HomeViewModel`'den `NapsamAppViewModel`'e taşındı (uygulama başına bir kez).
+  - Üst bar web'deki gibi sabittir (`.header { position: fixed }`); web'de içerik barın altından kayar, burada
+    bar akışın üstünde durur — metin ve sıra aynı.
+  - TalkBack açıkken gezinme denendi; adb ile enjekte edilen dokunuşlar "dokunarak keşfet" yerine doğrudan
+    etkinleştirdiği için sesli çıktı doğrulanamadı, etiketler erişilebilirlik ağacından okundu.
 
 ## Faz 11 — `:benchmark`
 - [ ] Baseline Profile + Startup Profile üretimi
