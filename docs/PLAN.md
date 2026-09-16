@@ -16,7 +16,7 @@
 | 6 | `:core:data` | ✅ |
 | 7 | `:feature:home` + `:core:ui` (Faz 8 dahil) | 🟨 onay bekliyor |
 | 8 | ~~`:feature:suggestion`~~ → Faz 7'ye katıldı | — |
-| 9 | `:feature:saved` + `:feature:privacy` | ⬜ |
+| 9 | `:feature:saved` + `:feature:privacy` | 🟨 onay bekliyor |
 | 10 | `:app` | ⬜ |
 | 11 | `:benchmark` | ⬜ |
 | 12 | CI | ⬜ |
@@ -299,9 +299,18 @@
 > Faz 13'e ertelendi (sunucu yayını + AI açma kararı).
 
 ## Faz 9 — `:feature:saved` + `:feature:privacy`
-- [ ] Kaydedilenler: LazyColumn (key = slug), kaldır, boş durum metinleri
-- [ ] Gizlilik (K18): web gizlilik sayfasının Android'e uyarlanmış metni, veri sorumlusu (K15),
-      verilerin cihazda olduğu ve sistem ayarlarından/uygulamayı kaldırarak silindiği (B17)
+- [x] Kaydedilenler (web `saved.html`): "← Ana ekran", başlık ve alt metin, düz liste (LazyColumn, key = slug,
+      en son kaydedilen önce), her satırda başlık, kanca, maliyet/süre/yer rozetleri ve "Listeden çıkar",
+      boş durumda web metinleri (liste gelmeden boş durum gösterilmez)
+- [x] Web'de "Sağa kaydırdıkların" yazan alt metin "Kalp ikonuna bastıkların" oldu: uygulamada kaydırma yok
+      (K8) ve kaydetme kalple yapılıyor. Metin web'den sapan tek yer, proje sahibine bildirildi
+- [x] Gizlilik (K18): web gizlilik sayfasının uygulamaya uyarlanmış metni (tarayıcı çerezi yerine cihazda
+      saklama), "İnternet ne zaman kullanılıyor" bölümü, silme yolu sistem ayarları/uygulamayı kaldırma (B17)
+      ve veri sorumlusu **Kaan Enes KAPICI · kaaneneskpc1@gmail.com** (K15)
+- [x] Tasarım sistemi eki: `NapsamBackLink` (web `.navlink`)
+- [x] Testler: ViewModel 2 (liste ve kaldırma, liste gelmeden boş durum yok), arayüz 3 (liste + kaldırma,
+      boş durum, gizlilikte veri sorumlusu/silme/geri), ekran görüntüsü 5 (kaydedilenler açık/koyu/boş,
+      gizlilik açık/koyu)
 
 ## Faz 10 — `:app`
 - [ ] Application (Hilt), MainActivity (edge-to-edge), splash

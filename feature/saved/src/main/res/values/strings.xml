@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
+
+    <string name="saved_back">Ana ekran</string>
+    <string name="saved_title">Kaydedilenler</string>
+    <!-- Web'de "Sağa kaydırdıkların" yazıyor; uygulamada kaydırma yok (K8), kaydetme kalple yapılır. -->
+    <string name="saved_subtitle">Kalp ikonuna bastıkların. Klasör yok, etiket yok — sadece liste.</string>
+    <string name="saved_remove">Listeden çıkar</string>
+    <string name="saved_empty_title">Henüz bir şey kaydetmedin.</string>
+    <string name="saved_empty_body">Bir öneriyi beğendiğinde kalp ikonuna bas, burada birikir.</string>
+</resources>

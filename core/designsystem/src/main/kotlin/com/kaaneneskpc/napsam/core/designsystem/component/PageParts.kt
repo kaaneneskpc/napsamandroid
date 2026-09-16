@@ -54,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import com.kaaneneskpc.napsam.core.designsystem.icon.NapsamIcons
 import com.kaaneneskpc.napsam.core.designsystem.theme.NapsamTheme
 
+private val BackIconSize = 16.dp
 private val PulseDotSize = 6.dp
 private val ChevronSize = 12.dp
 private val SeparatorHeight = 12.dp
@@ -174,6 +175,29 @@ private fun CountBadge(text: String, modifier: Modifier = Modifier) {
             .background(NapsamTheme.colors.ctaGradientStart)
             .padding(horizontal = NapsamTheme.spacing.sm, vertical = NapsamTheme.spacing.xxs),
     )
+}
+
+/** Alt ekranların başındaki "← Ana ekran" bağlantısı (web `.navlink`). */
+@Composable
+fun NapsamBackLink(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val spacing = NapsamTheme.spacing
+    Row(
+        modifier = modifier
+            .heightIn(min = spacing.minTouchTarget)
+            .clip(NapsamTheme.shapes.tag)
+            .clickable(role = Role.Button, onClick = onClick)
+            .padding(horizontal = spacing.xs),
+        horizontalArrangement = Arrangement.spacedBy(spacing.sm),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            imageVector = NapsamIcons.Back,
+            contentDescription = null,
+            tint = NapsamTheme.colors.textSecondary,
+            modifier = Modifier.size(BackIconSize),
+        )
+        Text(text = text, style = NapsamTheme.typography.topBarAction, color = NapsamTheme.colors.textSecondary)
+    }
 }
 
 /** Başlık üstündeki hap: nabız noktası + büyük harf metin (tasarım: "KARAR VERME MOTORU · …"). */

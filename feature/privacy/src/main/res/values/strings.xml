@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="tr">
+
+    <!--
+      Web gizlilik sayfasının (templates/privacy.html) uygulamaya uyarlanmış hâli: tarayıcı çerezi
+      yerine cihazda saklama, silme yolu sistem ayarları. Veri sorumlusu KVKK gereği burada (B17, K15).
+    -->
+    <string name="privacy_back">Ana ekran</string>
+    <string name="privacy_title">Gizlilik ve veriler</string>
+    <string name="privacy_lead">Kısa tutuyoruz, çünkü toplanan veri de kısa.</string>
+
+    <string name="privacy_not_collected_title">Ne toplamıyoruz</string>
+    <string name="privacy_not_collected_1">Ad, e-posta, telefon — hiçbiri istenmiyor.</string>
+    <string name="privacy_not_collected_2">Konum. Uygulama şehir ayrımı yapmaz; öneriler Türkiye\'nin her yerinde geçerlidir.</string>
+    <string name="privacy_not_collected_3">Reklam kimliği, cihaz kimliği, çapraz uygulama takibi.</string>
+
+    <string name="privacy_stored_title">Ne tutuyoruz</string>
+    <string name="privacy_stored_1">Kaydettiğin, geçtiğin ve &#8220;yapıyorum&#8221; dediğin önerilerin listesi. Bu liste yalnızca cihazında durur, sunucuya gönderilmez.</string>
+    <string name="privacy_stored_2">Tema tercihin ve rastgele üretilmiş bir kurulum kimliği. Kimlik kim olduğunu söylemez.</string>
+    <string name="privacy_stored_note">Bu kayıtlar ancak sen bir öneriyi kaydettiğinde, geçtiğinde ya da &#8220;yapıyorum&#8221; dediğinde oluşur. Sadece ana ekranı açıp çıkarsan hiçbir kayıt yazılmaz.</string>
+
+    <string name="privacy_network_title">İnternet ne zaman kullanılıyor</string>
+    <string name="privacy_network_body">Öneriler cihazında üretilir; uygulama internetsiz de tam çalışır. Bağlantı yalnızca güncel bütçe tablosu ve öneri içeriği için kurulur. Bu isteklerde kişisel veri gönderilmez.</string>
+
+    <string name="privacy_delete_title">Verilerini silmek</string>
+    <string name="privacy_delete_body">Sistem ayarlarından uygulamanın verilerini temizlemen ya da uygulamayı kaldırman yeter: kaydettiklerin, tercihlerin ve kurulum kimliği silinir.</string>
+
+    <string name="privacy_controller_title">Veri sorumlusu</string>
+    <string name="privacy_controller_body" tools:ignore="Typos">Kaan Enes KAPICI · kaaneneskpc1@gmail.com</string>
+</resources>
