@@ -1,6 +1,6 @@
 # CI (GitHub Actions)
 
-Repo henüz GitHub'da değil (Faz 14); aşağıdaki iş akışları repo açıldığında kendiliğinden çalışmaya başlar.
+Repo: https://github.com/kaaneneskpc/napsamandroid (private). Aşağıdaki iş akışları orada çalışır.
 PR denetimi gizli anahtar kullanmaz; sürüm akışı imza sırlarını yalnızca tanımlıysa kullanır.
 
 ## İş akışları
@@ -53,13 +53,14 @@ oluşturulması ve sırlara eklenmesi: `docs/RELEASE.md`.
 Değerler repoya hiçbir biçimde girmez; yalnızca GitHub'da, onaylayıcı gerektiren bir `release` ortamının
 sırları olarak tutulması önerilir.
 
-## İlk çalıştırmada bakılacaklar
+## İlk çalıştırma (17.09.2026)
 
-1. **Ekran görüntüleri macOS'ta kaydedildi.** Linux'ta yazı tipi yumuşatması farklıysa `pr.yml` ekran görüntüsü
-   karşılaştırmasında düşer. Fark yalnızca kenar yumuşatmasıysa `screenshots.yml`'ı çalıştır, artifact'teki
-   PNG'leri `*/src/test/screenshots/` altına koyup commit'le; bundan sonra golden'lar Linux'ta kaydedilir.
-2. **Runner belleği.** Private repo runner'ı 2 çekirdek / 7 GB varsayıldı; Gradle 3 GB ve Kotlin derleyicisi
-   aynı süreçte çalışır. Daha büyük runner kullanılırsa ayar gevşetilebilir.
+Repo açıldıktan sonraki ilk `main` push'unda PR denetimi **10 dk 49 sn**'de yeşil geçti (önbellek boşken).
+
+1. **Ekran görüntüleri Linux'ta da tuttu.** macOS'ta kaydedilen 16 golden, ubuntu runner'da farksız doğrulandı;
+   yeniden kaydetmek gerekmedi. İleride yalnızca kenar yumuşatması farkıyla düşerse `screenshots.yml`'ı çalıştır,
+   artifact'teki PNG'leri `*/src/test/screenshots/` altına koyup commit'le.
+2. **Runner belleği yetti.** 3 GB Gradle + aynı süreçte Kotlin derleyicisi ayarıyla sorun çıkmadı.
 3. **Sürüm akışı uzun sürer.** İlk çalıştırmada emülatör sistem görüntüsü indirilir. Üretilen
    `baseline-prof.txt` / `startup-prof.txt` artifact'ten alınıp `app/src/release/generated/baselineProfiles/`
    altına commit'lenmelidir; yerel ve PR derlemeleri de o zaman profili içerir.

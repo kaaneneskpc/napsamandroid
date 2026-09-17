@@ -21,7 +21,7 @@
 | 11 | `:benchmark` | ✅ |
 | 12 | CI | ✅ (GitHub'da ilk çalıştırma Faz 14) |
 | 13 | Release hazırlığı | 🟨 onay bekliyor (görseller ve cihaz denemesi en sonda) |
-| 14 | GitHub | 🟨 CI ilk koşusu izleniyor |
+| 14 | GitHub | ✅ |
 
 ---
 
@@ -407,6 +407,8 @@
 - [x] `main` push edildi (18 commit). `gh` jetonuna `workflow` izni proje sahibinin onayıyla eklendi;
       bu izin olmadan GitHub `.github/workflows/` içeren push'u reddediyor
 - [x] README yazıldı: ekran görüntüleri, web paritesi (888 vaka), modül grafiği, komutlar, performans, CI
-- [ ] Faz 12'de hazırlanan iş akışlarının GitHub'da çalıştığı doğrulanır (ilk koşu izleniyor)
+- [x] Faz 12'de hazırlanan iş akışları GitHub'da doğrulandı: ilk `main` push'unda PR denetimi 10 dk 49 sn'de
+      yeşil (biçim, lint, birim + parite + ekran görüntüsü testleri, R8'li sürüm derlemesi). macOS'ta kaydedilen
+      golden'lar Linux runner'da farksız geçti; runner belleği yetti. Dependabot ilk taramasını yaptı
 - [x] Secret scanning / push protection: ücretsiz planda **private repoda kullanılamıyor** (GitHub 422).
       Repo public yapılırsa açılır; Faz 12'deki gizli anahtar kuralları (sır yok, SHA sabitli action'lar) geçerli
