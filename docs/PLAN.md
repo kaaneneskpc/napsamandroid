@@ -21,7 +21,7 @@
 | 11 | `:benchmark` | ✅ |
 | 12 | CI | ✅ (GitHub'da ilk çalıştırma Faz 14) |
 | 13 | Release hazırlığı | 🟨 onay bekliyor (görseller ve cihaz denemesi en sonda) |
-| 14 | GitHub (yalnızca proje sahibi isteyince) | ⛔ ertelendi |
+| 14 | GitHub | 🟨 CI ilk koşusu izleniyor |
 
 ---
 
@@ -86,7 +86,7 @@
 | K13 | Explicit API | yalnızca model + domain | ✅ |
 | K14 | Metin ayrıştırıcı | önce birebir parite | ✅ |
 | K15 | KVKK veri sorumlusu + e-posta | Kaan Enes KAPICI · kaaneneskpc1@gmail.com | ✅ |
-| K16 | Android repo | `kaaneneskpc/napsam-android`, private | ✅ |
+| K16 | Android repo | `kaaneneskpc/napsamandroid`, private (17.09 revize) | ✅ |
 | K17 | Web API v1 | config + suggest | ✅ |
 | K18 | Ekranlar | Ana ekran, Kaydedilenler, Gizlilik; ayarlar ekranı ve sil düğmesi yok, tema üst barda | ✅ |
 | K19 | Ana ekran | web içeriği ve sırası (tanıtım kutuları + alt bilgi dahil), görünüm Stitch son tasarımı | ✅ |
@@ -397,9 +397,16 @@
 - [ ] Play Console hesabı, upload anahtarı oluşturma ve sırlar — proje sahibi (`docs/RELEASE.md`)
 
 ## Faz 14 — GitHub (proje sahibi "GitHub'da repo aç" dediğinde)
-- [ ] `gh api user --jq .login` = `kaaneneskpc` doğrulaması; değilse dur
-- [ ] `gh repo create kaaneneskpc/napsam-android --private` (K16)
-- [ ] Repo içi credential helper: liste sıfırlanır, yalnızca `gh auth git-credential`
-- [ ] Uzak depo eklenir, `main` push
-- [ ] Faz 12'de yerelde hazırlanan GitHub Actions iş akışlarının çalıştığı doğrulanır
-- [ ] Private repoda secret scanning/push protection durumunun kontrolü (ücretsiz planda kısıtlı olabilir)
+- [x] `gh api user --jq .login` = `kaaneneskpc` doğrulandı (17.09)
+- [x] Repo: **https://github.com/kaaneneskpc/napsamandroid** (private, varsayılan dal `main`). Ad proje
+      sahibinin isteğiyle `napsam-android` yerine `napsamandroid` (K16 revize)
+- [x] Repo içi credential helper: sistem `osxkeychain` ve global `store` bu repo için sıfırlandı, yalnızca
+      `gh auth git-credential` bırakıldı (`gh auth setup-git` çalıştırılmadı)
+- [x] Push öncesi tarama: geçmişte sır, anahtar deposu, `local.properties` ya da Stitch anahtarı yok;
+      tüm commit'ler kişisel e-postayla
+- [x] `main` push edildi (18 commit). `gh` jetonuna `workflow` izni proje sahibinin onayıyla eklendi;
+      bu izin olmadan GitHub `.github/workflows/` içeren push'u reddediyor
+- [x] README yazıldı: ekran görüntüleri, web paritesi (888 vaka), modül grafiği, komutlar, performans, CI
+- [ ] Faz 12'de hazırlanan iş akışlarının GitHub'da çalıştığı doğrulanır (ilk koşu izleniyor)
+- [x] Secret scanning / push protection: ücretsiz planda **private repoda kullanılamıyor** (GitHub 422).
+      Repo public yapılırsa açılır; Faz 12'deki gizli anahtar kuralları (sır yok, SHA sabitli action'lar) geçerli
