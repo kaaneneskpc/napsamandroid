@@ -1318,6 +1318,6 @@ Sans yükler, bu tasarım sistemiyle çelişen bir dışa aktarma ayrıntısıd�
 | K17 | Web API işi | Faz 1'de `/api/v1/config` + `/api/v1/suggest` | Android'in ağ ihtiyacı bunlarla sınırlı |
 | K18 | Ekranlar | Ana ekran, Kaydedilenler, Gizlilik (`:feature:privacy`). Ayarlar ekranı ve "verilerimi sil" düğmesi yok; tema üst barda (14.09.2026) | Web birebirliği |
 | K19 | Ana ekran içeriği | Web sırası: başlık → bütçe paneli → kart → üç tanıtım kutusu → alt bilgi (Gizlilik bağlantısı); görünüm Stitch son tasarımı (14.09.2026) | Proje sahibinin talimatı ve tasarımı |
-| K21 | Öneriyi paylaşma | Kartta kalbin yanında "Paylaş" ikonu. Android paylaşım penceresiyle düz metin: başlık, adımlar, "Olmazsa" satırı. Link yok. | Proje sahibinin kararı, DevFest Samsun 2026 |
-| K22 | Kaydedilenler'de geri al | Kaldırınca altta "Geri al" mesajı. Silme, mesaj kapanınca kesinleşir; geri alınan öneri eski yerine döner. | Proje sahibinin kararı, DevFest Samsun 2026 |
-| K23 | Kaydedilenler kısayolu | Uygulama simgesinde statik "Kaydedilenler" kısayolu; doğrudan Kaydedilenler'i açar, geri tuşu ana ekrana döner. | Proje sahibinin kararı, DevFest Samsun 2026 |
+| K21 | Öneriyi paylaşma | Kartta kalbin yanında "Paylaş" ikonu. Android paylaşım penceresiyle düz metin: başlık, adımlar, "Olmazsa" satırı. Link yok. | Proje sahibinin kararı |
+| K22 | Kaydedilenler'de geri al | Kaldırınca altta "Geri al" mesajı. Silme, mesaj kapanınca kesinleşir; geri alınan öneri eski yerine döner. | Proje sahibinin kararı |
+| K23 | Kaydedilenler kısayolu | Uygulama simgesinde statik "Kaydedilenler" kısayolu; doğrudan Kaydedilenler'i açar, geri tuşu ana ekrana döner. | Proje sahibinin kararı |
