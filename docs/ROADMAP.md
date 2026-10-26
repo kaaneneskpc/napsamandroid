@@ -52,7 +52,7 @@ Kontrol: /agents yaz; iki ajan listede görünmeli. ui-reviewer'ın araçlarınd
    }]
    }
    }
-   Workshop: üç özellik (40 dakika)
+   Workshop: üç özellik
 
 5. Her özellikte aynı döngü
    Ajanlar artık onay beklemiyor; sen sadece planı okuyorsun, kontrol ettiriyorsun ve commit atıyorsun.
