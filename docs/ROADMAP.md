@@ -5,7 +5,7 @@ Workshop: kurulum
    agy --mode=accept-edits --effort low
    accept-edits dosya düzenlemelerini onay beklemeden yapar. --effort low ajanın gereğinden uzun düşünmesini kısar. Komut çalıştırma izinlerini 4. adımda açıyoruz.
 
-2. Kuralları ajana ver: AGENTS.md · 10 dk
+2. Kuralları ajana ver: AGENTS.md
    Antigravity proje kökündeki AGENTS.md dosyasını kendisi okur. agy'ye şunu yaz:
    docs/napsam-android-prompt.md ve README.md dosyalarını oku.
    Proje köküne, kod ajanlarının okuyacağı en fazla 40 satırlık bir AGENTS.md yaz.
