@@ -1,80 +1,115 @@
-1) Kuralları ajana ver:
-   AGENTS.md docs/napsam-android-prompt.md ve README.md dosyalarını oku. Proje
-   köküne, kod ajanlarının okuyacağı en fazla 40 satırlık bir AGENTS.md yaz. İçinde şunlar olsun:
-   ürün kuralları, modül kuralları, yasaklar, kullanılacak komutlar ve "bitti" tanımı. Spec'te
-   olmayan bir kural ekleme. Dosyayı yazmadan önce metni bana göster.
+Workshop: kurulum
+1. Açılış
+   proje katmanındaysan: cd napsam
+   dışarıdan terminal ile geliştirme yapıcaksan: cd /Users/kkapici/StudioProjects/napsam (yol sizinki farklı olabilir)
+   agy --mode=accept-edits --effort low
+   accept-edits dosya düzenlemelerini onay beklemeden yapar. --effort low ajanın gereğinden uzun düşünmesini kısar. Komut çalıştırma izinlerini 4. adımda açıyoruz.
 
-2) İki ajan kur .claude/agents/ klasörüne iki ajan dosyası oluştur:
+2. Kuralları ajana ver: AGENTS.md · 10 dk
+   Antigravity proje kökündeki AGENTS.md dosyasını kendisi okur. agy'ye şunu yaz:
+   docs/napsam-android-prompt.md ve README.md dosyalarını oku.
+   Proje köküne, kod ajanlarının okuyacağı en fazla 40 satırlık bir AGENTS.md yaz.
+   İçinde şunlar olsun: ürün kuralları, modül kuralları, yasaklar, kullanılacak komutlar ve "bitti" tanımı.
+   Spec'te olmayan bir kural ekleme. Dosyayı yazmadan önce metni bana göster.
+   Metni oku, gereksizi sil, onayla. Kontrol: AGENTS.md'de "Commit atma" satırı olmalı; yoksa elle ekle.
 
-android-dev: Kotlin ve Compose kodu yazar. Araçları: Read, Edit, Write, Grep, Glob, Bash. Önce
-AGENTS.md'yi okur, planı gösterip onay bekler. Ekran görüntüsü (golden) kaydetmez, test silmez,
-commit ve push yapmaz.
+3. İki ajan kur
+   Biri kodu yazacak, diğeri sadece kontrol edecek. İkisi de hızlı modelle (flash) çalışıyor. agy'ye şunu yaz:
+   .agents/agents/ altına iki ajan oluştur; her biri kendi klasöründe agent.md olsun.
 
-ui-reviewer: Sadece kontrol eder, kod değiştirmez. Araçları: Read, Grep, Glob, Bash. ./gradlew check
-verifyRoborazziDebug çalıştırır, hataları ve ekran görüntüsü farklarını listeler, sonucu YEŞİL ya da
-KIRMIZI diye raporlar.
+a) android-dev/agent.md
+name: android-dev
+description: napsam'da Kotlin ve Compose kodu yazan ajan. Kod değişikliği gereken her işte kullan.
+tools: [view_file, grep_search, run_command, write_to_file, replace_file_content]
+model: flash
+Gövde: Önce AGENTS.md'yi oku. Sadece görevde adı geçen dosya ve modüllere dokun.
+Golden kaydetme, test silme, commit ve push yapma.
+Bitince değişen dosyaları ve test sonucunu raporla.
 
-3) Kuralı otomatiğe bağla .claude/settings.json dosyası oluştur:
+b) ui-reviewer/agent.md
+name: ui-reviewer
+description: Bir değişiklik bittiğinde kontrol için kullan. Kod değiştirmez.
+tools: [view_file, grep_search, run_command]
+model: flash
+Gövde: Değişen modülleri git status ile bul. Golden'ı olan modüllerde (core:designsystem,
+feature:home, feature:saved, feature:privacy) ./gradlew :<modül>:verifyRoborazziDebug,
+diğerlerinde ./gradlew :<modül>:testDebugUnitTest çalıştır. Hataları ve ekran görüntüsü
+farklarını listele, sonucu YEŞİL ya da KIRMIZI diye raporla. Kod değiştirme.
+Kontrol: /agents yaz; iki ajan listede görünmeli. ui-reviewer'ın araçlarında dosya yazma yok, yani kod değiştiremez. Salona 12. slayttaki yetki tablosunu hatırlat.
 
-- Her dosya düzenlemesinden (Edit veya Write) sonra ./gradlew spotlessApply -q çalışan bir
-  PostToolUse hook'u ekle.
-- git commit ve git push komutlarını yasakla.
+4. İzinler ve hook
+   Alt ajanların onay beklemeden çalışması bu adıma bağlı: alt ajanlar ana oturumun komut izinlerini devralıyor. /permissions yaz, Project kapsamını seç ve şu kuralları ekle:
+   • allow: command(./gradlew), command(git status), command(git diff)
+   • deny: command(git commit), command(git push)
+   Deny her zaman allow'dan önce gelir; commit ve push yasak kalır.
+   Sonra biçimlendirme hook'u. agy'ye şunu yaz:
+   .agents/hooks.json dosyası oluştur. Stop olayında ./gradlew spotlessApply -q komutu çalışsın.
+   Oluşması gereken dosya:
+   {
+   "spotless": {
+   "Stop": [{
+   "hooks": [{ "type": "command", "command": "./gradlew spotlessApply -q", "timeout": 120 }]
+   }]
+   }
+   }
+   Workshop: üç özellik (40 dakika)
 
-4) Özellik 1: Kartı paylaş
-   Kartın ana düğmesi değişmiyor; kalbin yanına küçük bir paylaş ikonu geliyor.
-   android-dev ajanını kullan.
+5. Her özellikte aynı döngü
+   Ajanlar artık onay beklemiyor; sen sadece planı okuyorsun, kontrol ettiriyorsun ve commit atıyorsun.
+   a. Prompt'u ver (ilk özellikte /plan ile).
+   b. android-dev kodu yazıp sadece kendi modülünün testlerini koşsun.
+   c. ui-reviewer'a kontrol ettir. Her özellikte aynı prompt:
+   ui-reviewer ajanını kullan. Son değişikliği kontrol et. Kod değiştirme.
+   d. Ekran görüntüsü farkı varsa kendin bak; doğruysa sadece o modülde kaydet (örnek: ./gradlew :feature:home:recordRoborazziDebug).
+   e. Uygulamayı Android Studio'dan emülatörde aç ve özelliği elle dene.
+   f. Commit'i sen at, ayrı terminalde.
 
-CONTEXT: :core:designsystem, :core:ui ve :feature:home modülleri.
-Spec A6.4, B12, B19, B20 ve C11-K21.
-GOAL: Öneri kartında kalbin yanında bir "Paylaş" ikon düğmesi olsun.
-Basınca Android paylaşım penceresi açılsın.
+6. Özellik 1: Kartı paylaş
+   Bunu salonla birlikte, döngünün her adımını anlatarak yap. Plan onayı sadece burada var; "önce plan" alışkanlığını gösteriyoruz. Dosyaları prompt'ta verdiğimiz için ajan kod aramakla vakit kaybetmiyor.
+   /plan android-dev ajanını kullan.
+
+CONTEXT: Spec A6.4, B12, B19 ve C11-K21. Dokunulacak dosyalar:
+core/designsystem/src/main/kotlin/com/kaaneneskpc/napsam/core/designsystem/icon/NapsamIcons.kt
+core/designsystem/src/main/kotlin/com/kaaneneskpc/napsam/core/designsystem/component/Buttons.kt
+core/ui/src/main/kotlin/com/kaaneneskpc/napsam/core/ui/SuggestionCard.kt
+core/ui/src/main/res/values/strings.xml
+feature/home/src/main/kotlin/com/kaaneneskpc/napsam/feature/home/HomeScreen.kt
+GOAL: Öneri kartında kalbin yanında bir "Paylaş" ikon düğmesi olsun. Basınca Android paylaşım penceresi açılsın.
 Paylaşılan metin: başlık, numaralı adımlar ve "Olmazsa: ..." satırı.
 CONSTRAINT: Ana düğme tek kalsın ("Tamam, yapıyorum"). Yeni kütüphane ve izin yok.
-İkon NapsamIcons'a eklensin. Metinler strings.xml'de, Türkçe ve İngilizce.
-Ekran görüntüsü kaydetme, commit atma.
-VERIFY: ./gradlew :core:ui:check :feature:home:check
-Paylaşım metni için birim testi, düğmeye tıklama için UI testi.
-OUTPUT: Değişen dosyalar, çalıştırdığın komutlar ve sonuçları, açık sorular.
-Önce planı göster, onay verince başla.
+Testler dışında bu dosyaların dışına çıkma. Ekran görüntüsü kaydetme, commit atma.
+VERIFY: ./gradlew :core:ui:testDebugUnitTest :feature:home:testDebugUnitTest
+OUTPUT: Değişen dosyalar ve test sonucu.
+Beklenen: ui-reviewer KIRMIZI döner, çünkü kart değişti ve ekran görüntüleri farklı. Bu normal. Farkı aç (modülün build/outputs/roborazzi klasörü), düğme %200 yazıda taşıyor mu bak, doğruysa kaydet:
+./gradlew :core:designsystem:recordRoborazziDebug :feature:home:recordRoborazziDebug
+git add -A && git commit -m "Kartı paylaş"
+ui-reviewer ajanını kullan. Son değişikliği kontrol et. Kod değiştirme.
 
-ui-reviewer ajanını kullan. Son değişikliği kontrol et. ./gradlew check verifyRoborazziDebug
-çalıştır, hataları ve ekran görüntüsü farklarını tek tek anlat. Kod değiştirme.
+7. Özellik 2 ve 3: paralel
+   İki özellik ayrı modüllerde (feature:saved ve app), birbirine dokunmuyor. Tek prompt'la iki android-dev alt ajanı aynı anda çalışıyor. Onlar çalışırken salona /agents panelini aç, iki ajanın aynı anda ilerlediğini göster.
+   İki işi aynı anda yap: iki ayrı android-dev alt ajanı başlat, birbirini beklemesinler.
+   Plan için onay bekleme; planı rapora yaz ve uygula.
 
-Özellik 2: Kaydedilenler'de geri al:
+İŞ A · Kaydedilenler'de geri al (spec A6.5, C11-K22)
+Dosyalar: feature/saved/src/main/kotlin/com/kaaneneskpc/napsam/feature/saved/SavedViewModel.kt,
+SavedScreen.kt ve feature/saved/src/main/res/values/strings.xml
+GOAL: Öneri kaldırılınca altta "Kaldırıldı · Geri al" mesajı çıksın. Geri al'a basılırsa öneri
+eski yerine dönsün; basılmazsa mesaj kapanınca kalıcı silinsin.
+CONSTRAINT: Silmeyi mesaj kapanana kadar beklet; hemen silip yeniden kaydetme, sıra bozulur.
+Mantık SavedViewModel'de. Repository arayüzü değişmesin.
+VERIFY: ./gradlew :feature:saved:testDebugUnitTest
+SavedViewModelTest'e test: kaldır, geri al, öneri yerinde; kaldır, süre doldu, unsave çağrıldı.
 
-android-dev ajanını kullan.
+İŞ B · Kaydedilenler kısayolu (spec B5, C11-K23)
+Dosyalar: app/src/main/AndroidManifest.xml, app/src/main/kotlin/com/kaaneneskpc/napsam/MainActivity.kt,
+NapsamApp.kt, yeni app/src/main/res/xml/shortcuts.xml ve app/src/main/res/values/strings.xml
+GOAL: Simgeye basılı tutunca statik "Kaydedilenler" kısayolu. Kısayolla açılınca doğrudan
+Kaydedilenler açılsın, geri tuşu ana ekrana dönsün.
+CONSTRAINT: Feature modüllerine dokunma. Navigation 3 yapısı korunsun.
+VERIFY: ./gradlew :app:testDebugUnitTest :app:assembleDebug
 
-CONTEXT: :feature:saved modülü. Spec A6.5, B3, B12, B13, B19 ve C11-K22.
-GOAL: Kaydedilenler'de bir öneri kaldırılınca ekranın altında "Kaldırıldı · Geri al" mesajı çıksın.
-Geri al'a basılırsa öneri listede eski yerine dönsün.
-Basılmazsa mesaj kapanınca kalıcı olarak silinsin.
-CONSTRAINT: Mantık SavedViewModel'de olsun, ekranda değil. Repository arayüzü değişmesin.
-Yeni kütüphane yok. Metinler strings.xml'de, Türkçe ve İngilizce.
-Ekran görüntüsü kaydetme, commit atma.
-VERIFY: ./gradlew :feature:saved:check
-SavedViewModel için birim testi: kaldır, geri al, öneri yerinde;
-kaldır, süre doldu, unsave çağrıldı.
-OUTPUT: Değişen dosyalar, çalıştırdığın komutlar ve sonuçları, açık sorular.
-Önce planı göster, onay verince başla.
-
-ui-reviewer ajanını kullan. Son değişikliği kontrol et. ./gradlew check verifyRoborazziDebug
-çalıştır, hataları ve ekran görüntüsü farklarını tek tek anlat. Kod değiştirme.
-
-Özellik 3: Kaydedilenler kısayolu
-
-android-dev ajanını kullan.
-
-CONTEXT: :app modülü (MainActivity, NapsamApp.kt, manifest). Spec A3, B5, B19 ve C11-K23.
-GOAL: Uygulama simgesine basılı tutunca "Kaydedilenler" kısayolu görünsün (statik kısayol).
-Kısayolla açılınca uygulama doğrudan Kaydedilenler'de açılsın; geri tuşu ana ekrana dönsün.
-CONSTRAINT: Yeni izin ve yeni kütüphane yok. Kısayol metni strings.xml'de, Türkçe ve İngilizce.
-Navigation 3 yapısı korunsun; feature modüllerine dokunma.
-Ekran görüntüsü kaydetme, commit atma.
-VERIFY: ./gradlew :app:check :app:assembleDebug
-Kısayolla açılışta ilk ekranın Kaydedilenler olduğunu gösteren bir test.
-OUTPUT: Değişen dosyalar, çalıştırdığın komutlar ve sonuçları, açık sorular.
-Önce planı göster, onay verince başla.
+Her iki iş için: yeni kütüphane ve izin yok, metinler strings.xml'de, ekran görüntüsü kaydetme,
+commit atma. Bitince her iş için değişen dosyaları ve test sonucunu ayrı ayrı raporla.
+ui-reviewer ajanını kullan. Son değişikliği kontrol et. Kod değiştirme.
 
 
-ui-reviewer ajanını kullan. Son değişikliği kontrol et. ./gradlew check verifyRoborazziDebug
-çalıştır, hataları ve ekran görüntüsü farklarını tek tek anlat. Kod değiştirme.
