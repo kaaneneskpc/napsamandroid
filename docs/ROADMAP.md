@@ -36,6 +36,11 @@ feature:home, feature:saved, feature:privacy) ./gradlew :<modül>:verifyRoborazz
 diğerlerinde ./gradlew :<modül>:testDebugUnitTest çalıştır. Hataları ve ekran görüntüsü
 farklarını listele, sonucu YEŞİL ya da KIRMIZI diye raporla. Kod değiştirme.
 Kontrol: /agents yaz; iki ajan listede görünmeli. ui-reviewer'ın araçlarında dosya yazma yok, yani kod değiştiremez. Salona 12. slayttaki yetki tablosunu hatırlat.
+Hazır paket: bu iki ajanın tam hâli ve 12 ajan daha proje kökündeki napsam-ajan-skill-paketi.zip içinde
+(ayrıntı: README.md → "Yapay zekâ ajanları ve skill'ler"). Workshop'ta iki ajanı elle kur; ne yazdığını
+görmek asıl ders. Paketi 8. adımda açıyoruz. Zamanın yetmezse burada açıp 4. adıma geçebilirsin:
+unzip -o napsam-ajan-skill-paketi.zip
+Not: paketteki ui-reviewer raporu YEŞİL/KIRMIZI değil, UYGUN / KISMEN UYGUN / UYGUN DEĞİL diye verir.
 
 4. İzinler ve hook
    Alt ajanların onay beklemeden çalışması bu adıma bağlı: alt ajanlar ana oturumun komut izinlerini devralıyor. /permissions yaz, Project kapsamını seç ve şu kuralları ekle:
@@ -111,5 +116,52 @@ VERIFY: ./gradlew :app:testDebugUnitTest :app:assembleDebug
 Her iki iş için: yeni kütüphane ve izin yok, metinler strings.xml'de, ekran görüntüsü kaydetme,
 commit atma. Bitince her iş için değişen dosyaları ve test sonucunu ayrı ayrı raporla.
 ui-reviewer ajanını kullan. Son değişikliği kontrol et. Kod değiştirme.
+
+Workshop: tam ekip
+
+8. Ajan ve skill paketini aç
+   İki ajanla döngüyü gördük. Gerçek projede işi daha küçük rollere bölüyoruz: biri okur, biri ölçer, biri yazar,
+   dördü kapı tutar. Hepsi hazır: napsam-ajan-skill-paketi.zip (README.md → "Yapay zekâ ajanları ve skill'ler").
+   unzip -o napsam-ajan-skill-paketi.zip
+   -o, 3. adımda elle yazdığın android-dev ve ui-reviewer'ın üzerine paketteki tam hâllerini yazar.
+   Kontrol: /agents yaz; 14 ajan görünmeli. .agents/skills/ altında 7 skill olmalı.
+   Paketteki her ajan önce AGENTS.md'yi okur (2. adımda yazdık) ve aynı ortak kuralları taşır:
+   git'te sadece okuma, test silme yok, sonuç exit code'dan, riskli alanlarda önce sor.
+
+   Salona yetki tablosunu göster:
+   • Dosya yazan (6): android-dev, navigation-engineer, stitch-designer, test-writer, error-fixer, doc-updater
+   • Salt okunur (8): issue-reader, spec-reader, analyzer, code-reviewer, ui-reviewer, parity-guard,
+     security-reviewer, release-guard
+   • Model: analyzer, code-reviewer, error-fixer, security-reviewer, release-guard "inherit" (ana oturumun
+     modeli, derin düşünme gereken işler); kalan 9 ajan flash.
+
+   Yeni izinler: issue-reader GitHub'ı gh ile okur. /permissions → Project kapsamına ekle:
+   • allow: command(gh issue view), command(gh pr view)
+   Commit ve push deny kuralları yerinde kalıyor; paketteki hiçbir ajan commit atmaz.
+
+9. Tam ekiple bir iş
+   Akış: issue-reader → spec-reader → analyzer → android-dev → test-writer → code-reviewer
+   → kapılar (ui-reviewer, parity-guard, security-reviewer, release-guard) → doc-updater.
+   Kapı kırmızıysa error-fixer kök nedeni bulur, test-writer önce hatayı yakalayan testi yazar.
+   Örnek prompt (6. adımdaki "Kartı paylaş" işini sıfırdan, ekip olarak):
+   Önce analyzer ajanını kullan: "Kartı paylaş" (spec A6.4, C11-K21) için SuggestionCard'ın bütün çağrı
+   yerlerini, etkilenen golden'ları ve testleri listele. Dosya değiştirme.
+   Sonra android-dev uygulasın, test-writer testleri yazsın, code-reviewer diff'i incelesin ve hangi
+   kapıların çalışması gerektiğini söylesin. O kapıları çalıştır. En sonda doc-updater README'yi güncellesin.
+   Commit mesajını napsam-commit-message skill'iyle öner; commit'i ben atacağım.
+   Beklenen: code-reviewer UI değiştiği için ui-reviewer'ı ister; motor ve ağ değişmediği için parity-guard
+   ve security-reviewer gerekmez. Salona bunu göster: her kapı her işte çalışmaz, diff hangisini istediğini söyler.
+
+10. Skill'ler: ajanın tarif kitabı
+    Ajan "kim", skill "nasıl". Skill'ler ilgili iş gelince kendiliğinden yüklenir:
+    • napsam-build-verify: bitirmeden önce değişen modüller + CI komutu (./gradlew check verifyRoborazziDebug)
+    • napsam-compose-screen: yeni ekran/UiState (feature/home referans)
+    • napsam-design-sync: tasarımdan token taşıma (stitch-designer kullanır)
+    • napsam-ui-defect-map: görsel hata → mekanizma
+    • napsam-local-repro: cihazda yeniden üretme (süreç ölümü, %200 yazı, koyu tema, uçak modu)
+    • napsam-content-update: contract/ ve içerik güncelleme akışı
+    • napsam-commit-message: commit mesajı ve commit öncesi engeller
+    Kontrol: "Derleniyor mu, testler geçiyor mu?" yaz; ajan napsam-build-verify'ı yükleyip önce değişen
+    modülleri çıkarmalı, bütün projeyi değil.
 
 
