@@ -147,7 +147,8 @@ core/
 benchmark/              Baseline Profile üretimi, açılış ve kaydırma ölçümü
 build-logic/            convention plugin'ler
 contract/               web'den dışa aktarılan içerik ve parite vakaları
-docs/                   plan, CI, sürüm, Play belgeleri, tasarım
+docs/                   plan, CI, sürüm, workshop, Play belgeleri, tasarım
+napsam-ajan-skill-paketi.zip   kod ajanları (.agents/agents/) ve skill'ler (.agents/skills/)
 ```
 
 ## Derleme ve çalıştırma
@@ -226,6 +227,78 @@ APK boyutu R8 sonrası ~1,9 MB.
 Action'lar commit SHA'sıyla sabit, izinler salt okunur, PR denetimi hiçbir sır kullanmaz. Ayrıntı:
 [`docs/CI.md`](docs/CI.md).
 
+**Branch koruması:** `main` (varsayılan branch) bir GitHub ruleset'iyle korunur: branch silinemez
+(*Restrict deletions*) ve force push yapılamaz (*Block force pushes*). Normal push ve PR akışı aynen çalışır.
+Ayar: repo → *Settings → Rules → Rulesets*.
+
+## Yapay zekâ ajanları ve skill'ler
+
+Repo, kod ajanları için hazır bir ekip paketiyle gelir:
+[`napsam-ajan-skill-paketi.zip`](napsam-ajan-skill-paketi.zip). İçinde **14 ajan** ve **7 skill** var. Paket,
+[workshop'ta](docs/ROADMAP.md) elle kurulan iki ajanın (`android-dev`, `ui-reviewer`) tam ekibe
+genişletilmiş hâlidir. Antigravity (`agy`) biçiminde yazıldı: her ajan kendi klasöründe bir `agent.md`.
+
+```bash
+unzip napsam-ajan-skill-paketi.zip   # proje kökünde: .agents/agents/ ve .agents/skills/ oluşur
+```
+
+Bütün ajanlar işe proje kökündeki `AGENTS.md`'yi okuyarak başlar. Bu dosya repoda yok; workshop'un 2. adımında
+spec'ten üretilir. Paketi açmadan önce onu oluştur.
+
+**Ortak kurallar** (her ajanda aynı): kanıt varsayımdan önce gelir, spec maddesi numarasıyla alıntılanır
+(ör. B12, C11-K21). Git'te sadece okuma yapılır: commit, push, `checkout`, `restore`, `reset` yok. Mevcut test
+silinmez ya da gevşetilmez. Sonuç exit code'dan okunur. Yeni bağımlılık, `build-logic/`, `contract/`, `:app`
+navigasyonu, manifest izinleri ve ortak tasarım token'ları için önce kullanıcıya sorulur.
+
+### Ajanlar
+
+| Ajan | Ne zaman | Dosya yazar mı? | Model |
+|---|---|---|---|
+| `issue-reader` | GitHub issue/PR'ını `gh` ile okuyup spec maddesine bağlamak | Hayır | flash |
+| `spec-reader` | Spec, PLAN, DESIGN, RELEASE'ten bir işin kurallarını çıkarmak | Hayır | flash |
+| `analyzer` | Değişiklikten önce etki analizi: çağrı yerleri, golden'lar, testler, riskler | Hayır | inherit |
+| `android-dev` | Kotlin ve Compose kodu yazmak | Evet | flash |
+| `navigation-engineer` | Navigation 3 rotaları, geri yığını, kısayollar | Evet | flash |
+| `stitch-designer` | Stitch tasarımını `:core:designsystem` token'larına taşımak | Evet | flash |
+| `test-writer` | ViewModel, repository, Compose ve ekran görüntüsü testi (sadece `src/test`, `src/androidTest`) | Evet | flash |
+| `error-fixer` | Çökme ya da derleme hatasının kök nedenini bulup en küçük düzeltmeyi yapmak | Evet | inherit |
+| `code-reviewer` | Diff'i doğruluk ve B19 yasakları açısından incelemek | Hayır | inherit |
+| `ui-reviewer` | Golden, %200 yazı, kontrast, TalkBack kontrolü (B12) | Hayır | flash |
+| `parity-guard` | Motor, ayrıştırıcı, rozet ve temayı web sözleşmesiyle karşılaştırmak (888 vaka) | Hayır | flash |
+| `security-reviewer` | Ağ, izin, log, depolama ve bağımlılık değişikliklerinde gizlilik kapısı | Hayır | inherit |
+| `release-guard` | Sürümden önce R8'li derleme ve cihaz denemesi | Hayır | inherit |
+| `doc-updater` | Koddan sonra README ve `docs/*.md`'yi güncellemek | Sadece belge | flash |
+
+Yazma izni olan 6 ajan var; kalan 8'i salt okunur, yani kontrol ettiği kodu değiştiremez.
+
+### Tipik akış
+
+```mermaid
+flowchart LR
+    issue[issue-reader] --> spec[spec-reader] --> analyzer
+    analyzer --> dev[android-dev<br/>navigation-engineer<br/>stitch-designer]
+    dev --> test[test-writer]
+    test --> review[code-reviewer]
+    review --> gates{{ui-reviewer · parity-guard<br/>security-reviewer · release-guard}}
+    gates --> doc[doc-updater]
+    gates -. kırmızı .-> fix[error-fixer] --> test
+```
+
+`code-reviewer` hangi kapının çalışması gerektiğini raporunda söyler: UI → `ui-reviewer`, motor →
+`parity-guard`, ağ/izin → `security-reviewer`, kütüphane → `release-guard`. Commit'i her zaman insan atar.
+
+### Skill'ler
+
+| Skill | Ne zaman |
+|---|---|
+| `napsam-build-verify` | "Derleniyor mu, testler geçiyor mu?" ve bir işi bitirmeden önce: değişen modüller, CI ile aynı komut |
+| `napsam-compose-screen` | Yeni ekran, bileşen ya da `UiState` eklerken (`feature/home` referans) |
+| `napsam-design-sync` | Tasarımdan token ya da bileşen taşırken; `stitch-designer`'ın tarif kitabı |
+| `napsam-ui-defect-map` | Görsel hatayı (taşma, kontrast, kayma) mekanizmasına bağlamak |
+| `napsam-local-repro` | Hatayı cihazda üretmek: süreç ölümü, %200 yazı, koyu tema, uçak modu, R8'li sürüm |
+| `napsam-content-update` | Öneri içeriği ve `contract/` güncelleme akışı |
+| `napsam-commit-message` | Commit mesajı önerirken (sadece metin üretir) ve commit öncesi engeller |
+
 ## Gizlilik
 
 - Üyelik, e-posta, telefon, konum, reklam kimliği, cihaz kimliği yok; reklam ve analiz aracı yok.
@@ -245,5 +318,6 @@ bulunur. Play Data Safety taslağı: [`docs/play/data-safety.md`](docs/play/data
 | [`docs/napsam-android-prompt.md`](docs/napsam-android-prompt.md) | Spesifikasyon |
 | [`docs/RELEASE.md`](docs/RELEASE.md) | Upload anahtarı, Play App Signing, sürüm kontrol listesi, R8 notları |
 | [`docs/CI.md`](docs/CI.md) | İş akışları, sırlar, ilk çalıştırmada bakılacaklar |
+| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Workshop: ajanları kurmak ve üç özelliği ajanlarla geliştirmek |
 | [`docs/play/`](docs/play/) | Mağaza metinleri, içerik formları, Data Safety, görseller |
 | [`docs/design/`](docs/design/) | Stitch tasarımı (açık / koyu) |
